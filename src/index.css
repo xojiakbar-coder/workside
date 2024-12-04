@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,18 +7,42 @@
 * {
   margin: 0;
   padding: 0;
+  scrollbar-width: thin;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 :root {
+  /* light color */
+  --light: #f0ecec;
+  /* button bg colors */
+  --primaryBtnBgColor: #3700ff;
+
+  /* gray color */
+  --grayColor: #27292b;
+  --subtitleColor: #a4a4a4;
+
+  /* bg colors */
+  --bodyBgColor: #191d24;
+  --darkBgColor: #0f0f13a9;
+
+  /* fonts */
   --mont: "Montserrat", sans-serif;
-  --jet: "JetBrains Mono", monospace;
+  --grotesk: "Space Grotesk", sans-serif;
+
+  /* custom shadows */
+  --navbarShadow: rgba(11, 11, 19, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  --loginShadow: rgba(85, 85, 85, 0.07) 0px 1px 1px,
+    rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px,
+    rgba(100, 100, 100, 0.253) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 body {
   margin: 0;
   color: white;
-  font-family: var(--jet);
-  -webkit-font-smoothing: antialiased;
+  font-family: var(--grotesk);
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--bodyBgColor);
 }
