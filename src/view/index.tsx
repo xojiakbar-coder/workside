@@ -1,3 +1,4 @@
+import { Button } from "@chakra-ui/react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const GenericElement = () => {
@@ -9,7 +10,12 @@ const GenericElement = () => {
       <h1 className="text-light font-body-font text-[24px] w-full text-center">
         {location.pathname} page coming soon. . .
       </h1>
-      <button onClick={() => navigate("/")}>Back to Home page</button>
+      <Button
+        onClick={() => navigate("/")}
+        className="border border-gray-color py-[35px] px-[18px] text-center outline-none text-[20px] hover:border-light hover:shadow-lg hover:shadow-gray-color"
+      >
+        Back to Home page
+      </Button>
     </div>
   );
 };

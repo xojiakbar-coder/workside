@@ -9,10 +9,13 @@ const Logo: FC = () => {
   };
   return (
     <div
-      className="text-[22px] uppercase font-mont font-bold cursor-pointer"
+      className="uppercase font-mont my-[14px] font-bold text-[22px] text-light cursor-pointer"
       onClick={handleNavigate}
     >
-      Dashboard
+      UZREPO
+      <mark className="text-light font-bold text-[22px] bg-primary-btn rounded-md px-[3px]">
+        DASH
+      </mark>
     </div>
   );
 };

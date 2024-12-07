@@ -12,18 +12,31 @@
   scroll-behavior: smooth;
 }
 
+*::selection {
+  color: var(--light);
+  background-color: #0063f8;
+}
+
 :root {
   /* light color */
   --light: #f0ecec;
   /* button bg colors */
   --primaryBtnBgColor: #3700ff;
 
+  /* item color */
+  --itemColor: #a9a9a9;
+
+  /* danger color */
+  --danger: #ff0000;
+
   /* gray color */
   --grayColor: #27292b;
   --subtitleColor: #a4a4a4;
+  --outer-border-color: #27272a;
 
   /* bg colors */
-  --bodyBgColor: #191d24;
+  --bodyBgColor: #0b0b0c;
+  --ghostBgColor: #18181b;
   --darkBgColor: #0f0f13a9;
 
   /* fonts */
@@ -31,7 +44,7 @@
   --grotesk: "Space Grotesk", sans-serif;
 
   /* custom shadows */
-  --navbarShadow: rgba(11, 11, 19, 0.25) 0px 6px 12px -2px,
+  --navbarShadow: rgba(110, 110, 110, 0.253) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   --loginShadow: rgba(85, 85, 85, 0.07) 0px 1px 1px,
     rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px,

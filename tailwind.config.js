@@ -14,12 +14,16 @@ module.exports = {
         shine: "shine 3s infinite linear",
       },
       colors: {
-        light: "var(----light)",
+        light: "var(--light)",
+        danger: "var(--danger)",
+        "item-color": "var(--itemColor)",
         "gray-color": "var(--grayColor)",
         "body-bg-color": "var(--bodyBgColor)",
         "dark-bg-color": "var(--darkBgColor)",
+        "ghost-bg-color": "var(--ghostBgColor)",
         "subtitle-color": "var(--subtitleColor)",
         "primary-btn": "var(--primaryBtnBgColor)",
+        "outer-bdr-color": "var(--outer-border-color)",
       },
       fontFamily: {
         mont: "var(--mont)",
@@ -30,8 +34,9 @@ module.exports = {
         "navbar-shadow": "var(--navbarShadow)",
       },
       backgroundImage: {
+        "file-image": `url("./assets/icons/file.svg")`,
         "sign-in": `url("./assets/image/signin-bg.png")`,
-        "home-page": `url("./assets/image/home-page.png")`,
+        "home-page": `url("./assets/images/home-page.png")`,
       },
     },
   },

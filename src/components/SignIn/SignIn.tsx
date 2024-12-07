@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
-import { Field } from "../../ui/field";
-import { PasswordInput } from "../../ui/password-input";
+import { Field } from "../ui/field";
+import { PasswordInput } from "../ui/password-input";
 import { Button, Heading, Input } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 
@@ -51,12 +51,12 @@ const SignIn: FC = () => {
           >
             Submit
           </Button>
-        <NavLink
-          to={"/signup"}
-          className="text-center w-max mx-auto py-[4px] px-[4px] capitalize hover:decoration-blue-600 hover:text-blue-600 text-[20px] underline underline-offset-[3px]"
-        >
-          sign-up
-        </NavLink>
+          <NavLink
+            to={"/signup"}
+            className="text-center w-max mx-auto py-[4px] px-[4px] capitalize hover:decoration-blue-600 hover:text-blue-600 text-[20px] underline underline-offset-[3px]"
+          >
+            sign-up
+          </NavLink>
         </div>
       </div>
     </div>

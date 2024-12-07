@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
-import { Field } from "../../ui/field";
+import { Field } from "../ui/field";
 import { NavLink } from "react-router-dom";
-import { PasswordInput } from "../../ui/password-input";
+import { PasswordInput } from "../ui/password-input";
 import { Button, Heading, Input } from "@chakra-ui/react";
 
 const SignUp: FC = () => {

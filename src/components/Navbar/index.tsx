@@ -1,31 +1,35 @@
-import { FC } from "react";
-import useSize from "@/hooks/useSize";
-import { Outlet } from "react-router-dom";
 import Logo from "./Logo";
 import Item from "./Item";
+import { FC } from "react";
+import useSize from "@/hooks/useSize";
+import { useLocation } from "react-router-dom";
 
 const Navbar: FC = () => {
   const { scrollY } = useSize();
+  const location = useLocation();
+  let shadow = false;
+  if (scrollY !== null && scrollY > 5) {
+    shadow = true;
+  }
 
   return (
-    <main>
-      {/* Sticky Navbar */}
-      <header className="sticky z-[999] top-0 w-full">
-        <div
-          className={`flex justify-between items-center ${
-            scrollY !== null && scrollY > 5 && "shadow-navbar-shadow b"
-          } h-[80px] px-[3%] py-[25px] border-none transition-all ease-out duration-[230ms] bg-body-bg-color`}
-        >
-          <Logo />
-          <Item />
-        </div>
-      </header>
-
-      {/* Body */}
-      <section>
-        <Outlet />
-      </section>
-    </main>
+    //  Sticky Navbar
+    <header
+      className={`sticky z-[999] ${
+        !shadow &&
+        location.pathname === "/hisobotlar" &&
+        "border-b border-gray-color"
+      } top-0 w-full h-[8vh] min-h-[8vh] bg-body-bg-color`}
+    >
+      <div
+        className={`flex justify-between items-center ${
+          shadow && "shadow-navbar-shadow"
+        } px-[3%] py-[25px] transition-all ease-out duration-[230ms] h-full`}
+      >
+        <Logo />
+        <Item />
+      </div>
+    </header>
   );
 };
 
