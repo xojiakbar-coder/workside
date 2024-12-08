@@ -35,8 +35,7 @@ module.exports = {
       },
       backgroundImage: {
         "file-image": `url("./assets/icons/file.svg")`,
-        "sign-in": `url("./assets/image/signin-bg.png")`,
-        "home-page": `url("./assets/images/home-page.png")`,
+        "sign-in": `url("./assets/images/signin-bg.png")`,
       },
     },
   },

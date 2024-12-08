@@ -27,7 +27,7 @@ const GenericEmptyState: FC<GenericEmptyStateParamType> = ({
       icon={<i className="fa-solid fa-file" style={{ color: "#FFF" }}></i>}
     >
       {button && (
-        <Button onClick={() => navigate(buttonPath || "/")}>
+        <Button onClick={() => navigate(buttonPath || "/")} className="hover:opacity-60">
           {buttonContent || ""}
         </Button>
       )}

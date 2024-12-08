@@ -33,7 +33,7 @@ const GenericButton: FC<GenericButtonType> = ({
   className,
   onClick,
 }) => {
-  const generalStyle = `flex min-w-max min-h-max items-center font-grotesk font-extrabold lg:text-[18px] md:text-[16px] text-[14px] px-[20px] py-[33px] hover:opacity-85 text-center outline-none transition-all ease-in-out duration-[140ms] select-none cursor-pointer`;
+  const generalStyle = `flex min-w-max min-h-max items-center font-grotesk font-extrabold lg:text-[18px] md:text-[16px] text-[14px] px-[20px] py-[33px] hover:opacity-95 text-center outline-none transition-all ease-in-out duration-[140ms] select-none cursor-pointer`;
 
   return (
     <Button

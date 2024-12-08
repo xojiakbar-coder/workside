@@ -9,7 +9,7 @@ const SignIn: FC = () => {
 
   return (
     <div className="flex justify-center items-center h-screen bg-sign-in bg-center bg-no-repeat bg-cover min-h-screen w-full px-[30%]">
-      <div className="flex flex-col w-full bg-dark-bg-color border-2 border-gray-color py-[50px] justify-between px-[37px] h-max min-h-max rounded-xl gap-[60px]">
+      <div className="flex flex-col w-full bg-dark-bg-color border-2 border-outer-bdr-color py-[50px] justify-between px-[37px] h-max min-h-max rounded-xl gap-[60px]">
         <Heading className="text-center text-white font-grotesk font-semibold text-[32px] mb-[12px]">
           Signin
         </Heading>

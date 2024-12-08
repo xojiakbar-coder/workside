@@ -75,15 +75,16 @@ const StaffList: FC = () => {
       <Table.Cell className="h-[50px] text-yellow-500 border-b px-[18.3px] py-[5px] min-h-[50px] border-gray-color">
         {item.category}
       </Table.Cell>
-      <Table.Cell className="h-[50px] text-teal-500 border-b px-[18.3px] min-h-[50px] border-gray-color py-[5px]">
+      <Table.Cell className="h-[50px] text-[#019267] border-b px-[18.3px] min-h-[50px] border-gray-color py-[5px]">
         {"$" + item.price}
       </Table.Cell>
+      {/* text-teal-500 */}
       <Table.Cell
         className="h-[50px] border-b px-[18.3px] min-h-[50px] border-gray-color py-[5px]"
         textAlign="end"
       >
         <Button
-          className="bg-danger px-[14px] py-[16px] lowercase text-light font-semibold"
+          className="bg-danger px-[14px] py-[16px] lowercase text-light font-semibold hover:opacity-70"
           onClick={() => onRemove(item.id)}
         >
           o'chirish
@@ -93,7 +94,7 @@ const StaffList: FC = () => {
   ));
 
   return (
-    <div className="overflow-y-auto h-full w-full px-[15px] py-[20px]">
+    <div className="flex flex-col overflow-y-auto h-full w-full px-[15px] py-[20px]">
       {items.length > 0 ? (
         <div>
           <Heading className="font-mont font-[600] text-center py-[20px] text-[24px]">
@@ -147,7 +148,7 @@ const StaffList: FC = () => {
           </Table.Root>
 
           <ActionBarRoot open={hasSelection}>
-            <ActionBarContent className="px-[20px] py-[12px]">
+            <ActionBarContent className="flex justify-center items-center px-[20px] py-[12px] w-max">
               <ActionBarSelectionTrigger>
                 {selection.length} selected
               </ActionBarSelectionTrigger>
@@ -164,10 +165,11 @@ const StaffList: FC = () => {
       ) : (
         <div className="h-full">
           <GenericEmptyState
-            title="Hozircha xodimlar ma'lumotlari topilmadi"
-            description="Agar siz yangi xodim qo'shishni xohlasangiz xodimlarni qo'shish sahifasiga o'ting"
             button={true}
             buttonContent="Yangi xodim qo'shish"
+            buttonPath="/umumiy-korinish/xodim-qoshish"
+            title="Hozircha xodimlar ma'lumotlari topilmadi"
+            description="Agar siz yangi xodim qo'shishni xohlasangiz xodimlarni qo'shish sahifasiga o'ting"
           />
         </div>
       )}

@@ -1,19 +1,35 @@
 import { FC } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Logo: FC = () => {
-  const loaction = useLocation();
+interface LogoItemType {
+  bg?: string;
+  logo?: boolean;
+}
+
+const Logo: FC<LogoItemType> = ({ bg, logo = true }) => {
+  const location = useLocation();
   const navigate = useNavigate();
+
   const handleNavigate = () => {
-    loaction.pathname !== "/" && navigate("/");
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
   };
+
+  const bgColor = bg ? `bg-${bg}` : "bg-primary-btn";
+  const textSize = !logo ? `text-[44px]` : "text-[22px]";
+
   return (
     <div
-      className="uppercase font-mont my-[14px] font-bold text-[22px] text-light cursor-pointer"
-      onClick={handleNavigate}
+      className={`flex justify-center gap-[2px] uppercase font-mont my-[12px] font-bold ${textSize} text-light ${
+        logo ? "cursor-pointer select-none" : ""
+      }`}
+      onClick={logo ? handleNavigate : undefined}
     >
       UZREPO
-      <mark className="text-light font-bold text-[22px] bg-primary-btn rounded-md px-[3px]">
+      <mark
+        className={`text-light font-bold ${bgColor} ${textSize} rounded-md px-[3px]`}
+      >
         DASH
       </mark>
     </div>
