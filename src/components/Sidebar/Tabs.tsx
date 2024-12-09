@@ -44,9 +44,13 @@ const Tabs: FC<TabsProps> = ({ data }) => {
                   to={name || "#"}
                   ref={(el) => (tabRefs.current[index] = el)}
                   onClick={() => setActiveTab(id)}
-                  className={`flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color transition-all duration-300 ${
-                    activeTab === id ? "text-primary-btn" : "hover:text-light"
-                  }`}
+                  className={({ isActive }) =>
+                    `flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color ${
+                      isActive ? "text-primary-btn" : "hover:text-light"
+                    } flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color transition-all duration-300 ${
+                      activeTab === id ? "text-primary-btn" : "hover:text-light"
+                    }`
+                  }
                 >
                   {title}
                 </NavLink>
