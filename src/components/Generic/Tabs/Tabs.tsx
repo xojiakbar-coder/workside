@@ -1,5 +1,5 @@
 import { Heading } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect, FC, Fragment } from "react";
 
 interface TabDataType {
@@ -13,7 +13,7 @@ interface TabsProps {
 }
 
 const Tabs: FC<TabsProps> = ({ data }) => {
-  const [activeTab, setActiveTab] = useState<number | string>(data[0]?.id || 0);
+  const location = useLocation();
   const [indicatorStyle, setIndicatorStyle] = useState({
     top: "0px",
     height: "0px",
@@ -21,7 +21,9 @@ const Tabs: FC<TabsProps> = ({ data }) => {
   const tabRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
-    const currentTabIndex = data.findIndex((tab) => tab.id === activeTab);
+    const currentTabIndex = data.findIndex(
+      (tab) => `/${tab.name}` === location.pathname
+    );
     const currentTab = tabRefs.current[currentTabIndex];
     if (currentTab) {
       setIndicatorStyle({
@@ -29,7 +31,7 @@ const Tabs: FC<TabsProps> = ({ data }) => {
         height: `${currentTab.offsetHeight}px`,
       });
     }
-  }, [activeTab, data]);
+  }, [location.pathname, data]);
 
   return (
     <Fragment>
@@ -38,19 +40,15 @@ const Tabs: FC<TabsProps> = ({ data }) => {
           <div className="flex flex-col relative border-l border-outer-bdr-color w-full gap-[12px] my-[10px]">
             {data.map((item, index) => {
               const { id, title, name } = item;
+              const isActive = location.pathname === `/${name}`;
               return (
                 <NavLink
                   key={id}
                   to={name || "#"}
                   ref={(el) => (tabRefs.current[index] = el)}
-                  onClick={() => setActiveTab(id)}
-                  className={({ isActive }) =>
-                    `flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color ${
-                      isActive ? "text-primary-btn" : "hover:text-light"
-                    } flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color transition-all duration-300 ${
-                      activeTab === id ? "text-primary-btn" : "hover:text-light"
-                    }`
-                  }
+                  className={`flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color ${
+                    isActive ? "text-primary-btn" : "hover:text-light"
+                  } flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color transition-all duration-300`}
                 >
                   {title}
                 </NavLink>

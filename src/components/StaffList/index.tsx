@@ -8,6 +8,7 @@ import {
   ActionBarSelectionTrigger,
 } from "../ui/action-bar";
 import GenericEmptyState from "../Generic/EmptyState";
+import Dialog from "../Generic/Dialog";
 
 interface ListType {
   id: number;
@@ -75,7 +76,7 @@ const StaffList: FC = () => {
       <Table.Cell className="h-[50px] text-yellow-500 border-b px-[18.3px] py-[5px] min-h-[50px] border-gray-color">
         {item.category}
       </Table.Cell>
-      <Table.Cell className="h-[50px] text-[#019267] border-b px-[18.3px] min-h-[50px] border-gray-color py-[5px]">
+      <Table.Cell className="h-[50px] text-[#16a34a] border-b px-[18.3px] min-h-[50px] border-gray-color py-[5px]">
         {"$" + item.price}
       </Table.Cell>
       {/* text-teal-500 */}
@@ -146,6 +147,8 @@ const StaffList: FC = () => {
             </Table.Header>
             <Table.Body className="h-full">{rows}</Table.Body>
           </Table.Root>
+
+          <Dialog />
 
           <ActionBarRoot open={hasSelection}>
             <ActionBarContent className="flex justify-center items-center px-[20px] py-[12px] w-max">
