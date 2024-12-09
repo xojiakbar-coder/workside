@@ -1,3 +1,4 @@
+import Tabs from "./Tabs";
 import { FC, useState } from "react";
 import { NavLink } from "react-router-dom";
 import sidebar_items from "@/utils/sidebar";
@@ -24,8 +25,8 @@ const SidebarContent: FC = () => {
   const arrowRotate = itemOpen.arrow ? "rotate-90" : "rotate-0";
 
   return (
-    <div className="overflow-y-auto h-full">
-      <div className="w-full px-[18px] h-full flex flex-col gap-[12px]">
+    <div className="overflow-y-auto h-[92vh] min-h-[92vh] py-[24px]">
+      <div className="w-full px-[18px] h-full flex flex-col gap-[12px] overflow-y-auto">
         {sidebar_items.map((item) => {
           const { id, children, title, name } = item;
           if (children?.length) {
@@ -50,20 +51,8 @@ const SidebarContent: FC = () => {
                     />
                   </div>
                 </Collapsible.Trigger>
-                <Collapsible.Content className="flex flex-col gap-[12px] py-[5px] rounded-lg">
-                  {children.map((child) => (
-                    <NavLink
-                      key={child.id}
-                      to={child.name || ""}
-                      className={({ isActive }) =>
-                        `flex items-center group hover:bg-ghost-bg-color p-2 rounded-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color ${
-                          isActive ? "text-primary-btn" : "hover:text-light"
-                        }`
-                      }
-                    >
-                      {child.title}
-                    </NavLink>
-                  ))}
+                <Collapsible.Content className="flex py-[5px] pl-[12px] w-full">
+                  <Tabs data={children && children} />
                 </Collapsible.Content>
               </Collapsible.Root>
             );
@@ -74,7 +63,9 @@ const SidebarContent: FC = () => {
                 to={name || ""}
                 className={({ isActive }) =>
                   `flex items-center group hover:bg-ghost-bg-color p-2 rounded-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color ${
-                    isActive ? "text-primary-btn" : "hover:text-light"
+                    isActive && itemOpen.arrow == false
+                      ? "text-primary-btn"
+                      : "hover:text-light"
                   }`
                 }
               >
@@ -89,3 +80,16 @@ const SidebarContent: FC = () => {
 };
 
 export default SidebarContent;
+{
+  /* <NavLink
+key={child.id}
+to={child.name || ""}
+className={({ isActive }) =>
+  `flex items-center group hover:bg-ghost-bg-color p-2 rounded-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color ${
+    isActive ? "text-primary-btn" : "hover:text-light"
+  }`
+}
+>
+{child.title}
+</NavLink> */
+}

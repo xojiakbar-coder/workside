@@ -9,7 +9,6 @@ const Item: FC = () => {
         {navbar_items.map((item) => {
           const { id, title, path } = item;
 
-          // Define classes
           const activeClass = "text-primary-btn";
           const defaultClass =
             "text-[14px] hover:text-white text-item-color font-grotesk cursor-pointer transition-all ease-out duration-[115ms] py-[6px] px-[9px] rounded-[4px] capitalize";
