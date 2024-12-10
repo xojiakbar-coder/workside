@@ -11,7 +11,7 @@ const Home: FC = () => {
             <Logo bg="primary-btn" logo={false} />
             <div>
               <p className="text-[19px] text-subtitle-color font-semibold text-center">
-                Ko'p qiyin ishlar biz bilan oson
+                Barcha ishlar biz bilan osonroq
               </p>
             </div>
             <div className="grid grid-cols-2 items-center justify-between gap-[10px] mt-[28px]">

@@ -27,7 +27,7 @@ const SidebarContent: FC = () => {
     : "rotate-0";
 
   return (
-    <div className="w-full h-full flex flex-col gap-[12px] overflow-y-auto p-[16px]">
+    <div className="w-full h-full flex flex-col gap-[12px] overflow-y-auto p-[16px] select-none">
       {sidebar_items.map((item) => {
         const { id, children, title, name } = item;
         if (children?.length) {
