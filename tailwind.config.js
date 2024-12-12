@@ -10,9 +10,7 @@ module.exports = {
           "100%": { backgroundPosition: "180px" },
         },
       },
-      animation: {
-        shine: "shine 3s infinite linear",
-      },
+
       colors: {
         light: "var(--light)",
         danger: "var(--danger)",

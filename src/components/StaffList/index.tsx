@@ -43,14 +43,13 @@ const StaffList: FC = () => {
 
   const [items, setItems] = useState<ListType[]>(initialItems);
   const [selection, setSelection] = useState<number[]>([]);
-  const [isDialogOpen, setIsDialogOpen] = useState({open: false, employer: [] });
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState<number | null>(null);
   const hasSelection = selection.length > 0;
   const indeterminate = hasSelection && selection.length < items.length;
   const onRemove = (id: number) => {
-    const selectedEmployer = items.find((itm) => itm.id == id);
     setItemToDelete(id);
-    setIsDialogOpen({ open: true, employer: [selectedEmployer] }); // Update to include the found employer
+    setIsDialogOpen(true);
   };
 
   const handleDelete = () => {
@@ -60,7 +59,7 @@ const StaffList: FC = () => {
       setSelection((prev) =>
         prev.filter((selectedId) => selectedId !== itemToDelete)
       );
-      setIsDialogOpen({ open: false, employer: [] });
+      setIsDialogOpen(false);
       setItemToDelete(null);
     }
   };
@@ -165,13 +164,14 @@ const StaffList: FC = () => {
             isOpenDialog={isDialogOpen}
             isCloseDialog={(details) => setIsDialogOpen(details.open)}
             title="Xodimni o'chirish"
-            description={`Rostdan ham ${} o'chirmoqchimisiz?`}
+            description={`Rostdan ham o'chirmoqchimisiz?`}
             confirmText="O'chirish"
-            cancelText="Bekor qilish"
+            cancelText="bekor qilish"
+            makeSureValue="on"
             onConfirm={handleDelete}
           />
 
-          <ActionBarRoot open={hasSelection}>
+          <ActionBarRoot>
             <ActionBarContent className="flex justify-center items-center px-[20px] py-[12px] w-max">
               <ActionBarSelectionTrigger>
                 {selection.length} selected
