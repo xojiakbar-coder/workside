@@ -11,7 +11,7 @@ const Layout: FC<ChildrenPage> = ({ children }) => {
         <Fragment>
           <Navbar />
           <div>{children}</div>
-          <div>Footer</div>
+          {/* <div>Footer</div> */}
         </Fragment>
       ) : (
         <GenericElement />

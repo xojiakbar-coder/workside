@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import GenericElement from "@/view";
+import Contact from "@/components/Contact";
 
 export interface NavbarItemType {
   id: number;
@@ -11,24 +12,24 @@ export interface NavbarItemType {
 
 const navbar_items: NavbarItemType[] = [
   {
-    id: 2,
+    id: 1,
     path: "/hisobotlar",
     title: "Hisobotlar",
     element: GenericElement,
     sidebar: true,
   },
   {
-    id: 3,
-    path: "/aloqa",
-    title: "Aloqa",
+    id: 2,
+    path: "/biz-haqimizda",
+    title: "Biz haqimizda",
     element: GenericElement,
     sidebar: false,
   },
   {
-    id: 4,
-    path: "/biz-haqimizda",
-    title: "Biz haqimizda",
-    element: GenericElement,
+    id: 3,
+    path: "/aloqa",
+    title: "Aloqa",
+    element: Contact,
     sidebar: false,
   },
 ];
