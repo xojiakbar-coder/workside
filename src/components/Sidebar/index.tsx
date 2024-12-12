@@ -1,8 +1,8 @@
 import { FC } from "react";
+import Logout from "./Logout";
 import Navbar from "../Navbar";
 import SidebarContent from "./Item";
 import { Outlet } from "react-router-dom";
-import Logout from "./Logout";
 
 const Sidebar: FC = () => {
   return (

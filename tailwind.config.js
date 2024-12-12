@@ -31,6 +31,7 @@ module.exports = {
       },
       boxShadow: {
         "login-shadow": "var(--loginShadow)",
+        "light-shadow": "var(--lightShadow)",
         "navbar-shadow": "var(--navbarShadow)",
       },
       backgroundImage: {

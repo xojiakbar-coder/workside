@@ -43,13 +43,26 @@ const StaffList: FC = () => {
 
   const [items, setItems] = useState<ListType[]>(initialItems);
   const [selection, setSelection] = useState<number[]>([]);
+  const [isDialogOpen, setIsDialogOpen] = useState({open: false, employer: [] });
+  const [itemToDelete, setItemToDelete] = useState<number | null>(null);
   const hasSelection = selection.length > 0;
   const indeterminate = hasSelection && selection.length < items.length;
-
   const onRemove = (id: number) => {
-    const updatedItems = items.filter((item) => item.id !== id);
-    setItems(updatedItems);
-    setSelection((prev) => prev.filter((selectedId) => selectedId !== id));
+    const selectedEmployer = items.find((itm) => itm.id == id);
+    setItemToDelete(id);
+    setIsDialogOpen({ open: true, employer: [selectedEmployer] }); // Update to include the found employer
+  };
+
+  const handleDelete = () => {
+    if (itemToDelete) {
+      const updatedItems = items.filter((item) => item.id !== itemToDelete);
+      setItems(updatedItems);
+      setSelection((prev) =>
+        prev.filter((selectedId) => selectedId !== itemToDelete)
+      );
+      setIsDialogOpen({ open: false, employer: [] });
+      setItemToDelete(null);
+    }
   };
 
   const rows = items.map((item) => (
@@ -148,7 +161,15 @@ const StaffList: FC = () => {
             <Table.Body className="h-full">{rows}</Table.Body>
           </Table.Root>
 
-          <Dialog />
+          <Dialog
+            isOpenDialog={isDialogOpen}
+            isCloseDialog={(details) => setIsDialogOpen(details.open)}
+            title="Xodimni o'chirish"
+            description={`Rostdan ham ${} o'chirmoqchimisiz?`}
+            confirmText="O'chirish"
+            cancelText="Bekor qilish"
+            onConfirm={handleDelete}
+          />
 
           <ActionBarRoot open={hasSelection}>
             <ActionBarContent className="flex justify-center items-center px-[20px] py-[12px] w-max">
