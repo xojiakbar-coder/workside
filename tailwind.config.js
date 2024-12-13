@@ -24,6 +24,7 @@ module.exports = {
         "outer-bdr-color": "var(--outer-border-color)",
       },
       fontFamily: {
+        jet: "var(--jet)",
         mont: "var(--mont)",
         grotesk: "var(--grotesk)",
       },

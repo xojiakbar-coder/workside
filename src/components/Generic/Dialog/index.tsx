@@ -62,11 +62,11 @@ const Dialog: FC<DialogPropsType> = ({
           </DialogBody>
           <DialogFooter>
             <DialogActionTrigger asChild>
-              <Button type="solid">{cancelText || "Cancel"}</Button>
+              <Button type="solid">{cancelText || "Bekor qilish"}</Button>
             </DialogActionTrigger>
-            <Button type="danger" onClick={onConfirm}>
-              {confirmText || "Delete"}
-            </Button>
+            <DialogActionTrigger asChild onClick={onConfirm}>
+              <Button type="danger">{confirmText || "O'chirish"}</Button>
+            </DialogActionTrigger>
           </DialogFooter>
         </div>
       </DialogContent>

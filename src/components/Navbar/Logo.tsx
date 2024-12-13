@@ -28,7 +28,9 @@ const Logo: FC<LogoItemType> = ({ bg, logo = true }) => {
     >
       UZREPO
       <mark
-        className={`text-light font-bold ${bgColor} ${textSize} rounded-md px-[3px]`}
+        className={`text-light font-bold ${bgColor} ${textSize} rounded-md ${
+          !logo && "shadow-lg shadow-ghost-bg-color"
+        } px-[3px]`}
       >
         DASH
       </mark>
