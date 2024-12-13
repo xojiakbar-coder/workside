@@ -4,27 +4,46 @@ import { NavLink } from "react-router-dom";
 import sidebar_items from "@/utils/sidebar";
 import { Collapsible } from "@chakra-ui/react";
 
-interface ItemProps {
-  id: string | number;
-  arrow: boolean;
+type ID = string | number;
+type Arrow = boolean;
+
+interface SidebarItem {
+  id: ID;
+  children?: Array<{
+    id: ID;
+    title: string;
+    name: string;
+  }>;
+  title: string;
+  name: string;
 }
 
 const SidebarContent: FC = () => {
-  const [itemOpen, setItemOpen] = useState<ItemProps>({
-    id: "",
-    arrow: false,
-  });
+  const [itemId, setItemId] = useState<ID>();
+  const [arrowActive, setArrowActive] = useState<Arrow>(false);
 
-  const handleChange = ({ id }: { id: string | number }) => {
-    setItemOpen((prevState) => ({
-      id,
-      arrow: prevState.id === id ? !prevState.arrow : true,
-    }));
+  const handleChange = ({ id }: { id: ID }) => {
+    let activeItem: SidebarItem = {
+      id: 0,
+      title: "",
+      name: "",
+      children: [],
+    };
+    sidebar_items.forEach((item) => {
+      if (item.id == id) activeItem = item;
+    });
+
+    const { children } = activeItem;
+    if (children?.length) setItemId(activeItem.id);
+
+    if (itemId) {
+      setArrowActive(true);
+    }
   };
 
-  const arrowRotate = itemOpen.arrow
+  const arrowRotate = arrowActive
     ? "rotate-90 text-primary-btn"
-    : "rotate-0";
+    : "rotate-0 group-hover:text-light";
 
   return (
     <div className="w-full h-full flex flex-col gap-[12px] overflow-y-auto p-[16px] select-none">
@@ -38,7 +57,7 @@ const SidebarContent: FC = () => {
             >
               <Collapsible.Trigger
                 className={`flex items-center justify-between group ${
-                  itemOpen.id === id && itemOpen.arrow
+                  itemId === id && arrowActive
                     ? "text-primary-btn"
                     : "text-item-color hover:text-light"
                 } p-2 hover:bg-ghost-bg-color rounded-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk w-full`}
@@ -46,8 +65,8 @@ const SidebarContent: FC = () => {
                 {title}
                 <div>
                   <i
-                    className={`fa-solid fa-chevron-right text-item-color group-hover:text-light ${
-                      id === itemOpen.id && arrowRotate
+                    className={`fa-solid fa-chevron-right text-item-color ${
+                      id === itemId && arrowRotate
                     }`}
                   />
                 </div>
@@ -64,7 +83,7 @@ const SidebarContent: FC = () => {
               to={name || ""}
               className={({ isActive }) =>
                 `flex items-center group p-2 rounded-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color ${
-                  isActive && itemOpen.arrow == false
+                  isActive && arrowActive == false
                     ? "text-primary-btn"
                     : "hover:text-light"
                 }`

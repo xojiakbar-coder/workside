@@ -4,9 +4,9 @@ import { Title } from "../Generic";
 const Contact: FC = () => {
   return (
     <div className="w-full px-[3%]">
-      <div className="flex flex-col gap-[40px] items-center h-max min-h-[92vh] pt-[100px]">
+      <div className="flex flex-col gap-[40px] items-center h-max min-h-[92vh] pt-[70px]">
         <Title type="secondary" className="font-grotesk">
-          Biz bilan ushbu manbalar orqali aloqaga chiqishingiz mumkin
+          Bizga ushbu manbalar orqali aloqaga chiqishingiz mumkin
         </Title>
         <div className="flex justify-center w-full">
           <iframe

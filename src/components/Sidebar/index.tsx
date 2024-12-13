@@ -17,7 +17,7 @@ const Sidebar: FC = () => {
             <Logout />
           </div>
         </aside>
-        <section className="w-full h-full">
+        <section className="w-full h-full overflow-y-auto">
           <Outlet />
         </section>
       </section>
