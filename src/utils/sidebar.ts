@@ -1,13 +1,20 @@
 import { ReactNode } from "react";
-import GenericElement from "@/view";
-import StaffList from "@/components/StaffList";
+import GenericElement from "../view";
+import StaffList from "../components/StaffList";
+
+interface SidebarChildrenItemType {
+  id: string;
+  name: string;
+  title: string;
+  element: () => ReactNode;
+}
 
 export interface SidebarItemType {
   id: number | string;
   name?: string;
   title: string;
-  children?: SidebarItemType[];
-  element?: ReactNode;
+  children?: SidebarChildrenItemType[];
+  element?: () => ReactNode;
 }
 
 const sidebar_items: SidebarItemType[] = [

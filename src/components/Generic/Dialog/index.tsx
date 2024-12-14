@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { Button } from "@/components/Generic/";
 import {
   DialogActionTrigger,
   DialogBody,
@@ -10,9 +9,10 @@ import {
   DialogRoot,
   DialogTitle,
   // DialogTrigger,
-} from "@/components/ui/dialog";
-import { Checkbox } from "@/components/ui/checkbox";
+} from "../../ui/dialog";
 import { Text } from "@chakra-ui/react";
+import { Checkbox } from "../../ui/checkbox";
+import { Button } from "..";
 
 interface DialogPropsType {
   title?: string;

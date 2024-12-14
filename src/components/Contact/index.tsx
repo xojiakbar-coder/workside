@@ -1,7 +1,6 @@
-import { FC } from "react";
 import { Title } from "../Generic";
 
-const Contact: FC = () => {
+const Contact = () => {
   return (
     <div className="w-full px-[3%]">
       <div className="flex flex-col gap-[40px] items-center h-max min-h-[92vh] pt-[70px]">

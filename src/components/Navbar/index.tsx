@@ -1,8 +1,8 @@
 import Logo from "./Logo";
 import Item from "./Item";
 import { FC } from "react";
-import useSize from "@/hooks/useSize";
 import { useLocation } from "react-router-dom";
+import useSize from "../../hooks/useSize";
 
 const Navbar: FC = () => {
   const { scrollY } = useSize();

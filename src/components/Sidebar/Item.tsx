@@ -1,8 +1,8 @@
 import { Tabs } from "../Generic";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
-import sidebar_items from "@/utils/sidebar";
 import { Collapsible } from "@chakra-ui/react";
+import sidebar_items from "../../utils/sidebar";
 
 type ID = string | number;
 type Arrow = boolean;
@@ -19,31 +19,9 @@ interface SidebarItem {
 }
 
 const SidebarContent: FC = () => {
-  const [itemId, setItemId] = useState<ID>();
-  const [arrowActive, setArrowActive] = useState<Arrow>(false);
-
-  const handleChange = ({ id }: { id: ID }) => {
-    let activeItem: SidebarItem = {
-      id: 0,
-      title: "",
-      name: "",
-      children: [],
-    };
-    sidebar_items.forEach((item) => {
-      if (item.id == id) activeItem = item;
-    });
-
-    const { children } = activeItem;
-    if (children?.length) setItemId(activeItem.id);
-
-    if (itemId) {
-      setArrowActive(true);
-    }
-  };
-
-  const arrowRotate = arrowActive
-    ? "rotate-90 text-primary-btn"
-    : "rotate-0 group-hover:text-light";
+  // const arrowRotate = arrowActive
+  // ? "rotate-90 text-primary-btn"
+  // : "rotate-0 group-hover:text-light";
 
   return (
     <div className="w-full h-full flex flex-col gap-[12px] overflow-y-auto p-[16px] select-none">
@@ -53,21 +31,21 @@ const SidebarContent: FC = () => {
           return (
             <Collapsible.Root
               key={id}
-              onOpenChange={() => handleChange({ id })}
+              // onOpenChange={() => handleChange({ id })}
             >
               <Collapsible.Trigger
-                className={`flex items-center justify-between group ${
-                  itemId === id && arrowActive
-                    ? "text-primary-btn"
-                    : "text-item-color hover:text-light"
-                } p-2 hover:bg-ghost-bg-color rounded-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk w-full`}
+              // className={`flex items-center justify-between group ${
+              //   itemId === id && arrowActive
+              //     ? "text-primary-btn"
+              //     : "text-item-color hover:text-light"
+              // } p-2 hover:bg-ghost-bg-color rounded-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk w-full`}
               >
                 {title}
                 <div>
                   <i
-                    className={`fa-solid fa-chevron-right text-item-color ${
-                      id === itemId && arrowRotate
-                    }`}
+                  // className={`fa-solid fa-chevron-right text-item-color ${
+                  //   // id === itemId && arrowRotate
+                  // }`}
                   />
                 </div>
               </Collapsible.Trigger>
@@ -81,13 +59,13 @@ const SidebarContent: FC = () => {
             <NavLink
               key={id}
               to={name || ""}
-              className={({ isActive }) =>
-                `flex items-center group p-2 rounded-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color ${
-                  isActive && arrowActive == false
-                    ? "text-primary-btn"
-                    : "hover:text-light"
-                }`
-              }
+              // className={({ isActive }) =>
+              //   `flex items-center group p-2 rounded-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color ${
+              //     // isActive && arrowActive == false
+              //       // ? "text-primary-btn"
+              //       // : "hover:text-light"
+              //   }`
+              // }
             >
               {title}
             </NavLink>

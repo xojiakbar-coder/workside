@@ -1,10 +1,12 @@
-import GenericElement from "@/view";
-import Navbar from "@/components/Navbar";
+import GenericElement from "../view";
+import Navbar from "../components/Navbar";
 import { FC, Fragment, ReactNode } from "react";
 
-type ChildrenPage = ReactNode;
+interface ChildrenPageProps {
+  children?: ReactNode;
+}
 
-const Layout: FC<ChildrenPage> = ({ children }) => {
+const Layout: FC<ChildrenPageProps> = ({ children }) => {
   return (
     <Fragment>
       {children ? (

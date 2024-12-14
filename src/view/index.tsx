@@ -1,5 +1,5 @@
-import { Button } from "@/components/Generic";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Button } from "../components/Generic";
 
 const GenericElement = () => {
   const location = useLocation();

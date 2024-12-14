@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Button } from "../";
 import { useNavigate } from "react-router-dom";
-import { EmptyState } from "@/components/ui/empty-state";
+import { EmptyState } from "../../ui/empty-state";
 
 interface GenericEmptyStateParamType {
   title?: string;
@@ -27,7 +27,10 @@ const GenericEmptyState: FC<GenericEmptyStateParamType> = ({
       icon={<i className="fa-solid fa-file" style={{ color: "#FFF" }}></i>}
     >
       {button && (
-        <Button onClick={() => navigate(buttonPath || "/")} className="hover:opacity-60">
+        <Button
+          onClick={() => navigate(buttonPath || "/")}
+          className="hover:opacity-60"
+        >
           {buttonContent || ""}
         </Button>
       )}

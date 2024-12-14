@@ -1,12 +1,13 @@
 import { FC } from "react";
 import Layout from "./layout";
-import navbar_items from "@/utils/navbar";
-import Sidebar from "@/components/Sidebar";
-import SignIn from "@/components/SignIn/SignIn";
-import SignUp from "@/components/SignUp/SignUp";
+import Home from "../components/Home/Home";
+import navbar_items from "../utils/navbar";
+import Sidebar from "../components/Sidebar";
 import { Navigate, Route, Routes } from "react-router-dom";
-import sidebar_items from "@/utils/sidebar";
-import Home from "@/components/Home/Home";
+import sidebar_items from "../utils/sidebar";
+import SignIn from "../components/SignIn/SignIn";
+import SignUp from "../components/SignUp/SignUp";
+import GenericElement from "../view";
 
 const Root: FC = () => {
   return (
@@ -48,21 +49,24 @@ const Root: FC = () => {
 
       {sidebar_items.map((item) => {
         const { id, children, name, element: Element } = item;
+
         if (children?.length) {
           return children.map((child) => {
-            const ChildElement = child.element;
+            const ChildElement = child.element || GenericElement;
             return (
               <Route element={<Sidebar />} key={child.id}>
                 <Route path={child.name} element={<ChildElement />} />
               </Route>
             );
           });
-        } else {
+        } else if (Element) {
           return (
             <Route element={<Sidebar />} key={id}>
-              <Route path={name} element={<Element />} />;
+              <Route path={name} element={<Element />} />
             </Route>
           );
+        } else {
+          return null;
         }
       })}
 

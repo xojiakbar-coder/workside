@@ -2,7 +2,7 @@ import Dialog from "../Dialog";
 import { TableType } from "./table";
 import { FC, useState } from "react";
 import { Button } from "@chakra-ui/react";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "../../ui/checkbox";
 
 const GenericTable: FC<TableType> = ({
   checking,
@@ -15,6 +15,8 @@ const GenericTable: FC<TableType> = ({
   const [selection, setSelection] = useState<number[]>([]);
   const hasSelection = selection.length > 0;
   const indeterminate = hasSelection && selection.length < table_body.length;
+  console.log(table_body, "table");
+  console.log(items, "items");
 
   const onDeleteItem = (id: number) => {
     if (selection.indexOf(id) !== -1) {
@@ -73,6 +75,8 @@ const GenericTable: FC<TableType> = ({
         </thead>
         <tbody>
           {items.map((item, index) => {
+            console.log(item, "item");
+
             const { id, name, job, salary } = item;
             const lastIndex = items.length - 1;
             return (
@@ -151,7 +155,7 @@ const GenericTable: FC<TableType> = ({
         confirmText="O'chirish"
         onConfirm={() => onDeleteItem}
         title="Xodimni o'chirish"
-        cancelText="bekor qilish"
+        cancelText="Bekor qilish"
         isOpenDialog={isDialogOpen}
         description={`Rostdan ham o'chirmoqchimisiz?`}
         isCloseDialog={(details) => setIsDialogOpen(details.open)}

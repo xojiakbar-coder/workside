@@ -1,8 +1,8 @@
-import { FC } from "react";
 import { Table } from "../Generic";
-// import GenericEmptyState from "../Generic/EmptyState";
+import { useEffect, useState } from "react";
+import { table_head } from "../../utils/staffList";
 import { Container, Heading } from "@chakra-ui/react";
-import initialItems, { table_head } from "@/utils/staffList";
+// import GenericEmptyState from "../Generic/EmptyState";
 // import {
 //   ActionBarRoot,
 //   ActionBarContent,
@@ -10,7 +10,28 @@ import initialItems, { table_head } from "@/utils/staffList";
 //   ActionBarSelectionTrigger,
 // } from "../ui/action-bar";
 
-const StaffList: FC = () => {
+const StaffList = () => {
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const result = await response.json();
+      setData(result);
+    } catch (error) {
+      console.error(`Ma'lumotlar yuklanmadi: ${error}`);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []); // Empty dependency array to run only once on mount
+
   return (
     <Container
       className="flex flex-col h-[92svh] overflow-y-auto w-full py-[25px]"
@@ -24,7 +45,7 @@ const StaffList: FC = () => {
           checking={true}
           deleteAction={true}
           table_head={table_head}
-          table_body={initialItems}
+          table_body={[...data]}
         />
 
         {/* <Dialog
