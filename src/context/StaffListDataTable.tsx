@@ -1,5 +1,5 @@
 import BASE_URL from "../config/baseUrl";
-import ChildrenType from "../utils/general";
+import ChildrenType from "../utils/types/general";
 import { users_url } from "../config/endpoints";
 import { createContext, FC, useEffect, useState } from "react";
 import { TableBodyType } from "../components/Generic/Table/table";

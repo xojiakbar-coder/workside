@@ -1,13 +1,12 @@
 import { FC } from "react";
 import Layout from "./layout";
 import Home from "../components/Home/Home";
-import navbar_items from "../utils/navbar";
 import Sidebar from "../components/Sidebar";
-import { Navigate, Route, Routes } from "react-router-dom";
-import sidebar_items from "../utils/sidebar";
+import navbar_items from "../utils/data/navbar";
 import SignIn from "../components/SignIn/SignIn";
 import SignUp from "../components/SignUp/SignUp";
-import GenericElement from "../view";
+import sidebar_items from "../utils/data/sidebar";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 const Root: FC = () => {
   return (
@@ -47,28 +46,24 @@ const Root: FC = () => {
         }
       })}
 
-      {sidebar_items.map((item) => {
-        const { id, children, name, element: Element } = item;
-
-        if (children?.length) {
+      {/* Routing for Sidebar items */}
+      <Route element={<Sidebar />}>
+        {sidebar_items.map((item) => {
+          const { id, name, element: Element } = item;
+          return <Route key={id} path={name} element={<Element />} />;
+        })}
+      </Route>
+      
+      {/* Routing for Sidebar children items */}
+      <Route element={<Sidebar />}>
+        {sidebar_items.map((item) => {
+          const { children } = item;
           return children.map((child) => {
-            const ChildElement = child.element || GenericElement;
-            return (
-              <Route element={<Sidebar />} key={child.id}>
-                <Route path={child.name} element={<ChildElement />} />
-              </Route>
-            );
+            const { id, name, element: Element } = child;
+            return <Route key={id} path={name} element={<Element />} />;
           });
-        } else if (Element) {
-          return (
-            <Route element={<Sidebar />} key={id}>
-              <Route path={name} element={<Element />} />
-            </Route>
-          );
-        } else {
-          return null;
-        }
-      })}
+        })}
+      </Route>
 
       {/* SignIn and SignUp pages */}
       <Route path="/signin" element={<SignIn />} />

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import GenericElement from "../view";
-import Contact from "../components/Contact";
+import GenericElement from "../../view";
+import Contact from "../../components/Contact";
 
 export interface NavbarItemType {
   id: number;

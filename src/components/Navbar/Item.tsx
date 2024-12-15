@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
-import navbar_items from "../../utils/navbar";
+import navbar_items from "../../utils/data/navbar";
 
 const Item: FC = () => {
   return (

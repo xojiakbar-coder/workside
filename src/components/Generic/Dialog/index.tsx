@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Button } from "..";
 import { Text } from "@chakra-ui/react";
+import { Button } from "../../ui/button";
 import { Checkbox } from "../../ui/checkbox";
 import {
   DialogBody,
@@ -63,9 +63,13 @@ const Dialog: FC<DialogPropsType> = ({
             )}
           </DialogBody>
           <DialogFooter>
-            {cancelText && <Button type="solid">{cancelText}</Button>}
+            {cancelText && <Button variant="solid">{cancelText}</Button>}
             <DialogActionTrigger asChild onClick={onConfirm}>
-              {confirmText && <Button type={"solid"}>{confirmText}</Button>}
+              {confirmText && !cancelText && (
+                <Button className="bg-light hover:bg-light text-body-bg-color rounded-[14px] border-[2px] text-[15px] font-extrabold px-[22px] py-[30px]">
+                  {confirmText}
+                </Button>
+              )}
             </DialogActionTrigger>
           </DialogFooter>
         </div>

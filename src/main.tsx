@@ -8,12 +8,12 @@ import StaffListProvider from "./context/StaffListDataTable";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <Provider>
+    <Provider>
+      <BrowserRouter>
         <StaffListProvider>
           <Root />
         </StaffListProvider>
-      </Provider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Provider>
   </StrictMode>
 );

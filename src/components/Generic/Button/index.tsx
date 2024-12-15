@@ -26,11 +26,11 @@ const getButtonStyle = (type: GenericButtonType["type"]) => {
     case "surface":
       return "bg-ghost-bg-color hover:bg-outer-bdr-color text-light border-[2px] rounded-[14px] border-outer-bdr-color font-extrabold";
     case "solid":
-      return "bg-light hover:bg-light text-body-bg-color rounded-[14px] border-[2px] font-extrabold";
+      return "bg-light hover:bg-light text-body-bg-color rounded-[14px] font-extrabol";
     case "ghost":
       return "bg-transparent hover:bg-ghost-bg-color text-light rounded-[14px] font-extrabold";
     case "danger":
-      return "border-2 text-danger font-mont border-danger rounded-xl hover:bg-ghost-bg-color font-bold";
+      return "border-2 text-danger font-mont border-danger rounded-[14px] font-bold";
     default:
       return "bg-transparent hover:bg-ghost-bg-color text-light underline underline-offset-2 font-bold";
   }

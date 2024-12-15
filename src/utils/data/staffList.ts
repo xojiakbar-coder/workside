@@ -61,11 +61,11 @@ const table_head = [
   },
   {
     id: 3,
-    title: "Kasb",
+    title: "Email",
   },
   {
     id: 4,
-    title: "Maosh",
+    title: "Telefon",
   },
 ];
 

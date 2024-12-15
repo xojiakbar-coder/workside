@@ -1,8 +1,8 @@
-import { Button } from "..";
 import Tbody from "./Tbody";
-import { TableType } from "./table";
+import { Button } from "..";
 import { Text } from "@chakra-ui/react";
 import { Checkbox } from "../../ui/checkbox";
+import { TableType } from "../../../utils/types/table";
 import { FC, useContext, useEffect, useState } from "react";
 import { StaffListDataTable } from "../../../context/StaffListDataTable";
 
@@ -28,11 +28,11 @@ const GenericTable: FC<TableType> = ({
 
   return (
     <div className="h-max">
-      <table className="w-full rounded-lg border-separate border-spacing-0 border border-gray-700">
+      <table className="w-full rounded-lg border-separate border-spacing-0 border border-b-2 border-l-2 border-r-2 border-ghost-bg-color">
         <thead className="h-[100px] font-mont w-full px-[10px]">
           <tr>
             {checking && (
-              <th className="px-5 py-2 border-b border-gray-700">
+              <th className="px-5 py-2 border-b border-ghost-bg-color rounded-tl-md bg-ghost-bg-color">
                 <Checkbox
                   size="lg"
                   variant="solid"
@@ -43,37 +43,45 @@ const GenericTable: FC<TableType> = ({
                       : selection.length === table_body.length
                   }
                   onCheckedChange={handleHeaderCheckboxChange}
-                  className={`border-2 ${
+                  className={`border ${
                     !hasSelection ? "border-subtitle-color" : "border-light"
                   } rounded-md bg-body-bg-color`}
                 />
               </th>
             )}
-            <th className="px-5 py-2 text-center font-grotesk border-b border-gray-700 capitalize">
-              &#8470;
+            <th className="px-5 py-2 text-center font-grotesk border-b border-ghost-bg-color capitalize bg-ghost-bg-color">
+              {tableItems?.length || <p>&#8470;</p>}
             </th>
             {table_head.map((item) => (
               <th
                 key={item.id}
-                className="px-5 py-2 text-center font-mont border-b border-gray-700 capitalize font-semibold"
+                className="px-5 py-2 text-center font-mont border-b border-ghost-bg-color capitalize font-semibold bg-ghost-bg-color"
               >
                 {item.title}
               </th>
             ))}
             {deleteAction && (
-              <th className="border-b border-gray-700 text-right px-3 py-2 font-mont font-semibold">
+              <th className="border-b border-ghost-bg-color text-right px-3 py-2 font-mont font-semibold rounded-tr-md bg-ghost-bg-color">
                 <div className="flex w-full justify-end items-center gap-[20px] relative">
-                  {!hasSelection && (
-                    <Text className="absolute">Xodimni o'chirish</Text>
-                  )}
+                  <Text
+                    className={`absolute
+                  ${
+                    !hasSelection
+                      ? "opacity-100"
+                      : "opacity-0 pointer-events-none"
+                  }
+                      `}
+                  >
+                    Xodimni o'chirish
+                  </Text>
                   <Button
+                    type="danger"
                     onClick={() => setItems([])}
-                    className={`w-max capitalize transition-all ease-in-out-expo duration-[170ms] ${
+                    className={`hover:bg-black-color ease-in-out-expo ${
                       hasSelection
                         ? "opacity-100"
                         : "opacity-0 pointer-events-none"
                     }`}
-                    type="danger"
                   >
                     Hammasini o'chirish
                   </Button>

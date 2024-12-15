@@ -1,22 +1,12 @@
 import { Table } from "../Generic";
-import { useContext, useEffect } from "react";
-import { table_head } from "../../utils/staffList";
+import { useContext } from "react";
 import { Container, Heading } from "@chakra-ui/react";
 import GenericEmptyState from "../Generic/EmptyState";
 import { StaffListDataTable } from "../../context/StaffListDataTable";
-// import {
-//   ActionBarRoot,
-//   ActionBarContent,
-//   ActionBarSeparator,
-//   ActionBarSelectionTrigger,
-// } from "../ui/action-bar";
+import { table_head } from "../../utils/data/staffList";
 
 const StaffList = () => {
   const { items } = useContext(StaffListDataTable);
-
-  useEffect(() => {
-    console.log(items ?? "No data available");
-  }, [items]);
 
   return (
     <Container
@@ -30,26 +20,12 @@ const StaffList = () => {
           </Heading>
           <Table
             checking={true}
+            table_body={items}
             deleteAction={true}
             table_head={table_head}
-            table_body={items}
           />
         </>
       )}
-
-      {/* {selection.length} selected */}
-      {/* <ActionBarRoot>
-          <ActionBarContent className="flex justify-center items-center px-[20px] py-[12px] w-max">
-            <ActionBarSelectionTrigger></ActionBarSelectionTrigger>
-            <ActionBarSeparator />
-            <Button variant="outline" size="sm">
-              Deleted
-            </Button>
-            <Button variant="outline" size="sm">
-              Share
-            </Button>
-          </ActionBarContent>
-        </ActionBarRoot> */}
 
       {items?.length <= 0 && (
         <GenericEmptyState

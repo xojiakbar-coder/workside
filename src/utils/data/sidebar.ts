@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import GenericElement from "../view";
-import StaffList from "../components/StaffList";
+import GenericElement from "../../view";
+import StaffList from "../../components/StaffList";
 
-interface SidebarChildrenItemType {
+export interface SidebarChildrenItemType {
   id: string;
   name: string;
   title: string;
@@ -10,11 +10,11 @@ interface SidebarChildrenItemType {
 }
 
 export interface SidebarItemType {
-  id: number | string;
-  name?: string;
+  name: string;
   title: string;
-  children?: SidebarChildrenItemType[];
-  element?: () => ReactNode;
+  id: number | string;
+  element: () => ReactNode;
+  children: SidebarChildrenItemType[];
 }
 
 const sidebar_items: SidebarItemType[] = [
@@ -49,11 +49,13 @@ const sidebar_items: SidebarItemType[] = [
   {
     id: 5,
     title: "Xodimlar",
+    name: "/umumiy-korinish/xodimlar",
+    element: GenericElement,
     children: [
       {
         id: `5-1`,
-        title: "Yangi xodim qo'shish",
-        name: "/umumiy-korinish/xodim-qoshish",
+        title: "Xodimlar hisobotlari",
+        name: "/umumiy-korinish/xodimlar-hisobotlari",
         element: GenericElement,
       },
       {
@@ -64,8 +66,8 @@ const sidebar_items: SidebarItemType[] = [
       },
       {
         id: `5-3`,
-        title: "Xodimlar hisobotlari",
-        name: "/umumiy-korinish/xodimlar-hisobotlari",
+        title: "Yangi xodim qo'shish",
+        name: "/umumiy-korinish/xodim-qoshish",
         element: GenericElement,
       },
     ],
@@ -73,6 +75,8 @@ const sidebar_items: SidebarItemType[] = [
   {
     id: 6,
     title: "Loyihalar",
+    name: "/umumiy-korinish/loyihalar",
+    element: GenericElement,
     children: [
       {
         id: `6-1`,
@@ -111,6 +115,8 @@ const sidebar_items: SidebarItemType[] = [
   {
     id: 9,
     title: "Sozlamalar",
+    name: "/umumiy-korinish/sozlamalar",
+    element: GenericElement,
     children: [
       {
         id: `9-1`,
@@ -156,13 +162,6 @@ const sidebar_items: SidebarItemType[] = [
       },
     ],
   },
-  // {
-  //   id: 10,
-  //   title: "Logout",
-  //   name: "/umumiy-korinish/logout",
-  //   element: GenericElement,
-  //   children: [],
-  // },
 ];
 
 export default sidebar_items;

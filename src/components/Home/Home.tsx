@@ -15,11 +15,11 @@ const Home: FC = () => {
               </p>
             </div>
             <div className="grid grid-cols-2 items-center justify-between gap-[10px] mt-[28px]">
-              <Button type="solid" className="w-full h-[74px]">
+              <Button type="solid" className="w-full h-[73.4px]">
                 Ishlarni boshlash
               </Button>
               <Button type="surface" className="w-full h-[74px]">
-                View demo
+                Kirish
               </Button>
             </div>
           </div>

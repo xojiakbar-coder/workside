@@ -59,7 +59,7 @@ const Tbody: FC<TbodyProps> = ({
                     onCheckedChange={(changes) =>
                       handleCheckboxChange(!!changes.checked, id)
                     }
-                    className={`border-2 ${
+                    className={`border ${
                       isChecked ? "border-light" : "border-subtitle-color"
                     } rounded-md`}
                   />
