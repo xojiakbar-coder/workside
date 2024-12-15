@@ -1,18 +1,17 @@
 import { FC } from "react";
-import {
-  DialogActionTrigger,
-  DialogBody,
-  DialogCloseTrigger,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogRoot,
-  DialogTitle,
-  // DialogTrigger,
-} from "../../ui/dialog";
+import { Button } from "..";
 import { Text } from "@chakra-ui/react";
 import { Checkbox } from "../../ui/checkbox";
-import { Button } from "..";
+import {
+  DialogBody,
+  DialogRoot,
+  DialogTitle,
+  DialogHeader,
+  DialogFooter,
+  DialogContent,
+  DialogCloseTrigger,
+  DialogActionTrigger,
+} from "../../ui/dialog";
 
 interface DialogPropsType {
   title?: string;
@@ -20,7 +19,7 @@ interface DialogPropsType {
   confirmText?: string;
   description?: string;
   isOpenDialog: boolean;
-  makeSureValue: string;
+  makeSureValue?: string;
   onConfirm?: () => void;
   isCloseDialog: (details: { open: boolean }) => void;
 }
@@ -42,30 +41,31 @@ const Dialog: FC<DialogPropsType> = ({
       role="alertdialog"
     >
       <DialogContent className="flex flex-col justify-center items-center h-screen min-h-screen bg-transparent border-none outline-none shadow-none">
-        <div className="flex flex-col relative gap-[20px] min-w-[450px] h-max min-h-[300px] py-[22px] px-[20px] bg-ghost-bg-color rounded-md">
-          <DialogHeader>
-            <DialogCloseTrigger className="absolute top-0 scale-[1.8]" />
-            <DialogTitle className="text-[20px] font-mont mt-[12px] font-semibold">
+        <div className="flex flex-col relative gap-[20px] min-w-[450px] h-max min-h-[300px] py-[20px] px-[20px] bg-gray-color border border-gray-color rounded-md">
+          <DialogHeader className="flex items-start justify-between">
+            <DialogCloseTrigger className="scale-150" />
+            <DialogTitle className="text-[20px] font-mont w-[90%] font-semibold">
               {title}
             </DialogTitle>
           </DialogHeader>
           <DialogBody>
-            <div className="flex items-center gap-[10px]">
-              <Checkbox
-                size="lg"
-                variant="solid"
-                value={makeSureValue}
-                className="border border-gray-color rounded-sm bg-body-bg-color"
-              />
-              <Text>{description}</Text>
-            </div>
+            {description && <Text>{description}</Text>}
+            {makeSureValue && (
+              <div className="flex items-center gap-[10px]">
+                <Checkbox
+                  size="lg"
+                  variant="solid"
+                  value={makeSureValue}
+                  className="border border-gray-color rounded-sm bg-body-bg-color"
+                />
+                <Text>{description}</Text>
+              </div>
+            )}
           </DialogBody>
           <DialogFooter>
-            <DialogActionTrigger asChild>
-              <Button type="solid">{cancelText || "Bekor qilish"}</Button>
-            </DialogActionTrigger>
+            {cancelText && <Button type="solid">{cancelText}</Button>}
             <DialogActionTrigger asChild onClick={onConfirm}>
-              <Button type="danger">{confirmText || "O'chirish"}</Button>
+              {confirmText && <Button type={"solid"}>{confirmText}</Button>}
             </DialogActionTrigger>
           </DialogFooter>
         </div>

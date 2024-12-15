@@ -1,5 +1,5 @@
-import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../components/Generic";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const GenericElement = () => {
   const location = useLocation();
@@ -12,6 +12,7 @@ const GenericElement = () => {
       </h1>
       <Button
         type="outline"
+        className="h-[80px]"
         onClick={() => navigate("/")}
         rightIcon={
           <i className="fa-solid fa-chevron-right text-item-color group-hover:text-light mt-[4px]" />

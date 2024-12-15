@@ -11,6 +11,10 @@ module.exports = {
         },
       },
 
+      transitionTimingFunction: {
+        "in-out-expo": "cubic-bezier(.22,.68,0,1.71)",
+      },
+
       colors: {
         light: "var(--light)",
         danger: "var(--danger)",
