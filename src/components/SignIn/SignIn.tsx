@@ -1,10 +1,10 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { Field } from "../ui/field";
+import { NavLink } from "react-router-dom";
 import { PasswordInput } from "../ui/password-input";
 import { Button, Heading, Input } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
 
-const SignIn: FC = () => {
+const SignIn = () => {
   const [value, setValue] = useState("");
 
   return (

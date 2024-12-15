@@ -1,8 +1,8 @@
 import BASE_URL from "../config/baseUrl";
-import ChildrenType from "../utils/types/general";
 import { users_url } from "../config/endpoints";
+import { TableBodyType } from "../utils/types/table";
+import { OnlyChildren } from "../utils/types/general";
 import { createContext, FC, useEffect, useState } from "react";
-import { TableBodyType } from "../components/Generic/Table/table";
 
 type StaffListContextType = {
   items: TableBodyType[] | [];
@@ -14,7 +14,7 @@ export const StaffListDataTable = createContext<StaffListContextType>({
   setItems: () => {},
 });
 
-const StaffListProvider: FC<ChildrenType> = ({ children }) => {
+const StaffListProvider: FC<OnlyChildren> = ({ children }) => {
   const [items, setItems] = useState<TableBodyType[] | []>([]);
 
   const fetchListData = async () => {

@@ -1,10 +1,9 @@
 import Logo from "./Logo";
 import Item from "./Item";
-import { FC } from "react";
-import { useLocation } from "react-router-dom";
 import useSize from "../../hooks/useSize";
+import { useLocation } from "react-router-dom";
 
-const Navbar: FC = () => {
+const Navbar = () => {
   const { scrollY } = useSize();
   const location = useLocation();
   let shdaowVisible = false;

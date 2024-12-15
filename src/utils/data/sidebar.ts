@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import GenericElement from "../../view";
 import StaffList from "../../components/StaffList";
+import AddNewEmployee from "../../components/AddEmployee";
 
 export interface SidebarChildrenItemType {
   id: string;
@@ -12,8 +13,8 @@ export interface SidebarChildrenItemType {
 export interface SidebarItemType {
   name: string;
   title: string;
-  id: number | string;
   element: () => ReactNode;
+  id: number | string;
   children: SidebarChildrenItemType[];
 }
 
@@ -22,8 +23,8 @@ const sidebar_items: SidebarItemType[] = [
     id: 1,
     title: "Hisobotlar",
     name: "/hisobotlar",
-    element: GenericElement,
     children: [],
+    element: GenericElement,
   },
   {
     id: 2,
@@ -68,7 +69,7 @@ const sidebar_items: SidebarItemType[] = [
         id: `5-3`,
         title: "Yangi xodim qo'shish",
         name: "/umumiy-korinish/xodim-qoshish",
-        element: GenericElement,
+        element: AddNewEmployee,
       },
     ],
   },

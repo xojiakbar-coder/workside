@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { Tabs } from "../Generic";
+import { useEffect, useState } from "react";
 import sidebar_items from "../../utils/data/sidebar";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
@@ -9,30 +9,52 @@ import {
   AccordionItemContent,
 } from "../ui/accordion";
 
-const SidebarContent: FC = () => {
+const SidebarContent = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const generalSidebarItemStyle = `flex items-center group p-2 rounded-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color  hover:text-light hover:bg-ghost-bg-color`;
+  const [open, setOpen] = useState<string[]>([]);
+
+  useEffect(() => {
+    const path = JSON.parse(localStorage.getItem("open") || "[]");
+    setOpen(path);
+  }, []);
+
+  useEffect(() => {}, [location]);
+
+  const handleItemToggle = (id: string | number) => {
+    console.log(id);
+  };
+
+  const generalSidebarItemStyle = `flex items-center group p-2 rounded-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color hover:text-light hover:bg-ghost-bg-color`;
 
   return (
     <div className="w-full h-full flex flex-col gap-[12px] overflow-y-auto p-[16px] select-none">
       {sidebar_items.map((item) => {
         const { id, children, title, name } = item;
+
         if (children?.length) {
           return (
             <AccordionRoot key={id} collapsible>
-              <AccordionItem value={title}>
+              <AccordionItem
+                value={id.toString()}
+                // onClick={() => handleItemToggle(id)}
+              >
                 <AccordionItemTrigger
+                  name={name === location.pathname ? name : ""}
                   className={`${generalSidebarItemStyle} ${
-                    name === location.pathname &&
+                    location.pathname === name &&
                     "bg-ghost-bg-color text-primary-btn hover:text-primary-btn"
                   }`}
-                  onClick={() => navigate(name)}
+                  onClick={() => {
+                    if (location.pathname !== name) {
+                      navigate(name);
+                    }
+                  }}
                 >
                   {title}
                 </AccordionItemTrigger>
                 <AccordionItemContent>
-                  <Tabs data={children && children} type="link" />
+                  <Tabs data={children} type="link" />
                 </AccordionItemContent>
               </AccordionItem>
             </AccordionRoot>
@@ -41,7 +63,7 @@ const SidebarContent: FC = () => {
           return (
             <NavLink
               key={id}
-              to={name || ""}
+              to={item.name || name}
               className={({ isActive }) =>
                 `${generalSidebarItemStyle} ${
                   isActive

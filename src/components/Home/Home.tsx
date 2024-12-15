@@ -1,8 +1,9 @@
-import { FC } from "react";
 import Logo from "../Navbar/Logo";
 import { Button } from "../Generic";
+import { useNavigate } from "react-router-dom";
 
-const Home: FC = () => {
+const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="h-[92vh] min-h-[92vh]">
       <div className="grid items-center grid-cols-1 w-full justify-between h-full bg-file-image bg-right-top bg-no-repeat">
@@ -15,7 +16,11 @@ const Home: FC = () => {
               </p>
             </div>
             <div className="grid grid-cols-2 items-center justify-between gap-[10px] mt-[28px]">
-              <Button type="solid" className="w-full h-[73.4px]">
+              <Button
+                type="solid"
+                className="w-full h-[73.4px]"
+                onClick={() => navigate("/hisobotlar")}
+              >
                 Ishlarni boshlash
               </Button>
               <Button type="surface" className="w-full h-[74px]">

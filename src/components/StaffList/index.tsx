@@ -1,9 +1,9 @@
-import { Table } from "../Generic";
 import { useContext } from "react";
-import { Container, Heading } from "@chakra-ui/react";
+import { Table, Title } from "../Generic";
+import { Container } from "@chakra-ui/react";
 import GenericEmptyState from "../Generic/EmptyState";
-import { StaffListDataTable } from "../../context/StaffListDataTable";
 import { table_head } from "../../utils/data/staffList";
+import { StaffListDataTable } from "../../context/StaffListDataTable";
 
 const StaffList = () => {
   const { items } = useContext(StaffListDataTable);
@@ -15,9 +15,8 @@ const StaffList = () => {
     >
       {items?.length > 0 && (
         <>
-          <Heading className="font-mont font-[600] text-center text-[24px] pb-[25px]">
-            Xodimlar ma'lumotlari
-          </Heading>
+          <Title type="section">Xodimlar ma'lumotlari</Title>
+
           <Table
             checking={true}
             table_body={items}

@@ -44,7 +44,7 @@ const Dialog: FC<DialogPropsType> = ({
         <div className="flex flex-col relative gap-[20px] min-w-[450px] h-max min-h-[300px] py-[20px] px-[20px] bg-gray-color border border-gray-color rounded-md">
           <DialogHeader className="flex items-start justify-between">
             <DialogCloseTrigger className="scale-150" />
-            <DialogTitle className="text-[20px] font-mont w-[90%] font-semibold">
+            <DialogTitle className="text-[20px] font-mont w-[90%] font-semibold select-none">
               {title}
             </DialogTitle>
           </DialogHeader>

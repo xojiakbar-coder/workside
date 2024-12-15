@@ -5,12 +5,12 @@ import { Accordion, HStack } from "@chakra-ui/react";
 interface AccordionItemTriggerProps extends Accordion.ItemTriggerProps {
   indicatorPlacement?: "start" | "end";
 }
-
 export const AccordionItemTrigger = React.forwardRef<
   HTMLButtonElement,
   AccordionItemTriggerProps
 >(function AccordionItemTrigger(props, ref) {
-  const { children, indicatorPlacement = "end", ...rest } = props;
+  const { children, indicatorPlacement = "end", name, ...rest } = props;
+  // React.useEffect(() => {}, [color]);
   return (
     <Accordion.ItemTrigger {...rest} ref={ref}>
       {indicatorPlacement === "start" && (
@@ -23,7 +23,7 @@ export const AccordionItemTrigger = React.forwardRef<
       </HStack>
       {indicatorPlacement === "end" && (
         <Accordion.ItemIndicator rotate={{ base: "-90deg", _open: "0deg" }}>
-          <LuChevronDown />
+          <LuChevronDown className={`${name && "text-primary-btn"}`} />
         </Accordion.ItemIndicator>
       )}
     </Accordion.ItemTrigger>

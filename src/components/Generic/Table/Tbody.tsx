@@ -99,7 +99,11 @@ const Tbody: FC<TbodyProps> = ({
                     index !== lastIndex && "border-b"
                   }`}
                 >
-                  <Button type="danger" onClick={() => onDeleteItem(id)}>
+                  <Button
+                    type="danger"
+                    onClick={() => onDeleteItem(id)}
+                    className="hover:bg-ghost-bg-color"
+                  >
                     o'chirish
                   </Button>
                 </td>
