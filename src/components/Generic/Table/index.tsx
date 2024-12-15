@@ -66,7 +66,7 @@ const GenericTable: FC<TableType> = ({
                   <Text
                     className={`absolute
                   ${
-                    !hasSelection
+                    selection.length !== table_body.length
                       ? "opacity-100"
                       : "opacity-0 pointer-events-none"
                   }
@@ -78,7 +78,7 @@ const GenericTable: FC<TableType> = ({
                     type="danger"
                     onClick={() => setItems([])}
                     className={`hover:bg-black-color ease-in-out-expo ${
-                      hasSelection
+                      selection.length === table_body.length
                         ? "opacity-100"
                         : "opacity-0 pointer-events-none"
                     }`}
@@ -91,11 +91,11 @@ const GenericTable: FC<TableType> = ({
           </tr>
         </thead>
         <Tbody
-          table_body={tableItems}
           checking={checking}
-          deleteAction={deleteAction || false}
           selection={selection}
+          table_body={tableItems}
           setSelection={setSelection}
+          deleteAction={deleteAction || false}
         />
       </table>
     </div>
