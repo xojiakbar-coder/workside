@@ -1,9 +1,9 @@
 import { Button } from "..";
 import Dialog from "../Dialog";
-import { TbodyProps } from "./table";
 import { Checkbox } from "../../ui/checkbox";
 import { FC, Fragment, useContext, useState, memo } from "react";
 import { StaffListDataTable } from "../../../context/StaffListDataTable";
+import { TbodyProps } from "../../../utils/types/table";
 
 const Tbody: FC<TbodyProps> = ({
   checking,

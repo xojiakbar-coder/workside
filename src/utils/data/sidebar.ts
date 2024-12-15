@@ -41,8 +41,8 @@ const sidebar_items: SidebarItemType[] = [
   },
   {
     id: 4,
-    title: "Kunlik topshiriqlar",
-    name: "/umumiy-korinish/kunlik-topshiriqlar",
+    title: "Bugungi ishlar",
+    name: "/umumiy-korinish/bugungi-ishlar",
     element: GenericElement,
     children: [],
   },
