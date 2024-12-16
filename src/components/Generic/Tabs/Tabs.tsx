@@ -8,51 +8,59 @@ const Tabs: FC<TabsProps> = ({ data }) => {
   const [indicatorStyle, setIndicatorStyle] = useState({
     top: "0px",
     height: "0px",
+    display: "none",
   });
   const tabRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
-  useEffect(() => {
-    const currentTabIndex = data.findIndex(
-      (tab) => tab.name === location.pathname
-    );
-    const currentTab = tabRefs.current[currentTabIndex];
-
+  const updateIndicator = (activeTabIndex: number) => {
+    const currentTab = tabRefs.current[activeTabIndex];
     if (currentTab) {
       setIndicatorStyle({
         top: `${currentTab.offsetTop}px`,
         height: `${currentTab.offsetHeight}px`,
+        display: "block",
       });
     } else {
       setIndicatorStyle({
         top: "0px",
         height: "0px",
+        display: "none",
       });
     }
+  };
+
+  useEffect(() => {
+    const activeTabIndex = data.findIndex(
+      (tab) => location.pathname === tab.name
+    );
+    updateIndicator(activeTabIndex);
   }, [location.pathname, data]);
+
+  const handleTabClick = (index: number) => {
+    updateIndicator(index);
+  };
 
   return (
     <Fragment>
       {data && data.length > 0 ? (
         <div className="w-full max-w-4xl mx-auto flex pl-[8px]">
-          <div className="flex flex-col relative border-l border-outer-bdr-color w-full gap-[12px] my-[10px]">
+          <div className="flex flex-col relative border-l border-outer-bdr-color w-full gap-[16px] my-[12px]">
             {data.map((item, index) => {
               const { id, title, name } = item;
-              const isActive = location.pathname === name;
 
               return (
                 <NavLink
                   key={id}
-                  to={name || "#"}
+                  to={name}
                   ref={(el) => (tabRefs.current[index] = el)}
-                  className={`flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-lg text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color ${
-                    isActive ? "text-primary-btn" : "hover:text-light"
-                  } transition-all duration-300`}
+                  onClick={() => handleTabClick(index)}
+                  className="flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-xl text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color hover:text-light transition-all duration-300"
                 >
                   {title}
                 </NavLink>
               );
             })}
-            {/* Aktiv tab indikatori */}
+            {/* Active tab indicator */}
             <span
               className="absolute left-0 w-1 bg-primary-btn transition-all duration-300 rounded-r-md"
               style={indicatorStyle}

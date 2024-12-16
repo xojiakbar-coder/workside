@@ -18,7 +18,9 @@ export interface SidebarItemType {
   children: SidebarChildrenItemType[];
 }
 
-const sidebar_items: SidebarItemType[] = [
+export type OpenState = (number | string)[];
+
+export const sidebar_items: SidebarItemType[] = [
   {
     id: 1,
     title: "Hisobotlar",
@@ -50,7 +52,7 @@ const sidebar_items: SidebarItemType[] = [
   {
     id: 5,
     title: "Xodimlar",
-    name: "/umumiy-korinish/xodimlar",
+    name: "/umumiy-korinish/umumiy-xodimlar",
     element: GenericElement,
     children: [
       {
@@ -164,5 +166,3 @@ const sidebar_items: SidebarItemType[] = [
     ],
   },
 ];
-
-export default sidebar_items;

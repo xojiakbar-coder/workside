@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 import navbar_items from "../utils/data/navbar";
 import SignIn from "../components/SignIn/SignIn";
 import SignUp from "../components/SignUp/SignUp";
-import sidebar_items from "../utils/data/sidebar";
+import { sidebar_items } from "../utils/data/sidebar";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 const Root: FC = () => {
@@ -53,7 +53,7 @@ const Root: FC = () => {
           return <Route key={id} path={name} element={<Element />} />;
         })}
       </Route>
-      
+
       {/* Routing for Sidebar children items */}
       <Route element={<Sidebar />}>
         {sidebar_items.map((item) => {

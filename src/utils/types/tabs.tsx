@@ -1,6 +1,6 @@
 export interface TabDataType {
   id: number | string;
-  name?: string;
+  name: string;
   title: string;
 }
 
