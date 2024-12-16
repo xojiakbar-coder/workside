@@ -54,7 +54,10 @@ const Tabs: FC<TabsProps> = ({ data }) => {
                   to={name}
                   ref={(el) => (tabRefs.current[index] = el)}
                   onClick={() => handleTabClick(index)}
-                  className="flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-xl text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color hover:text-light transition-all duration-300"
+                  className={`flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-xl text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-grotesk text-item-color hover:text-light transition-all duration-300 ${
+                    location.pathname === name &&
+                    "text-primary-btn bg-ghost-bg-color hover:text-primary-btn"
+                  }`}
                 >
                   {title}
                 </NavLink>
