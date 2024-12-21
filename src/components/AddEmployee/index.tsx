@@ -3,7 +3,7 @@ import { Container, Title } from "../Generic";
 const AddNewEmployee = () => {
   return (
     <Container full={true} section={true} className="border">
-      <Title type="section">Yangi xodim qo'shish</Title>
+      <Title type="section" className="font-jost">Yangi xodim qo'shish</Title>
     </Container>
   );
 };

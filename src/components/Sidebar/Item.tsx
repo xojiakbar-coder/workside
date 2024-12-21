@@ -37,7 +37,7 @@ const SidebarContent = () => {
     }
   };
 
-  const generalSidebarItemStyle = `flex items-center group p-2 rounded-xl text-left cursor-pointer group text-item-color hover:text-light transition-all ease-out duration-[115ms] h-[47px] min-h-[47px] px-[14px] font-grotesk hover:bg-ghost-bg-color`;
+  const generalSidebarItemStyle = `flex items-center group p-2 rounded-xl text-left cursor-pointer group text-item-color hover:text-light transition-all ease-out duration-[115ms] h-[47px] min-h-[47px] px-[14px] font-mont font-medium hover:bg-ghost-bg-color`;
 
   return (
     <div className="w-full h-full flex flex-col gap-[12px] overflow-y-auto p-[16px] select-none">
@@ -53,9 +53,8 @@ const SidebarContent = () => {
                 <div
                   onClick={(e) => onClickParent(item, e)}
                   className={`${generalSidebarItemStyle} flex items-center justify-between ${
-                    (activePath &&
-                      "bg-ghost-bg-color text-primary-btn hover:text-primary-btn") ||
-                    (active && "text-primary-btn hover:text-primary-btn")
+                    activePath &&
+                    "bg-ghost-bg-color text-primary-btn hover:text-primary-btn"
                   }`}
                 >
                   <p className="text-inherit">{item.title}</p>

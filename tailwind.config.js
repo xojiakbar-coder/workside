@@ -21,6 +21,7 @@ module.exports = {
         "item-color": "var(--itemColor)",
         "gray-color": "var(--grayColor)",
         "black-color": "var(--black-color)",
+        "hover-danger": "var(--hoverDanger)",
         "dark-bg-color": "var(--darkBgColor)",
         "body-bg-color": "var(--bodyBgColor)",
         "ghost-bg-color": "var(--ghostBgColor)",
@@ -29,9 +30,8 @@ module.exports = {
         "outer-bdr-color": "var(--outer-border-color)",
       },
       fontFamily: {
-        jet: "var(--jet)",
         mont: "var(--mont)",
-        grotesk: "var(--grotesk)",
+        jost: "var(--jost)",
       },
       boxShadow: {
         "login-shadow": "var(--loginShadow)",

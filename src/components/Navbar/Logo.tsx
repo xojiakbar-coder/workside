@@ -21,14 +21,14 @@ const Logo: FC<LogoItemType> = ({ bg, logo = true }) => {
 
   return (
     <div
-      className={`flex justify-center gap-[2px] uppercase font-mont my-[12px] font-bold ${textSize} text-light ${
+      className={`flex justify-center items-center gap-[3px] uppercase font-mont font-extrabold ${textSize} text-light ${
         logo ? "cursor-pointer select-none" : ""
       }`}
       onClick={logo ? handleNavigate : undefined}
     >
       UZREPO
       <mark
-        className={`text-light font-bold ${bgColor} ${textSize} rounded-md ${
+        className={`flex items-center justify-center text-light font-extrabold ${bgColor} ${textSize} rounded-md ${
           !logo && "shadow-lg shadow-ghost-bg-color"
         } px-[3px]`}
       >

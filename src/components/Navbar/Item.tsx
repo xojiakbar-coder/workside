@@ -11,7 +11,7 @@ const Item: FC = () => {
 
           const activeClass = "text-primary-btn";
           const defaultClass =
-            "text-[14px] text-item-color font-mont cursor-pointer transition-all ease-out duration-[115ms] py-[6px] px-[9px] rounded-[4px] capitalize";
+            "text-[14px] text-item-color font-mont font-medium cursor-pointer transition-all ease-out duration-[115ms] tracking-[.5px] py-[6px] px-[9px] rounded-[4px]";
 
           return (
             <NavLink

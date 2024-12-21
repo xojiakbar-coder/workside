@@ -32,7 +32,7 @@ const GenericTable: FC<TableType> = ({
         <thead className="h-[100px] font-mont w-full px-[10px]">
           <tr>
             {checking && (
-              <th className="px-5 py-2 border-b border-ghost-bg-color rounded-tl-md bg-ghost-bg-color">
+              <th className="px-5 py-2 text-center rounded-tl-md bg-ghost-bg-color">
                 <Checkbox
                   size="lg"
                   variant="solid"
@@ -43,25 +43,25 @@ const GenericTable: FC<TableType> = ({
                       : selection.length === table_body.length
                   }
                   onCheckedChange={handleHeaderCheckboxChange}
-                  className={`border ${
+                  className={`border ml-[12px] ${
                     !hasSelection ? "border-subtitle-color" : "border-light"
                   } rounded-md bg-body-bg-color`}
                 />
               </th>
             )}
-            <th className="px-5 py-2 text-center font-grotesk border-b border-ghost-bg-color capitalize bg-ghost-bg-color">
-              {tableItems?.length || <p>&#8470;</p>}
+            <th className="px-5 py-2 text-center font-grotesk capitalize bg-ghost-bg-color font-jost">
+              &#8470;
             </th>
             {table_head.map((item) => (
               <th
                 key={item.id}
-                className="px-5 py-2 text-center font-mont border-b border-ghost-bg-color capitalize font-semibold bg-ghost-bg-color"
+                className="px-5 py-2 text-left font-grotesk capitalize font-semibold bg-ghost-bg-color"
               >
                 {item.title}
               </th>
             ))}
             {deleteAction && (
-              <th className="border-b border-ghost-bg-color text-right px-3 py-2 font-mont font-semibold rounded-tr-md bg-ghost-bg-color">
+              <th className="text-right px-5 py-2 font-grotesk font-semibold rounded-tr-md bg-ghost-bg-color">
                 <div className="flex w-full justify-end items-center gap-[20px] relative">
                   <Text
                     className={`absolute
@@ -77,7 +77,7 @@ const GenericTable: FC<TableType> = ({
                   <Button
                     type="danger"
                     onClick={() => setItems([])}
-                    className={`hover:bg-black-color ease-in-out-expo ${
+                    className={`${
                       selection.length === table_body.length
                         ? "opacity-100"
                         : "opacity-0 pointer-events-none"

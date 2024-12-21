@@ -1,9 +1,8 @@
-import { Button } from "..";
-import Dialog from "../Dialog";
+import { ActionBar, Button } from "..";
 import { Checkbox } from "../../ui/checkbox";
+import { TbodyProps } from "../../../utils/types/table";
 import { FC, Fragment, useContext, useState, memo } from "react";
 import { StaffListDataTable } from "../../../context/StaffListDataTable";
-import { TbodyProps } from "../../../utils/types/table";
 
 const Tbody: FC<TbodyProps> = ({
   checking,
@@ -13,23 +12,29 @@ const Tbody: FC<TbodyProps> = ({
   setSelection,
 }) => {
   const { setItems } = useContext(StaffListDataTable);
+  const [itemCheckbox, setItemCheckbox] = useState<boolean>(false);
   const [tableItems, setTableItems] = useState(table_body);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
+
+  const lastRowClass = "border-b";
+  const borderClass = "border-ghost-bg-color";
+  const cellClass = `pl-5 pr-3 py-3 text-[14px] ${borderClass} font-mont`;
+  const textCenterClass = `${cellClass} text-center`;
 
   const onDeleteItem = (id: number) => {
-    if (selection.indexOf(id) !== -1) {
+    if (selectedItem === id) {
       const updatedItems = tableItems.filter((item) => item.id !== id);
+      setSelection((prev) => prev.filter((selectedId) => selectedId !== id));
+      setItemCheckbox(true);
       setTableItems(updatedItems);
       setItems(updatedItems);
-      setSelection((prevSelection) =>
-        prevSelection.filter((selectedId) => selectedId !== id)
-      );
-    } else {
-      setIsDialogOpen(true);
     }
   };
 
   const handleCheckboxChange = (checked: boolean, id: number) => {
+    if (checked) {
+      setSelectedItem(id);
+    }
     setSelection((prev) =>
       checked ? [...prev, id] : prev.filter((selectedId) => selectedId !== id)
     );
@@ -40,15 +45,14 @@ const Tbody: FC<TbodyProps> = ({
       <tbody>
         {tableItems.map((item, index) => {
           const { id, username, name, email, phone, job, salary } = item;
-          const lastIndex = tableItems.length - 1;
-          const isChecked = selection.indexOf(id) !== -1;
+          const isChecked = selection.includes(id);
 
           return (
             <tr key={id} className="rounded-lg">
               {checking && (
                 <td
-                  className={`border-r border-ghost-bg-color px-3 py-3 text-center ${
-                    index !== lastIndex && "border-b"
+                  className={`${textCenterClass} ${
+                    index !== tableItems.length - 1 ? lastRowClass : ""
                   }`}
                 >
                   <Checkbox
@@ -59,51 +63,47 @@ const Tbody: FC<TbodyProps> = ({
                     onCheckedChange={(changes) =>
                       handleCheckboxChange(!!changes.checked, id)
                     }
-                    className={`border ${
+                    className={`border rounded-md ${
                       isChecked ? "border-light" : "border-subtitle-color"
-                    } rounded-md`}
+                    }`}
                   />
                 </td>
               )}
               <td
-                className={`border-r text-center font-jet text-[14px] capitalize border-ghost-bg-color pl-5 pr-3 py-3 ${
-                  index !== lastIndex && "border-b"
+                className={`${textCenterClass} ${
+                  index !== tableItems.length - 1 ? lastRowClass : ""
                 }`}
               >
                 {index + 1 || "—"}
               </td>
               <td
-                className={`border-r font-jet text-[14px] capitalize border-ghost-bg-color pl-5 pr-3 py-3 ${
-                  index !== lastIndex && "border-b"
+                className={`${cellClass} capitalize ${
+                  index !== tableItems.length - 1 ? lastRowClass : ""
                 }`}
               >
                 {name || username || "—"}
               </td>
               <td
-                className={`border-r font-mont capitalize border-ghost-bg-color pl-5 pr-3 font-jet text-[14px] py-3 ${
-                  index !== lastIndex && "border-b"
+                className={`${cellClass} capitalize font-jet ${
+                  index !== tableItems.length - 1 ? lastRowClass : ""
                 }`}
               >
                 {job || email || "—"}
               </td>
               <td
-                className={`border-r border-ghost-bg-color font-jet text-[14px] font-mont pl-5 pr-3 py-3 text-[#16a34a] ${
-                  index !== lastIndex && "border-b"
+                className={`${cellClass} text-[#3a86ff] ${
+                  index !== tableItems.length - 1 ? lastRowClass : ""
                 }`}
               >
                 {phone || `$${salary}` || "—"}
               </td>
               {deleteAction && (
                 <td
-                  className={`flex justify-end border-ghost-bg-color text-[14px] pl-5 pr-3 py-3 text-right ${
-                    index !== lastIndex && "border-b"
+                  className={`flex justify-end ${cellClass} text-right ${
+                    index !== tableItems.length - 1 ? lastRowClass : ""
                   }`}
                 >
-                  <Button
-                    type="danger"
-                    onClick={() => onDeleteItem(id)}
-                    className="hover:bg-ghost-bg-color"
-                  >
+                  <Button type="danger" onClick={() => onDeleteItem(id)}>
                     o'chirish
                   </Button>
                 </td>
@@ -112,13 +112,7 @@ const Tbody: FC<TbodyProps> = ({
           );
         })}
       </tbody>
-      <Dialog
-        confirmText="Tushunarli"
-        title="Xodim o'chirilmadi"
-        isOpenDialog={isDialogOpen}
-        isCloseDialog={(details) => setIsDialogOpen(details.open)}
-        description="Iltimos, o'chirmoqchi bo'lgan xodimingizni avval tanlang va qayta urinib ko'ring"
-      />
+      <ActionBar open={itemCheckbox} content={`${selectedItem} tanlandi`} />
     </Fragment>
   );
 };

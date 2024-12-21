@@ -1,4 +1,4 @@
-@import url(./components/styles/variables.css);
+@import url(./styles/variables.css);
 
 @tailwind base;
 @tailwind components;
@@ -7,6 +7,7 @@
 * {
   margin: 0;
   padding: 0;
+  outline: none;
   scrollbar-width: thin;
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -20,7 +21,7 @@
 body {
   margin: 0;
   color: var(--light);
-  font-family: var(--grotesk);
+  font-family: var(--mont);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   background-color: var(--bodyBgColor);
