@@ -13,6 +13,7 @@ interface GenericButtonType {
     | "outline"
     | "surface"
     | "ghost"
+    | "primary"
     | "danger"
     | "success"
     | "warning"
@@ -21,6 +22,8 @@ interface GenericButtonType {
 
 const getButtonStyle = (type: GenericButtonType["type"]) => {
   switch (type) {
+    case "primary":
+      return "bg-primary-btn text-light rounded-[14px] font-medium";
     case "outline":
       return "bg-transparent hover:bg-ghost-bg-color border-outer-bdr-color text-light border-[2px] rounded-[14px] font-medium";
     case "surface":

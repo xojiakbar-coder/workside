@@ -1,4 +1,5 @@
 import { FC } from "react";
+import logoSvg from "../../assets/icons/logo.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 
 interface LogoItemType {
@@ -6,34 +7,28 @@ interface LogoItemType {
   logo?: boolean;
 }
 
-const Logo: FC<LogoItemType> = ({ bg, logo = true }) => {
+const Logo: FC<LogoItemType> = ({ logo = true }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    if (location.pathname !== "/") {
-      navigate("/");
-    }
+  const handleNavigate = (logo: boolean) => {
+    if (location.pathname !== "/" && logo) navigate("/");
   };
 
-  const bgColor = bg ? `bg-${bg}` : "bg-primary-btn";
-  const textSize = !logo ? `text-[44px]` : "text-[22px]";
+  const logoSize = !logo ? `w-[380px]` : "w-[180px]";
 
   return (
     <div
-      className={`flex justify-center items-center gap-[3px] uppercase font-mont font-extrabold ${textSize} text-light ${
-        logo ? "cursor-pointer select-none" : ""
+      onClick={() => handleNavigate(logo)}
+      className={`flex justify-center items-center select-none w-max  ${
+        logo && "cursor-pointer"
       }`}
-      onClick={logo ? handleNavigate : undefined}
     >
-      UZREPO
-      <mark
-        className={`flex items-center justify-center text-light font-extrabold ${bgColor} ${textSize} rounded-md ${
-          !logo && "shadow-lg shadow-ghost-bg-color"
-        } px-[3px]`}
-      >
-        DASH
-      </mark>
+      <img
+        src={logoSvg}
+        className={`${logoSize}`}
+        alt="uzrepodash logo not found"
+      />
     </div>
   );
 };

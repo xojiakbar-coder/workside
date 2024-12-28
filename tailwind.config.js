@@ -14,19 +14,24 @@ module.exports = {
       transitionTimingFunction: {
         "in-out-expo": "cubic-bezier(.22,.68,0,1.71)",
       },
-
+      height: {
+        "section-h": "var(--height)",
+      },
+      padding: {
+        "main-padding": "var(--padding)",
+      },
       colors: {
         light: "var(--light)",
         danger: "var(--danger)",
-        "item-color": "var(--itemColor)",
-        "gray-color": "var(--grayColor)",
+        "item-color": "var(--item-color)",
+        "gray-color": "var(--gray-color)",
         "black-color": "var(--black-color)",
-        "hover-danger": "var(--hoverDanger)",
-        "dark-bg-color": "var(--darkBgColor)",
-        "body-bg-color": "var(--bodyBgColor)",
-        "ghost-bg-color": "var(--ghostBgColor)",
-        "subtitle-color": "var(--subtitleColor)",
-        "primary-btn": "var(--primaryBtnBgColor)",
+        "hover-danger": "var(--hover-danger)",
+        "dark-bg-color": "var(--dark-bg-color)",
+        "body-bg-color": "var(--body-bg-color)",
+        "subtitle-color": "var(--subtitle-color)",
+        "ghost-bg-color": "var(--ghost-bg-color)",
+        "primary-btn": "var(--primary-btn-bg-color)",
         "outer-bdr-color": "var(--outer-border-color)",
       },
       fontFamily: {
@@ -34,12 +39,11 @@ module.exports = {
         jost: "var(--jost)",
       },
       boxShadow: {
-        "login-shadow": "var(--loginShadow)",
-        "light-shadow": "var(--lightShadow)",
-        "navbar-shadow": "var(--navbarShadow)",
+        "login-shadow": "var(--login-shadow)",
+        "light-shadow": "var(--light-shadow)",
+        "navbar-shadow": "var(--navbar-shadow)",
       },
       backgroundImage: {
-        "file-image": `url("./assets/icons/file.svg")`,
         "sign-in": `url("./assets/images/signin-bg.png")`,
       },
     },

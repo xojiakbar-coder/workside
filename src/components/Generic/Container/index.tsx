@@ -1,25 +1,55 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { Container } from "@chakra-ui/react";
-import ChildrenType from "../../../utils/types/general";
 
 interface GenericContainerType {
-  full: boolean;
-  section: boolean;
-  className: string;
-  children: ChildrenType;
+  gap?: number;
+  full?: boolean;
+  section?: boolean;
+  className?: string;
+  children: ReactNode;
+  flexDir?: "row" | "col";
+  type: "default" | "section" | "wrapper" | "center" | "full-center" | "box";
 }
 
+const getContainerStyle = (type: GenericContainerType["type"]) => {
+  switch (type) {
+    case "wrapper":
+      return `h-section-h md:px-main-padding`;
+    case "section":
+      return `h-section-h flex-col md:px-main-padding`;
+    case "center":
+      return "h-section-h justify-center";
+    case "full-center":
+      return "justify-center items-center";
+    case "box":
+      return "h-section-h justify-center";
+    default:
+      return "border border-gray-600";
+  }
+};
+
 const GenericContainer: FC<GenericContainerType> = ({
-  children,
+  gap,
   full,
-  className,
   section,
+  children,
+  className,
+  flexDir = "row",
+  type = "default",
+  ...props
 }) => {
-  const generalSectionStyle = `flex flex-col h-[92svh] overflow-y-auto w-full pt-[25px] px-[2%] pb-[35px]`;
+  const baseStyle = `flex overflow-y-auto`;
+
   return (
     <Container
-      fluid={full}
-      className={`${section && generalSectionStyle} ${className}`}
+      fluid={true}
+      className={`${getContainerStyle(type)} ${baseStyle} flex-${flexDir} w-${
+        full ? "full" : "max"
+      } ${className}`}
+      style={{
+        gap: `${gap}px`,
+      }}
+      {...props}
     >
       {children}
     </Container>

@@ -53,8 +53,7 @@ const SidebarContent = () => {
                 <div
                   onClick={(e) => onClickParent(item, e)}
                   className={`${generalSidebarItemStyle} flex items-center justify-between ${
-                    activePath &&
-                    "bg-ghost-bg-color text-primary-btn hover:text-primary-btn"
+                    activePath && "text-primary-btn hover:text-primary-btn"
                   }`}
                 >
                   <p className="text-inherit">{item.title}</p>
@@ -74,7 +73,7 @@ const SidebarContent = () => {
               className={({ isActive }) =>
                 `${generalSidebarItemStyle} ${
                   isActive
-                    ? "text-primary-btn bg-ghost-bg-color hover:text-primary-btn"
+                    ? "text-primary-btn hover:text-primary-btn"
                     : "hover:text-light"
                 }`
               }

@@ -44,7 +44,7 @@ const Tabs: FC<TabsProps> = ({ data }) => {
     <Fragment>
       {data && data.length > 0 ? (
         <div className="w-full max-w-4xl mx-auto flex pl-[8px]">
-          <div className="flex flex-col relative border-l border-outer-bdr-color w-full gap-[16px] my-[12px]">
+          <div className="flex flex-col relative border-l border-outer-bdr-color w-full gap-[10px] my-[12px]">
             {data.map((item, index) => {
               const { id, title, name } = item;
 
@@ -56,7 +56,7 @@ const Tabs: FC<TabsProps> = ({ data }) => {
                   onClick={() => handleTabClick(index)}
                   className={`flex items-center group hover:bg-ghost-bg-color p-2 rounded-r-xl text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-mont font-medium text-item-color hover:text-light transition-all duration-300 ${
                     location.pathname === name &&
-                    "text-primary-btn bg-ghost-bg-color hover:text-primary-btn"
+                    "text-primary-btn hover:text-primary-btn"
                   }`}
                 >
                   {title}

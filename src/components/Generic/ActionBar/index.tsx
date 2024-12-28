@@ -15,9 +15,7 @@ interface ActionBarPropsType {
 const GenericActionBar: FC<ActionBarPropsType> = ({ open, content }) => {
   const [isOpen, setIsOpen] = useState(open);
 
-  useEffect(() => {
-    console.log(isOpen);
-  }, [content, isOpen]);
+  useEffect(() => {}, [content, isOpen]);
 
   return (
     <Fragment>
