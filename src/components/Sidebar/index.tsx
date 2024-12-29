@@ -12,7 +12,7 @@ const Sidebar: FC = () => {
       {/* Body */}
       <section className="flex items-center h-full">
         <aside className="h-full w-[18vw] min-w-[345px] border-r border-r-gray-color overflow-y-auto">
-          <div className="flex flex-col overflow-y-auto h-[92vh] min-h-[92vh]">
+          <div className="flex flex-col overflow-y-auto h-section-h min-h-section-h">
             <SidebarContent />
             <Logout />
           </div>

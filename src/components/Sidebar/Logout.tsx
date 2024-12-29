@@ -6,7 +6,7 @@ interface TimeType {
   status: string;
 }
 
-const Time: FC = () => {
+const LogOut: FC = () => {
   const dateData = new Date();
   const [date, setDate] = useState<TimeType>({
     hour: "",
@@ -43,7 +43,7 @@ const Time: FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center text-light bg-dark-bg-color p-[16px] border-t border-outer-bdr-color">
+    <div className="flex flex-col justify-center text-light bg-dark-bg-color border-t px-[24px] py-[18px] border-outer-bdr-color">
       <div className="font-jost text-[16px] w-max text-item-color font-medium">
         {`${date.hour}:${date.minute} ${date.status}`}
       </div>
@@ -56,4 +56,4 @@ const Time: FC = () => {
   );
 };
 
-export default Time;
+export default LogOut;

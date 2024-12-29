@@ -5,6 +5,7 @@ import { Input } from "@chakra-ui/react";
 export interface InputPropsType {
   value?: string;
   label?: string;
+  endText?: string;
   className?: string;
   required?: boolean;
   helperText?: string;
@@ -22,7 +23,12 @@ const GenericInput: FC<InputPropsType> = ({
   inputplaceHolder = "Placeholder text",
 }) => {
   return (
-    <Field label={label} required={required} helperText={helperText}>
+    <Field
+      label={label}
+      required={required}
+      helperText={helperText}
+      display={label.length > 0 ? "flex" : "none"}
+    >
       <Input
         variant={inputVariant}
         autoComplete={autoComplate}

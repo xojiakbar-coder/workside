@@ -16,7 +16,7 @@ const getContainerStyle = (type: GenericContainerType["type"]) => {
     case "wrapper":
       return `h-section-h md:px-main-padding`;
     case "section":
-      return `h-section-h flex-col md:px-main-padding`;
+      return `h-section-h flex-col md:px-[2%] pt-[25px] pb-[30px]`;
     case "center":
       return "h-section-h justify-center";
     case "full-center":
@@ -42,13 +42,11 @@ const GenericContainer: FC<GenericContainerType> = ({
 
   return (
     <Container
-      fluid={true}
+      gap={gap}
+      fluid={full}
       className={`${getContainerStyle(type)} ${baseStyle} flex-${flexDir} w-${
         full ? "full" : "max"
       } ${className}`}
-      style={{
-        gap: `${gap}px`,
-      }}
       {...props}
     >
       {children}

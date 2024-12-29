@@ -1,6 +1,4 @@
-// import { FC } from "react";
 import { Field } from "../../ui/field";
-// import { InputPropsType } from "./Input";
 import { PasswordInput } from "../../ui/password-input";
 
 const GenericPasswordInput = ({
@@ -9,11 +7,15 @@ const GenericPasswordInput = ({
   required = true,
   helperText = "",
   autoComplate = "off",
-  // inputVariant = "outline",
   inputplaceHolder = "Placeholder text",
 }) => {
   return (
-    <Field label={label} required={required} helperText={helperText}>
+    <Field
+      label={label}
+      required={required}
+      helperText={helperText}
+      display={label.length > 0 ? "flex" : "none"}
+    >
       <PasswordInput
         value={value}
         // variant={inputVariant}

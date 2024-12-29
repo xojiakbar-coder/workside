@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import { Table, Title } from "../Generic";
-import { Container } from "@chakra-ui/react";
+import { Container, Table, Title } from "../Generic";
 import GenericEmptyState from "../Generic/EmptyState";
 import { table_head } from "../../utils/data/staffList";
 import { StaffListDataTable } from "../../context/StaffListDataTable";
@@ -9,10 +8,7 @@ const StaffList = () => {
   const { items } = useContext(StaffListDataTable);
 
   return (
-    <Container
-      className="flex flex-col h-[92svh] overflow-y-auto w-full pt-[25px] px-[2%] pb-[35px]"
-      fluid
-    >
+    <Container full type="section">
       {items?.length > 0 && (
         <>
           <Title type="section">Xodimlar ma'lumotlari</Title>
