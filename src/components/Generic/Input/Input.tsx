@@ -2,13 +2,14 @@ import { FC } from "react";
 import { Field } from "../../ui/field";
 import { Input } from "@chakra-ui/react";
 
-export interface InputPropsType {
+export interface InputPropsType extends React.ComponentProps<typeof Input> {
   value?: string;
   label?: string;
   endText?: string;
   className?: string;
-  required?: boolean;
+  startText?: string;
   helperText?: string;
+  contentMask?: string;
   inputplaceHolder?: string;
   autoComplate?: "on" | "off";
   inputVariant: "outline" | "flushed" | "subtle" | undefined;
@@ -16,8 +17,8 @@ export interface InputPropsType {
 
 const GenericInput: FC<InputPropsType> = ({
   label = "",
-  required = true,
   helperText = "",
+  required = true,
   autoComplate = "off",
   inputVariant = "outline",
   inputplaceHolder = "Placeholder text",

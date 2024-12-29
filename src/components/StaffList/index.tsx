@@ -8,7 +8,7 @@ const StaffList = () => {
   const { items } = useContext(StaffListDataTable);
 
   return (
-    <Container full type="section">
+    <Container fluid type="section">
       {items?.length > 0 && (
         <>
           <Title type="section">Xodimlar ma'lumotlari</Title>

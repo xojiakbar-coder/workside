@@ -13,7 +13,7 @@ const Layout: FC<ChildrenPageProps> = ({ children }) => {
         <Fragment>
           <Navbar />
           <div>{children}</div>
-          {/* <div>Footer</div> */}
+          <div>Footer</div>
         </Fragment>
       ) : (
         <GenericElement />

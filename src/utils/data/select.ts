@@ -13,6 +13,23 @@ export const geneder = createListCollection<SelectItemType>({
   ],
 });
 
+export const experience = createListCollection<SelectItemType>({
+  items: [
+    { id: 1, label: "Tajriba o'tovchi", value: "internship" },
+    { id: 2, label: "1 yillik tajriba", value: "1-yil" },
+    { id: 3, label: "2 yillik tajriba", value: "2-yil" },
+    { id: 4, label: "3 yillik tajriba", value: "3-yil" },
+    { id: 5, label: "4 yillik tajriba", value: "4-yil" },
+    { id: 6, label: "5 yillik tajriba", value: "5-yil" },
+    { id: 7, label: "6 yillik tajriba", value: "6-yil" },
+    { id: 8, label: "7 yillik tajriba", value: "7-yil" },
+    { id: 9, label: "8 yillik tajriba", value: "8-yil" },
+    { id: 10, label: "9 yillik tajriba", value: "9-yil" },
+    { id: 11, label: "10 yillik tajriba", value: "10-yil" },
+    { id: 12, label: "10+ yillik tajriba", value: "10-plus" },
+  ],
+});
+
 export const regions = createListCollection<SelectItemType>({
   items: [
     { id: 2, label: "Andijon", value: "andijon" },

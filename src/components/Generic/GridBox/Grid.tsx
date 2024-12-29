@@ -1,11 +1,10 @@
 import { Grid } from "@chakra-ui/react";
 import { FC, ReactNode } from "react";
 
-interface GridBoxPropsType {
-  gap?: string;
+interface GridBoxPropsType extends React.ComponentProps<typeof Grid> {
   className?: string;
   children: ReactNode;
-  cols?: string | number;
+  cols: string | number;
   rows?: string | number;
 }
 
@@ -14,12 +13,12 @@ const GridBox: FC<GridBoxPropsType> = ({
   rows,
   children,
   className,
-  gap,
+  ...props
 }) => {
   const gridClasses = ``;
   return (
     <Grid
-      gap={gap}
+      {...props}
       templateRows={rows}
       templateColumns={cols}
       className={`${gridClasses} ${className}`}

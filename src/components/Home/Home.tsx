@@ -5,8 +5,13 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <Container full type="wrapper">
-      <Container full type="full-center" flexDir="col" className="gap-[24px]">
+    <Container fluid type="wrapper">
+      <Container
+        fluid
+        gap="gap-[24px]"
+        type="full-center"
+        flexDirection="column"
+      >
         <Logo logo={false} />
         <p className="text-[18px] text-subtitle-color text-balance text-center font-semibold w-[30%]">
           Biz bilan o'z kompaniyanigizni yoki kichikdan kattagacha bo'lgan

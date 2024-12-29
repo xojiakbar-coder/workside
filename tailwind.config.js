@@ -4,6 +4,23 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
+        typing: {
+          "0%": {
+            width: "0%",
+            visibility: "hidden",
+          },
+          "100%": {
+            width: "100%",
+          },
+        },
+        blink: {
+          "50%": {
+            borderColor: "transparent",
+          },
+          "100%": {
+            borderColor: "white",
+          },
+        },
         shine: {
           "0%": { backgroundPosition: "0" },
           "60%": { backgroundPosition: "180px" },
@@ -45,6 +62,10 @@ module.exports = {
       },
       backgroundImage: {
         "sign-in": `url("./assets/images/signin-bg.png")`,
+        "not-found": `url("./assets/images/not-found.png")`,
+      },
+      animation: {
+        typing: "typing 2s steps(20) infinite alternate, blink .7s infinite",
       },
     },
   },

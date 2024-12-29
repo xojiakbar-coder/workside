@@ -58,7 +58,7 @@ export const SelectContent = React.forwardRef<
         <ChakraSelect.Content
           {...rest}
           ref={ref}
-          className="flex gap-[6px] justify-start w-full px-[12px] bg-[#1d1e27] py-[14px] rounded-md h-max min-h-[150px]"
+          className="flex gap-[6px] justify-start w-full px-[12px] bg-[#1d1e27] py-[14px] rounded-md h-max min-h-[150px] max-h-[250px]"
         />
       </ChakraSelect.Positioner>
     </Portal>

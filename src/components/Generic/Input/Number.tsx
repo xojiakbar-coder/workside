@@ -6,10 +6,14 @@ import { Group, Input, InputAddon } from "@chakra-ui/react";
 
 const GenericNumberInput: FC<InputPropsType> = ({
   label = "",
-  required = true,
+  startText = "",
   helperText = "",
+  required = true,
+  contentMask = "",
   autoComplate = "off",
+  inputplaceHolder = "",
   inputVariant = "outline",
+  ...props
 }) => {
   return (
     <Field
@@ -19,12 +23,15 @@ const GenericNumberInput: FC<InputPropsType> = ({
       display={label.length > 0 ? "flex" : "none"}
     >
       <Group attached className="flex rounded-md h-[55px] w-full">
-        <InputAddon className="pl-[12px]">+998</InputAddon>
+        {startText && (
+          <InputAddon className="pl-[12px]">{startText}</InputAddon>
+        )}
         <Input
+          {...props}
           variant={inputVariant}
           autoComplete={autoComplate}
-          placeholder="(99) 999-99-99"
-          ref={withMask("(99) 999-99-99")}
+          placeholder={inputplaceHolder}
+          ref={(contentMask.length > 0 && withMask(contentMask)) || null}
           className="text-[16px] placeholder:text-[16px] h-full outline-none px-[10px]"
         />
       </Group>

@@ -7,6 +7,7 @@ import SignIn from "../components/SignIn/SignIn";
 import SignUp from "../components/SignUp/SignUp";
 import { sidebar_items } from "../utils/data/sidebar";
 import { Navigate, Route, Routes } from "react-router-dom";
+import NotFoundPage from "../components/NotFound";
 
 const Root: FC = () => {
   return (
@@ -70,7 +71,7 @@ const Root: FC = () => {
       <Route path="/signup" element={<SignUp />} />
 
       {/* 404 NOT FOUND page */}
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

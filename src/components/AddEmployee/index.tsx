@@ -1,4 +1,8 @@
-import defaultSelectData, { regions, geneder } from "../../utils/data/select";
+import defaultSelectData, {
+  regions,
+  geneder,
+  experience,
+} from "../../utils/data/select";
 import {
   Container,
   GridBox,
@@ -11,9 +15,9 @@ import {
 
 const AddNewEmployee = () => {
   return (
-    <Container full type="section">
+    <Container fluid type="section">
       <Title type="section">Yangi xodim qo'shish</Title>
-      <GridBox cols="1fr 1fr" gap={"32px"}>
+      <GridBox cols="1fr 1fr" gapX={"30px"} gapY={"38px"}>
         <Input
           label="Xodim ismi"
           inputVariant="subtle"
@@ -30,24 +34,44 @@ const AddNewEmployee = () => {
           inputplaceHolder="example@gmail.com"
           label="Xodimnning email pochta manzili"
         />
-        <NumberInput inputVariant="subtle" label="Xodim aloqa raqami" />
+        <NumberInput
+          maxLength={9}
+          startText="+998"
+          inputVariant="subtle"
+          label="Xodim aloqa raqami"
+          contentMask="(99) 999-99-99"
+          inputplaceHolder="(99) 999-99-99"
+        />
+        <NumberInput
+          maxLength={7}
+          required={false}
+          inputVariant="subtle"
+          inputplaceHolder="ADXXXXXXX"
+          label="Xodim Passport ID raqami"
+        />
         <Select
           required={true}
+          placeholder="Tanlash"
           data={defaultSelectData}
-          placeholder="UI/UX designer"
           label="Xodim kasbini tanlang"
         />
         <Select
           data={geneder}
           required={true}
-          placeholder="Erkak"
+          placeholder="Tanlash"
           label="Jinsni tanlang"
         />
         <Select
           data={regions}
           required={true}
+          placeholder="Tanlash"
           label="Regions tanlang"
-          placeholder="Toshkent"
+        />
+        <Select
+          required={true}
+          data={experience}
+          placeholder="Tanlash"
+          label="Xodimning tajriba ko'rsatkichi"
         />
       </GridBox>
     </Container>
