@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { Container, Table, Title } from "../Generic";
 import GenericEmptyState from "../Generic/EmptyState";
 import { table_head } from "../../utils/data/staffList";
-import { StaffListDataTable } from "../../context/StaffListDataTable";
+import { UserDataFetchContext } from "../../context/UserDataFetch/UserDataFetchContext";
 
 const StaffList = () => {
-  const { items } = useContext(StaffListDataTable);
+  const { items } = useContext(UserDataFetchContext);
 
   return (
     <Container fluid type="section">

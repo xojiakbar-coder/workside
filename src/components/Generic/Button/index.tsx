@@ -2,11 +2,12 @@ import { FC, ReactNode } from "react";
 import { Button } from "@chakra-ui/react";
 
 interface GenericButtonType {
-  children: string | ReactNode;
   className?: string;
+  disabled?: boolean;
   onClick?: () => void;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
+  children: string | ReactNode;
   type?:
     | "solid"
     | "subtle"
@@ -20,7 +21,7 @@ interface GenericButtonType {
     | "info";
 }
 
-const getButtonStyle = (type: GenericButtonType["type"]) => {
+const getButtonStyle = (type: GenericButtonType["type"], disabled = false) => {
   switch (type) {
     case "primary":
       return "bg-primary-btn text-light rounded-[14px]";
@@ -29,7 +30,9 @@ const getButtonStyle = (type: GenericButtonType["type"]) => {
     case "surface":
       return "bg-ghost-bg-color hover:bg-outer-bdr-color text-light border-[2px] rounded-[14px] border-outer-bdr-color";
     case "solid":
-      return "bg-light hover:bg-light text-body-bg-color rounded-[14px]";
+      return `bg-light hover:bg-light text-body-bg-color rounded-[14px] ${
+        disabled && "bg-[#b1b0b0]"
+      }`;
     case "ghost":
       return "bg-transparent hover:bg-ghost-bg-color text-light rounded-[14px]";
     case "danger":
@@ -40,15 +43,15 @@ const getButtonStyle = (type: GenericButtonType["type"]) => {
 };
 
 const GenericButton: FC<GenericButtonType> = ({
+  type,
+  onClick,
   children,
   leftIcon,
   rightIcon,
-  type,
-  className = "flex items-center gap-[12px]",
-  onClick,
+  className,
   ...props
 }) => {
-  const generalStyle = `flex min-w-max min-h-max items-center font-mont xl:text-[16px] text-[14px] px-[20px] py-[28px] text-center outline-none transition-all ease-in-out duration-[240ms] select-none cursor-pointer`;
+  const generalStyle = `flex items-center gap-[12px] min-w-max min-h-max font-mont xl:text-[16px] text-[14px] px-[20px] py-[28px] text-center outline-none transition-all ease-in-out duration-[240ms] select-none cursor-pointer`;
 
   return (
     <Button

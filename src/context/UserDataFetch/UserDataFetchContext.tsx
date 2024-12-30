@@ -1,20 +1,20 @@
-import BASE_URL from "../config/baseUrl";
-import { users_url } from "../config/endpoints";
-import { TableBodyType } from "../utils/types/table";
-import { OnlyChildren } from "../utils/types/general";
+import BASE_URL from "../../config/baseUrl";
+import { users_url } from "../../config/endpoints";
+import { TableBodyType } from "../../utils/types/table";
+import { OnlyChildren } from "../../utils/types/general";
 import { createContext, FC, useEffect, useState } from "react";
 
-type StaffListContextType = {
+type UserDataFetchType = {
   items: TableBodyType[] | [];
   setItems: (items: TableBodyType[] | []) => void;
 };
 
-export const StaffListDataTable = createContext<StaffListContextType>({
+export const UserDataFetchContext = createContext<UserDataFetchType>({
   items: [],
   setItems: () => {},
 });
 
-const StaffListProvider: FC<OnlyChildren> = ({ children }) => {
+export const UserDataFetchProvider: FC<OnlyChildren> = ({ children }) => {
   const [items, setItems] = useState<TableBodyType[] | []>([]);
 
   const fetchListData = async () => {
@@ -32,10 +32,8 @@ const StaffListProvider: FC<OnlyChildren> = ({ children }) => {
   }, []);
 
   return (
-    <StaffListDataTable.Provider value={{ items, setItems }}>
+    <UserDataFetchContext.Provider value={{ items, setItems }}>
       {children}
-    </StaffListDataTable.Provider>
+    </UserDataFetchContext.Provider>
   );
 };
-
-export default StaffListProvider;

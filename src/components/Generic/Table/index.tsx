@@ -4,7 +4,7 @@ import { Text } from "@chakra-ui/react";
 import { Checkbox } from "../../ui/checkbox";
 import { TableType } from "../../../utils/types/table";
 import { FC, useContext, useEffect, useState } from "react";
-import { StaffListDataTable } from "../../../context/StaffListDataTable";
+import { UserDataFetchContext } from "../../../context/UserDataFetch/UserDataFetchContext";
 
 const GenericTable: FC<TableType> = ({
   checking,
@@ -12,7 +12,7 @@ const GenericTable: FC<TableType> = ({
   table_head,
   deleteAction,
 }) => {
-  const { setItems } = useContext(StaffListDataTable);
+  const { setItems } = useContext(UserDataFetchContext);
   const [tableItems, setTableItems] = useState(table_body);
   const [selection, setSelection] = useState<number[]>([]);
   const hasSelection = selection.length > 0;

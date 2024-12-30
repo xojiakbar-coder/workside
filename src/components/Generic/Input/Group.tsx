@@ -5,6 +5,9 @@ import { InputGroup } from "../../ui/input-group";
 import { Group, Input, Kbd } from "@chakra-ui/react";
 
 const GenericGrupInput: FC<InputPropsType> = ({
+  invalid,
+  register,
+  errorText,
   label = "",
   endText = "",
   required = true,
@@ -16,7 +19,9 @@ const GenericGrupInput: FC<InputPropsType> = ({
   return (
     <Field
       label={label}
+      invalid={invalid}
       required={required}
+      errorText={errorText}
       helperText={helperText}
       display={label.length > 0 ? "flex" : "none"}
     >
@@ -35,6 +40,7 @@ const GenericGrupInput: FC<InputPropsType> = ({
             autoComplete={autoComplate}
             placeholder={inputplaceHolder}
             className="outline-none rounded-md px-[10px] h-[55px] text-[16px] placeholder:text-[16px]"
+            {...register}
           />
         </InputGroup>
       </Group>

@@ -7,7 +7,8 @@
   --height: 92dvh;
 
   /* light color */
-  --light: #ffffffff;
+  --light: #ffff;
+  /* --light: #c7c2c2; */
   /* button bg colors */
   --primary-btn-bg-color: #3700ff;
 

@@ -1,5 +1,5 @@
-import { Grid } from "@chakra-ui/react";
 import { FC, ReactNode } from "react";
+import { Grid } from "@chakra-ui/react";
 
 interface GridBoxPropsType extends React.ComponentProps<typeof Grid> {
   className?: string;

@@ -7,16 +7,16 @@ const NotFoundPage = () => {
 
   return (
     <Container
-      full
-      flexDirection="col"
+      fluid
       type="wrapper"
+      flexDirection="column"
       className="justify-center items-center h-screen min-h-screen w-full bg-not-found bg-cover bg-center bg-no-repeat"
     >
       <Container
-        full
+        fluid
         gap={10}
-        flexDirection="col"
         type="wrapper"
+        flexDirection="column"
         className="w-full h-full justify-center items-center h-screen min-h-screen overflow-hidden"
       >
         <Title type="danger-title" className="text-center w-full font-mont">

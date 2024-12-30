@@ -6,12 +6,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <Container fluid type="wrapper">
-      <Container
-        fluid
-        gap="gap-[24px]"
-        type="full-center"
-        flexDirection="column"
-      >
+      <Container fluid gap="24px" type="full-center" flexDirection="column">
         <Logo logo={false} />
         <p className="text-[18px] text-subtitle-color text-balance text-center font-semibold w-[30%]">
           Biz bilan o'z kompaniyanigizni yoki kichikdan kattagacha bo'lgan

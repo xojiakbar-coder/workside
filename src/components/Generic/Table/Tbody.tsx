@@ -2,7 +2,7 @@ import { ActionBar, Button } from "..";
 import { Checkbox } from "../../ui/checkbox";
 import { TbodyProps } from "../../../utils/types/table";
 import { FC, Fragment, useContext, useState, memo } from "react";
-import { StaffListDataTable } from "../../../context/StaffListDataTable";
+import { UserDataFetchContext } from "../../../context/UserDataFetch/UserDataFetchContext";
 
 const Tbody: FC<TbodyProps> = ({
   checking,
@@ -11,7 +11,7 @@ const Tbody: FC<TbodyProps> = ({
   selection,
   setSelection,
 }) => {
-  const { setItems } = useContext(StaffListDataTable);
+  const { setItems } = useContext(UserDataFetchContext);
   const [itemCheckbox, setItemCheckbox] = useState<boolean>(false);
   const [tableItems, setTableItems] = useState(table_body);
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
