@@ -1,14 +1,14 @@
 import { Button } from "..";
-import { FC, useContext, useState } from "react";
+import { FC, useContext } from "react";
+import { Table } from "@chakra-ui/react";
 import { Checkbox } from "../../ui/checkbox";
-import { Table, Text } from "@chakra-ui/react";
 import { TableBodyType, TableHeadType } from "../../../utils/types/table";
-import {
-  ActionBarRoot,
-  ActionBarContent,
-  ActionBarSeparator,
-  ActionBarSelectionTrigger,
-} from "../../ui/action-bar";
+// import {
+//   ActionBarRoot,
+//   ActionBarContent,
+//   ActionBarSeparator,
+//   ActionBarSelectionTrigger,
+// } from "../../ui/action-bar";
 import { TableContext } from "../../../context/TableContext/TableContext";
 
 interface TablePropsType {
@@ -17,11 +17,11 @@ interface TablePropsType {
 }
 
 const GenericTable: FC<TablePropsType> = ({ table_head, table_body }) => {
-  const { list, dispatch } = useContext(TableContext);
-  const [selection, setSelection] = useState<string[]>([]);
+  const { dispatch } = useContext(TableContext);
+  // const [selection, setSelection] = useState<string[]>([]);
 
-  const hasSelection = selection.length > 0;
-  const indeterminate = hasSelection && selection.length < table_body.length;
+  // const hasSelection = selection.length > 0;
+  // const indeterminate = hasSelection && selection.length < table_body.length;
 
   const rows = table_body.map((item, index) => (
     <Table.Row
@@ -66,7 +66,7 @@ const GenericTable: FC<TablePropsType> = ({ table_head, table_body }) => {
               <Checkbox
                 top="1"
                 className="border border-subtitle-color rounded-[6px]"
-                checked={indeterminate ? "indeterminate" : selection.length > 0}
+                // checked={indeterminate ? "indeterminate" : selection.length > 0}
                 // onCheckedChange={(changes) => {
                 //   setSelection(
                 //     changes.checked ? table_body.map((item) => item.name) : []
@@ -89,7 +89,7 @@ const GenericTable: FC<TablePropsType> = ({ table_head, table_body }) => {
                 );
               })}
             <Table.ColumnHeader className="flex justify-end w-full items-center relative px-[20px] h-[90px]">
-              <Text
+              {/* <Text
                 className={`absolute text-[14px] leading-[20px] font-[500] font-mont
                   ${
                     selection.length !== table_body.length
@@ -99,17 +99,17 @@ const GenericTable: FC<TablePropsType> = ({ table_head, table_body }) => {
                       `}
               >
                 Xodimni o'chirish
-              </Text>
+              </Text> */}
               <Button
                 type="danger"
                 onClick={() =>
                   dispatch({ type: "delete", items: rows, payload: 1 })
                 }
-                className={`${
-                  selection.length === table_body.length
-                    ? "opacity-100"
-                    : "opacity-0 pointer-events-none"
-                }`}
+                // className={`${
+                //   selection.length === table_body.length
+                //     ? "opacity-100"
+                //     : "opacity-0 pointer-events-none"
+                // }`}
               >
                 Hammasini o'chirish
               </Button>
@@ -119,7 +119,7 @@ const GenericTable: FC<TablePropsType> = ({ table_head, table_body }) => {
         <Table.Body>{rows}</Table.Body>
       </Table.Root>
 
-      <ActionBarRoot open={hasSelection}>
+      {/* <ActionBarRoot open={hasSelection}>
         <ActionBarContent>
           <ActionBarSelectionTrigger>
             {selection.length} selected
@@ -128,7 +128,7 @@ const GenericTable: FC<TablePropsType> = ({ table_head, table_body }) => {
           <Button type="ghost">Delete</Button>
           <Button type="ghost">Share</Button>
         </ActionBarContent>
-      </ActionBarRoot>
+      </ActionBarRoot> */}
     </>
   );
 };
