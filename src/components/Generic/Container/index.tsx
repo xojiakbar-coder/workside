@@ -24,7 +24,7 @@ const getContainerStyle = (type: GenericContainerType["type"]) => {
     case "full-center":
       return "justify-center items-center";
     case "home-section":
-      return "h-max justify-center items-center flex-col lg:px-[350px] px-main-padding";
+      return "h-max justify-center items-center flex-col lg:px-[273px] px-main-padding";
     default:
       return "border border-gray-600";
   }

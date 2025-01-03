@@ -10,9 +10,8 @@ const Home = () => {
         <Title type="title">
           Raqamli kelajak sari yana <br /> bir qadam
         </Title>
-        <p className="text-[18px] text-subtitle-color text-balance text-center font-semibold md:w-[40%] w-[70%]">
-          UZREPODASH loyihasi orqali ishlaringizni raqamlashtiring. Bu esa
-          vaqtingizni tejashni kafolatlaydi.
+        <p className="text-[18px] text-subtitle-color text-balance text-center font-semibold md:w-[100%] w-[80%]">
+          UZREPODASH loyihasi orqali ishlaringizni raqamlashtiring.
         </p>
         <div className="grid grid-cols-2 gap-[10px] mt-[10px] w-max">
           <Button
@@ -23,7 +22,7 @@ const Home = () => {
             Ishlarni boshlash
           </Button>
           <Button
-            type="primary"
+            type="surface"
             className="w-full h-[74px] font-semibold"
             onClick={() => navigate("/signin")}
           >

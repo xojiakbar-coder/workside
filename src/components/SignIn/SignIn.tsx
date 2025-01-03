@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Field } from "../ui/field";
+import { Button } from "../Generic";
 import { NavLink } from "react-router-dom";
 import { PasswordInput } from "../ui/password-input";
 import { Heading, Input } from "@chakra-ui/react";
-import { Button } from "../Generic";
 
 const SignIn = () => {
   const [value, setValue] = useState("");
@@ -22,9 +22,9 @@ const SignIn = () => {
               helperText="Enter your first name"
             >
               <Input
-                placeholder="First Name"
                 variant={"flushed"}
                 autoComplete="off"
+                placeholder="First Name"
                 className="outline-none border-b border-[#758694] rounded-sm px-[10px] h-[55px] md:text-[20px] sm:text-[16px] text-[14px]"
               />
             </Field>

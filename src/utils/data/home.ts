@@ -1,5 +1,6 @@
 import { NavbarItemType } from "./navbar";
 import Home from "../../components/Home/Home";
+import OurCase from "../../components/OurCase";
 import OurService from "../../components/OurService";
 
 export const home_sections: NavbarItemType[] = [
@@ -14,6 +15,13 @@ export const home_sections: NavbarItemType[] = [
     id: 3,
     sidebar: false,
     element: OurService,
+    path: "/bizning-xizmatlarimiz",
+    title: "Bizning Xizmatlarimiz",
+  },
+  {
+    id: 3,
+    sidebar: false,
+    element: OurCase,
     path: "/bizning-xizmatlarimiz",
     title: "Bizning Xizmatlarimiz",
   },

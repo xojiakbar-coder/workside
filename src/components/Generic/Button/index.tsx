@@ -28,7 +28,7 @@ const getButtonStyle = (type: GenericButtonType["type"], disabled = false) => {
     case "outline":
       return "bg-transparent hover:bg-ghost-bg-color border-outer-bdr-color text-light border-[2px] rounded-[14px]";
     case "surface":
-      return "bg-ghost-bg-color hover:bg-outer-bdr-color text-light border-[2px] rounded-[14px] border-outer-bdr-color";
+      return "bg-ghost-bg-color text-light rounded-[14px] border-[3px] border-ghost-bg-color";
     case "solid":
       return `bg-light hover:bg-light text-body-bg-color rounded-[14px] ${
         disabled && "bg-[#b1b0b0]"

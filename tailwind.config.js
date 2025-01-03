@@ -4,6 +4,12 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
+        marquee: {
+          to: { transform: "translateX(-50%)" },
+        },
+        marquee2: {
+          to: { transform: "translateX(50%)" },
+        },
         typing: {
           "0%": {
             width: "0%",
@@ -61,12 +67,14 @@ module.exports = {
         "navbar-shadow": "var(--navbar-shadow)",
       },
       backgroundImage: {
-        "home": `url("./assets/images/home.png")`,
+        home: `url("./assets/images/home.png")`,
         "sign-in": `url("./assets/images/signin-bg.png")`,
         "not-found": `url("./assets/images/not-found.png")`,
       },
       animation: {
         typing: "typing 2s steps(20) infinite alternate, blink .7s infinite",
+        marquee: "marquee var(--duration, 60s) linear infinite",
+        marquee2: "marquee2 var(--duration, 60s) linear infinite",
       },
     },
   },

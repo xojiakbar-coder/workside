@@ -1,6 +1,8 @@
-import { FC } from "react";
 import Logo from "./Logo";
 import Item from "./Item";
+import { FC } from "react";
+import Profiles from "./Profiles";
+import { LuX } from "react-icons/lu";
 import useLockBodyScroll from "../../hooks/useLockBodyScroll";
 
 interface DrawerPropsType {
@@ -12,7 +14,7 @@ const Drawer: FC<DrawerPropsType> = ({ isOpen, onClose }) => {
   useLockBodyScroll(isOpen);
   return (
     <div
-      className={`fixed top-0 w-full h-[100dvh] min-h-[100dvh] flex flex-col justify-between backdrop-blur-[20px] bg-[#09090bf5] transform transition duration-[370ms] ease-in-out z-[999] ${
+      className={`fixed top-0 w-full h-[100dvh] min-h-[100dvh] flex flex-col justify-between backdrop-blur-[50px] bg-[#09090b] transform transition duration-[370ms] ease-in-out z-[999] ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -22,21 +24,15 @@ const Drawer: FC<DrawerPropsType> = ({ isOpen, onClose }) => {
         </div>
         <div>
           <button onClick={onClose} className="p-2">
-            {/* <img
-              src={}
-              alt="close icon not found"
-              className="w-[40px] select-none font-outfit transition duration-105 ease-in-out"
-            /> */}
-            close
+            <LuX className="text-[28px]" />
           </button>
         </div>
       </div>
       <div className="py-5 px-[20px]">
         <Item dir="col" onClose={() => onClose()} />
       </div>
-      <div className="flex justify-center items-center py-10 px-[20px] mx-auto w-[80%]">
-        profiles land
-        {/* <Profiles w="max" dir={"row"} /> */}
+      <div className="flex justify-center items-center py-10 w-full pl-[12px]">
+        <Profiles />
       </div>
     </div>
   );

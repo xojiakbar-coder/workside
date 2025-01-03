@@ -1,5 +1,6 @@
 import GenericElement from "../view";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { FC, Fragment, ReactNode } from "react";
 
 interface ChildrenPageProps {
@@ -12,8 +13,8 @@ const Layout: FC<ChildrenPageProps> = ({ children }) => {
       {children ? (
         <Fragment>
           <Navbar />
-          <div>{children}</div>
-          <div>Footer</div>
+          <Fragment>{children}</Fragment>
+          <Footer />
         </Fragment>
       ) : (
         <GenericElement />
