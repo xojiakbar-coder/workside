@@ -29,22 +29,22 @@ const GenericTable: FC<TablePropsType> = ({ table_head, table_body }) => {
       className={`px-[20px] ${
         table_body[table_body.length - 1].id !== item.id && "border-b"
       } border-b-ghost-bg-color w-full`}
-      data-selected={
-        selection.indexOf(item.name?.toString()) !== -1 ? "" : undefined
-      }
+      // data-selected={
+      //   selection.indexOf(item.name?.toString()) !== -1 ? "" : undefined
+      // }
     >
       <Table.Cell className="pl-[40px] py-[10px]">
         <Checkbox
           top="1"
           className="border border-subtitle-color rounded-[6px]"
-          checked={selection.indexOf(item.name) !== -1}
-          onCheckedChange={(changes) => {
-            setSelection((prev) =>
-              changes.checked
-                ? [...prev, item.name]
-                : selection.filter((name) => name !== item.name)
-            );
-          }}
+          // checked={selection.indexOf(item.name) !== -1}
+          // onCheckedChange={(changes) => {
+          //   setSelection((prev) =>
+          //     changes.checked
+          //       ? [...prev, item.name]
+          //       : selection.filter((name) => name !== item.name)
+          //   );
+          // }}
         />
       </Table.Cell>
       <Table.Cell className="px-[12px]">{index + 1}</Table.Cell>
@@ -67,11 +67,11 @@ const GenericTable: FC<TablePropsType> = ({ table_head, table_body }) => {
                 top="1"
                 className="border border-subtitle-color rounded-[6px]"
                 checked={indeterminate ? "indeterminate" : selection.length > 0}
-                onCheckedChange={(changes) => {
-                  setSelection(
-                    changes.checked ? table_body.map((item) => item.name) : []
-                  );
-                }}
+                // onCheckedChange={(changes) => {
+                //   setSelection(
+                //     changes.checked ? table_body.map((item) => item.name) : []
+                //   );
+                // }}
               />
             </Table.ColumnHeader>
             <Table.ColumnHeader className="text-[14px] leading-[20px] font-[500] font-mont px-[12px]">
