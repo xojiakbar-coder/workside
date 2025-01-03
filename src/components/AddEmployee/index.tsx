@@ -35,7 +35,7 @@ const AddNewEmployee = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Container fluid type="section">
         <Title type="section">Yangi xodim qo'shish</Title>
-        <GridBox cols="1fr 1fr 1fr" gapX={"30px"} gapY={"38px"}>
+        <GridBox cols="1fr 1fr" gapX={"30px"} gapY={"38px"}>
           <Input
             label="Ism"
             inputVariant="subtle"

@@ -11,7 +11,7 @@ const Sidebar: FC = () => {
       <Navbar />
       {/* Body */}
       <section className="flex items-center h-full">
-        <aside className="h-full w-[18vw] min-w-[345px] border-r border-r-gray-color overflow-y-auto">
+        <aside className="h-full w-[18vw] min-w-[345px] border-r border-r-[#111111] overflow-y-auto">
           <div className="flex flex-col overflow-y-auto h-section-h min-h-section-h">
             <SidebarContent />
             <Logout />

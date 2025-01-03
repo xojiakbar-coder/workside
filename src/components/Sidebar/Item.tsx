@@ -37,7 +37,7 @@ const SidebarContent = () => {
     }
   };
 
-  const generalSidebarItemStyle = `flex items-center group p-2 rounded-xl text-left cursor-pointer group text-item-color hover:text-light transition-all ease-out duration-[115ms] h-[47px] min-h-[47px] px-[14px] font-mont font-medium hover:bg-ghost-bg-color`;
+  const generalSidebarItemStyle = `flex items-center group rounded-md text-[14px] text-left cursor-pointer group text-item-color hover:text-light transition-all ease-out duration-[115ms] h-[47px] min-h-[47px] px-[14px] font-mont font-medium hover:bg-ghost-bg-color`;
 
   return (
     <div className="w-full h-full flex flex-col gap-[12px] overflow-y-auto p-[16px] select-none">

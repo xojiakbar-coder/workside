@@ -1,28 +1,26 @@
-import { useContext } from "react";
+import BASE_URL from "../../config/baseUrl";
+import { useEffect, useState } from "react";
+import { users_url } from "../../config/endpoints";
 import { Container, Table, Title } from "../Generic";
 import GenericEmptyState from "../Generic/EmptyState";
 import { table_head } from "../../utils/data/staffList";
-import { UserDataFetchContext } from "../../context/UserDataFetch/UserDataFetchContext";
+import { TableBodyType } from "../../utils/types/table";
 
 const StaffList = () => {
-  const { items } = useContext(UserDataFetchContext);
+  const [data, setData] = useState<TableBodyType[] | []>([]);
+
+  useEffect(() => {
+    fetch(`${BASE_URL}/${users_url}/`)
+      .then((res) => res.json())
+      .then((res) => setData(res));
+  }, []);
 
   return (
     <Container fluid type="section">
-      {items?.length > 0 && (
-        <>
-          <Title type="section">Xodimlar ma'lumotlari</Title>
+      <Title type="section">Xodimlar ma'lumotlari</Title>
+      {data.length > 0 && <Table table_head={table_head} table_body={data} />}
 
-          <Table
-            checking={true}
-            table_body={items}
-            deleteAction={true}
-            table_head={table_head}
-          />
-        </>
-      )}
-
-      {items?.length <= 0 && (
+      {data.length === 0 && (
         <GenericEmptyState
           button={true}
           buttonContent="Yangi xodim qo'shish"

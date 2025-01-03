@@ -19,7 +19,7 @@ export const schema = z.object({
     ),
   email: z
     .string()
-    .email("To'g'ri gmail manzilini kiriting")
+    .email("Required")
     .nonempty("Required"),
   phone: z.string().min(1, "Telefon raqami kiritilishi shart"),
   job: z.string().nonempty("Kasbni tanlash shart"),

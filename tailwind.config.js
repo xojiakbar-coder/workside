@@ -61,6 +61,7 @@ module.exports = {
         "navbar-shadow": "var(--navbar-shadow)",
       },
       backgroundImage: {
+        "home": `url("./assets/images/home.png")`,
         "sign-in": `url("./assets/images/signin-bg.png")`,
         "not-found": `url("./assets/images/not-found.png")`,
       },

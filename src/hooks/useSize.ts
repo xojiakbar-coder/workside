@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 
 const useSize = () => {
   const [windowSize, setWindowSize] = useState<{
-    width: number | null;
-    height: number | null;
-    scrollY: number | null;
-    scrollX: number | null;
+    width: number;
+    height: number;
+    scrollY: number;
+    scrollX: number;
   }>({
-    width: null,
-    height: null,
-    scrollX: null,
-    scrollY: null,
+    width: 0,
+    height: 0,
+    scrollX: 0,
+    scrollY: 0,
   });
 
   useEffect(() => {

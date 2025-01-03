@@ -5,14 +5,16 @@ import { useLocation, useNavigate } from "react-router-dom";
 interface LogoItemType {
   bg?: string;
   logo?: boolean;
+  onClose?: () => void;
 }
 
-const Logo: FC<LogoItemType> = ({ logo = true }) => {
+const Logo: FC<LogoItemType> = ({ logo = true, onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleNavigate = (logo: boolean) => {
     if (location.pathname !== "/" && logo) navigate("/");
+    if (onClose) onClose();
   };
 
   const logoSize = !logo ? `w-[380px]` : "w-[180px]";

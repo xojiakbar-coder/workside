@@ -1,10 +1,10 @@
 export interface TableBodyType {
   id: number;
-  job: string;
-  email: string;
-  phone: string;
-  username: string;
-  name: string | number;
+  job?: string;
+  email?: string;
+  phone?: string;
+  username?: string;
+  name?: string | number;
   salary?: string | number;
 }
 

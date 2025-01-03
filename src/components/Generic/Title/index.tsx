@@ -1,20 +1,22 @@
 import { FC, ReactNode } from "react";
 import { Heading } from "@chakra-ui/react";
 
-interface TitlePropsType {
+interface TitlePropsType extends React.ComponentProps<typeof Heading> {
   className?: string;
   children: ReactNode;
-  type: "primary" | "secondary" | "section" | "danger-title";
+  type: "primary" | "secondary" | "section" | "danger-title" | "title";
 }
 
 const getTitleType = (
-  type: "primary" | "secondary" | "section" | "danger-title"
+  type: "primary" | "secondary" | "section" | "danger-title" | "title"
 ): string => {
   switch (type) {
     case "primary":
       return "font-semibold text-primary-btn text-[32px]";
     case "secondary":
-      return "font-semibold text-light text-[32px]";
+      return "font-semibold text-light text-[32px] font-mont text-center py-[32px]";
+    case "title":
+      return "font-bold text-light text-center text-balance lg:text-[44px] md:text-[36px] text-[27px] font-mont leading-[57px] w-max";
     case "section":
       return "font-mont font-[600] text-center text-[24px] pt-[25px] pb-[40px]";
     case "danger-title":
@@ -28,10 +30,15 @@ const GenericTitle: FC<TitlePropsType> = ({
   children = "",
   type = "primary",
   className = "w-full",
+  ...props
 }) => {
   const titleClass = getTitleType(type);
 
-  return <Heading className={`${titleClass} ${className}`}>{children}</Heading>;
+  return (
+    <Heading className={`${titleClass} ${className}`} {...props}>
+      {children}
+    </Heading>
+  );
 };
 
 export default GenericTitle;
