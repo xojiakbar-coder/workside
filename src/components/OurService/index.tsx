@@ -27,26 +27,28 @@ const OurService = () => {
       ? "400px"
       : "370px";
 
+  const justifyContent = width > 768 ? "justify-evenly" : "justify-center";
+
   return (
-    <Container fluid type="home-section" className="w-full">
+    <Container fluid type="home-section" className="w-full flex-col">
       <Title type="secondary">Bizning xizmatlar</Title>
       <GridBox
         gap="25px"
         cols={cols}
         gridAutoRows={gridAutoRows}
-        className="h-max justify-center w-full mb-[100px]"
+        className={`flex h-max ${justifyContent} w-full mt-[12px] mb-[100px]`}
       >
-        {our_sevices.map((item) => (
+        {our_sevices.map(({ id, title, icon: Icon }) => (
           <div
             className="rounded-lg cursor-pointer transition-all ease-out duration-[250ms] p-[10px] border-[3px] border-dark-bg-color"
-            key={item.id}
+            key={id}
           >
             <div className="flex items-start justify-start text-light text-center font-mont font-semibold lg:text-[18px] md:text-[16px] text-[14px] rounded-md bg-ghost-bg-color w-full h-full">
               <div className="flex justify-between items-center rounded-t-md text-center bg-dark-bg-color w-full">
-                <p className="bg-primary-btn py-[20px] px-[20px] rounded-tl-md flex-shrink-0 select-none cursor-pointer">
-                  icon
-                </p>
-                <div className="flex-grow text-center">{item.title}</div>
+                <div className="bg-primary-btn py-[20px] px-[20px] rounded-tl-md flex-shrink-0 select-none cursor-pointer">
+                  <Icon className="md:text-[24px] smtext-[18px] text-[16px] text-light" />
+                </div>
+                <div className="flex-grow text-center">{title}</div>
               </div>
             </div>
           </div>

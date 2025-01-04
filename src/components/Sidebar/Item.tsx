@@ -1,5 +1,5 @@
 import { Tabs } from "../Generic";
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
   OpenState,
@@ -7,7 +7,11 @@ import {
   SidebarItemType,
 } from "../../utils/data/sidebar";
 
-const SidebarContent = () => {
+interface SidebarPropsType {
+  onClose?: () => void;
+}
+
+const SidebarContent: FC<SidebarPropsType> = ({ onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [open, setOpen] = useState<OpenState>([]);
@@ -70,6 +74,7 @@ const SidebarContent = () => {
             <NavLink
               key={item.id}
               to={item.name || ""}
+              onClick={onClose}
               className={({ isActive }) =>
                 `${generalSidebarItemStyle} ${
                   isActive

@@ -4,14 +4,9 @@ import our_case_data from "../../utils/data/case";
 
 const OurCase = () => {
   return (
-    <Container
-      fluid
-      type="wrapper"
-      flexDirection="column"
-      className="my-[100px] h-max"
-    >
+    <Container fluid flexDirection="column" className="mt-[50px] h-max">
       <Title type="secondary">Bizning keyslar</Title>
-      <Container fluid type="home-section" className="relative mt-[12px]">
+      <Container fluid className="relative mt-[12px] mb-[100px]">
         <Marquee gradient={false} speed={50}>
           {our_case_data.concat(our_case_data, our_case_data).map((item) => (
             <div

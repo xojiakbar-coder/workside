@@ -18,15 +18,15 @@ const getContainerStyle = (type: GenericContainerType["type"]) => {
     case "wrapper":
       return `px-main-padding `;
     case "section":
-      return `flex-col md:px-main-padding pt-[25px] pb-[30px]`;
+      return `flex-col px-main-padding pt-[25px] pb-[30px] h-max overflow-y-auto`;
     case "center":
       return "justify-center";
     case "full-center":
       return "justify-center items-center";
     case "home-section":
-      return "h-max justify-center items-center flex-col lg:px-[273px] px-main-padding";
+      return "flex h-max lg:px-[4%] px-main-padding";
     default:
-      return "border border-gray-600";
+      return "flex flex-col";
   }
 };
 

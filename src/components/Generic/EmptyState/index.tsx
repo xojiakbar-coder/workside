@@ -23,8 +23,8 @@ const GenericEmptyState: FC<GenericEmptyStateParamType> = ({
     <EmptyState
       description={description || ""}
       title={title || "No data available"}
-      className={`flex items-center justify-center h-full`}
       icon={<i className="fa-solid fa-file text-light"></i>}
+      className={`flex items-center justify-center h-section-h min-h-section-h`}
     >
       {button && (
         <Button onClick={() => navigate(buttonPath || "/")}>

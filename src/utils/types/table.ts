@@ -13,7 +13,7 @@ export interface TableHeadType {
   title: string;
 }
 
-export interface TableType {
+export interface TablePropsType {
   checking?: boolean;
   deleteAction?: boolean;
   table_head: TableHeadType[];

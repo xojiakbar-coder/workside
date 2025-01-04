@@ -14,7 +14,7 @@ const getTitleType = (
     case "primary":
       return "font-semibold text-primary-btn text-[32px]";
     case "secondary":
-      return "font-semibold text-light text-[32px] font-mont text-center py-[32px]";
+      return "font-semibold text-light md:text-[32px] sm:text-[28px] text-[24px] font-mont text-center py-[32px]";
     case "title":
       return "font-bold text-light text-center text-balance lg:text-[62px] md:text-[46px] text-[38px] font-mont md:leading-[57px] lg:leading-[85px] leading-[50px] w-full";
     case "section":

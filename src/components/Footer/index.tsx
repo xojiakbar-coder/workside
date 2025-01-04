@@ -10,7 +10,7 @@ const Footer = () => {
         className={`flex justify-between items-center flex-col px-[3%] py-[25px] transition-all border-t border-t-[#111111] ease-out duration-[230ms] h-full`}
       >
         <div className="flex items-center justify-between w-full md:flex-row gap-[30px] flex-col">
-          <Logo />
+          <Logo logo={false} />
           <Profiles />
         </div>
       </div>

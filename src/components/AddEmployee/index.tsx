@@ -7,17 +7,19 @@ import defaultSelectData, {
   experience,
 } from "../../utils/data/select";
 import {
-  Button,
-  Container,
-  GridBox,
-  GrupInput,
-  Input,
-  NumberInput,
-  Select,
   Title,
+  Input,
+  Select,
+  Button,
+  GridBox,
+  Container,
+  GrupInput,
+  NumberInput,
 } from "../Generic";
+import useSize from "../../hooks/useSize";
 
 const AddNewEmployee = () => {
+  const { width } = useSize();
   const {
     register,
     handleSubmit,
@@ -31,11 +33,25 @@ const AddNewEmployee = () => {
     console.log("Form data:", data);
   };
 
+  const cols =
+    width > 1400
+      ? "1fr 1fr 1fr"
+      : width > 1024
+      ? "1fr 1fr"
+      : width > 567
+      ? "1fr"
+      : "1fr";
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Container fluid type="section">
+      <Container fluid type="section" className="h-section-h overflow-y-auto">
         <Title type="section">Yangi xodim qo'shish</Title>
-        <GridBox cols="1fr 1fr" gapX={"30px"} gapY={"38px"}>
+        <GridBox
+          cols={cols}
+          gapX={"30px"}
+          gapY={"38px"}
+          className="justify-center"
+        >
           <Input
             label="Ism"
             inputVariant="subtle"
@@ -110,16 +126,18 @@ const AddNewEmployee = () => {
             errorText={errors.experience?.message}
           />
         </GridBox>
-        <Button
-          type="solid"
-          onClick={handleSubmit(onSubmit)}
-          className="font-semibold w-max ml-auto mt-auto"
-          rightIcon={
-            <i className="fa-solid fa-user-plus text-ghost-bg-color"></i>
-          }
-        >
-          Xodimni qo'shish
-        </Button>
+        <div className="pt-[50px] mt-auto ml-auto">
+          <Button
+            type="solid"
+            onClick={handleSubmit(onSubmit)}
+            className="font-semibold w-max"
+            rightIcon={
+              <i className="fa-solid fa-user-plus text-ghost-bg-color"></i>
+            }
+          >
+            Xodimni qo'shish
+          </Button>
+        </div>
       </Container>
     </form>
   );

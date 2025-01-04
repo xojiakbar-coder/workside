@@ -72,7 +72,6 @@ const defaultSelectData = createListCollection<SelectItemType>({
       label: "Robototexnika muhandisi",
       value: "robototexnika-muhandisi",
     },
-    { id: 14, label: "IoT mutaxassis", value: "iot-mutaxassis" },
     { id: 15, label: "QA muhandisi", value: "qa-muhandisi" },
     { id: 16, label: "AR/VR mutaxassis", value: "ar-vr-mutaxassis" },
     { id: 17, label: "IT loyihalar menejeri", value: "it-loyihalar-menejeri" },
@@ -89,39 +88,16 @@ const defaultSelectData = createListCollection<SelectItemType>({
     { id: 24, label: "Mahsulot menejeri", value: "mahsulot-menejeri" },
     {
       id: 25,
-      label: "HR texnologiyalar mutaxassisi",
-      value: "hr-texnologiyalar-mutaxassisi",
+      label: "HR Manager",
+      value: "hr-manager",
     },
-    { id: 26, label: "FinTech mutaxassis", value: "fintech-mutaxassis" },
-    { id: 27, label: "Startup menejeri", value: "startup-menejeri" },
     {
       id: 28,
-      label: "Biznes rivojlantirish menejeri",
-      value: "biznes-rivojlantirish-menejeri",
+      label: "Bussiness manajer",
+      value: "bussiness-manajer",
     },
-    { id: 29, label: "AI etika mutaxassisi", value: "ai-etika-mutaxassisi" },
-    {
-      id: 30,
-      label: "Raqamli transformatsiya menejeri",
-      value: "raqamli-transformatsiya-menejeri",
-    },
-    {
-      id: 31,
-      label: "Ma'lumotlar vizualizatsiyasi mutaxassisi",
-      value: "malumotlar-vizualizatsiyasi-mutaxassisi",
-    },
+    { id: 29, label: "AI mutaxassisi", value: "ai-mutaxassisi" },
     { id: 32, label: "Game dasturchi", value: "game-dasturchi" },
-    { id: 33, label: "Freelance menejeri", value: "freelance-menejeri" },
-    {
-      id: 34,
-      label: "Elektron kontraktlar mutaxassisi",
-      value: "elektron-kontraktlar-mutaxassisi",
-    },
-    {
-      id: 35,
-      label: "Ovozli yordamchi dasturchi",
-      value: "ovozli-yordamchi-dasturchi",
-    },
   ],
 });
 

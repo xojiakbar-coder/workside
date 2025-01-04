@@ -1,15 +1,81 @@
-import { Title } from "../Generic";
+import { useForm } from "react-hook-form";
+// import useSize from "../../hooks/useSize";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormValues, schema } from "../../utils/types/form";
+import {
+  Button,
+  Container,
+  GridBox,
+  GrupInput,
+  Input,
+  Title,
+} from "../Generic";
+import { Textarea } from "@chakra-ui/react";
+import { Field } from "../ui/field";
 
 const Contact = () => {
+  // const { width } = useSize();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data: FormValues) => {
+    console.log("Form data:", data);
+  };
+
   return (
-    <div className="w-full px-[3%]">
-      <div className="flex flex-col gap-[40px] items-center h-max min-h-[92vh] pt-[70px]">
+    <Container fluid type="section" className="w-full">
+      <div className="flex flex-col gap-[40px] items-center h-max min-h-section-h pt-[20px]">
         <Title type="secondary" className="font-mont">
           Bizga ushbu manbalar orqali aloqaga chiqishingiz mumkin
         </Title>
-        <div className="flex justify-between w-full">
+        <GridBox
+          cols="1fr"
+          gapX="30px"
+          gapY="38px"
+          className="justify-center w-full lg:px-[25%] md:px-[20%] px-[5%] py-[40px]"
+        >
+          <Input
+            label="Ismingiz"
+            inputVariant="subtle"
+            invalid={!!errors.firstName}
+            register={register("firstName")}
+            errorText={errors.firstName?.message}
+            inputplaceHolder="Ismingizni kiriting"
+          />
+          <GrupInput
+            endText="@gmail.com"
+            inputVariant="subtle"
+            invalid={!!errors.email}
+            register={register("email")}
+            inputplaceHolder="gmail manzilingizni kiriting"
+            errorText={errors.email?.message}
+            label="Gmail pochta manzil"
+          />
+          <Field label="Xabaringiz" required>
+            <Textarea
+              maxLength={590}
+              placeholder="Xabaringizni yozib qoldiring"
+              className="bg-ghost-bg-color p-[12px] outline-none px-[10px] text-[16px] placeholder:text-[16px] h-[120px]"
+            />
+          </Field>
+          <div className="pt-[10px] w-full">
+            <Button
+              type="solid"
+              className="font-semibold w-full"
+              onClick={handleSubmit(onSubmit)}
+            >
+              Yuborish
+            </Button>
+          </div>
+        </GridBox>
+        <div className="flex justify-between w-full py-[100px] lg:px-[25%] md:px-[15%] px-[5%]">
           <iframe
-            width="40%"
+            width="100%"
             height="400"
             loading="lazy"
             style={{ border: "0" }}
@@ -18,7 +84,7 @@ const Contact = () => {
           ></iframe>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

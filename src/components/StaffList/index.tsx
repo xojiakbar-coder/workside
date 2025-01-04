@@ -16,9 +16,13 @@ const StaffList = () => {
   }, []);
 
   return (
-    <Container fluid type="section">
-      <Title type="section">Xodimlar ma'lumotlari</Title>
-      {data.length > 0 && <Table table_head={table_head} table_body={data} />}
+    <Container fluid type="section" className="overflow-y-auto">
+      {data.length > 0 && (
+        <>
+          <Title type="section">Xodimlar ma'lumotlari</Title>
+          <Table table_head={table_head} table_body={data} />
+        </>
+      )}
 
       {data.length === 0 && (
         <GenericEmptyState
