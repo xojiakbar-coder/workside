@@ -6,7 +6,7 @@ const Profiles = () => {
       {profiles_data.map(({ name, icon: Icon }) => (
         <div
           title={name}
-          className="flex items-center justify-center rounded-3xl hover:bg-primary-btn w-[50px] h-[50px] transition-all ease-out duration-[215ms] cursor-pointer text-[24px]"
+          className="flex items-center justify-center rounded-md hover:bg-primary-btn w-[50px] h-[50px] transition-all ease-out duration-[215ms] cursor-pointer text-[24px]"
         >
           <Icon />
         </div>

@@ -1,4 +1,5 @@
 export { default as Tabs } from "./Tabs/Tabs.tsx";
+export { default as Timer } from "./Timer/Timer.tsx";
 export { default as Title } from "./Title/index.tsx";
 export { default as Table } from "./Table/index.tsx";
 export { default as Input } from "./Input/Input.tsx";
@@ -6,6 +7,7 @@ export { default as Button } from "./Button/index.tsx";
 export { default as Select } from "./Select/Select.tsx";
 export { default as GridBox } from "./GridBox/Grid.tsx";
 export { default as GrupInput } from "./Input/Group.tsx";
+export { default as Marquee } from "./Marquee/index.tsx";
 export { default as NumberInput } from "./Input/Number.tsx";
 export { default as Container } from "./Container/index.tsx";
 export { default as ActionBar } from "./ActionBar/index.tsx";

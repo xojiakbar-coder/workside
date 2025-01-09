@@ -16,14 +16,14 @@ const Home = () => {
         <div className="grid grid-cols-2 gap-[10px] mt-[10px] w-max">
           <Button
             type="solid"
-            className="w-full h-[74px] font-semibold"
+            className="w-full font-semibold"
             onClick={() => navigate("/hisobotlar")}
           >
             Ishlarni boshlash
           </Button>
           <Button
             type="surface"
-            className="w-full h-[74px] font-semibold"
+            className="w-full font-semibold"
             onClick={() => navigate("/signin")}
           >
             Kirish

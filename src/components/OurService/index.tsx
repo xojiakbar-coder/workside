@@ -46,7 +46,7 @@ const OurService = () => {
             <div className="flex items-start justify-start text-light text-center font-mont font-semibold lg:text-[18px] md:text-[16px] text-[14px] rounded-md bg-ghost-bg-color w-full h-full">
               <div className="flex justify-between items-center rounded-t-md text-center bg-dark-bg-color w-full">
                 <div className="bg-primary-btn py-[20px] px-[20px] rounded-tl-md flex-shrink-0 select-none cursor-pointer">
-                  <Icon className="md:text-[24px] smtext-[18px] text-[16px] text-light" />
+                  <Icon className="md:text-[34px] smtext-[20px] text-[24px] text-light" />
                 </div>
                 <div className="flex-grow text-center">{title}</div>
               </div>

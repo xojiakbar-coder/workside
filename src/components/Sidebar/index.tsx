@@ -1,6 +1,6 @@
-import Logout from "./Logout";
 import Drawer from "./Drawer";
 import Navbar from "../Navbar";
+import { Timer } from "../Generic";
 import SidebarContent from "./Item";
 import { FC, useState } from "react";
 import { Outlet } from "react-router-dom";
@@ -29,7 +29,7 @@ const Sidebar: FC = () => {
           <aside className="h-full w-[18vw] min-w-[345px] border-r border-r-[#111111] overflow-y-auto">
             <div className="flex flex-col overflow-y-auto h-section-h min-h-section-h">
               <SidebarContent />
-              <Logout />
+              <Timer format="LT" />
             </div>
           </aside>
         ) : (

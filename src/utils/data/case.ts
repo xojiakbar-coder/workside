@@ -1,8 +1,20 @@
 import cardImage1 from "../../assets/images/google.jpg";
+import cardImage3 from "../../assets/images/amazon.png";
 import cardImage2 from "../../assets/images/microsoft.jpg";
-import cardImage3 from "../../assets/images/sms.jpg";
 
-const our_case_data = [
+export interface MarqueeItemType {
+  id: number;
+  title: string;
+  image: string;
+}
+
+export interface MarqueePropsType {
+  speed: number;
+  pauseOnHover: boolean;
+  marquee_data: MarqueeItemType[];
+}
+
+const our_case_data: MarqueeItemType[] = [
   {
     id: 1,
     title: "Our case item title",
