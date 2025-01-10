@@ -18,7 +18,7 @@ const getTitleType = (
     case "title":
       return "font-bold text-light text-center text-balance lg:text-[62px] md:text-[46px] text-[38px] font-mont md:leading-[57px] lg:leading-[85px] leading-[50px] w-full";
     case "section":
-      return "font-mont font-[600] text-center text-[24px] pt-[25px] pb-[40px]";
+      return "font-mont font-[600] text-center text-[24px] pt-[5px] pb-[40px]";
     case "danger-title":
       return "font-bold text-danger text-[32px] py-[20px]";
     default:

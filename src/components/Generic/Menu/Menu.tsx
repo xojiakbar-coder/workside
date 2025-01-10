@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Text } from "@chakra-ui/react";
 import { RiGlobalLine } from "react-icons/ri";
-import { Button } from "../../components/ui/button";
-import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "../ui/menu";
+import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "../../ui/menu";
+import { Button } from "../../ui/button";
 
 const Lang = () => {
   const [lang, setLang] = useState<"o'zbek" | "english">("o'zbek");

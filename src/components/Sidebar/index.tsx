@@ -1,14 +1,11 @@
+import Aside from "./Aside";
 import Drawer from "./Drawer";
 import Navbar from "../Navbar";
-import { Timer } from "../Generic";
-import SidebarContent from "./Item";
 import { FC, useState } from "react";
 import { Outlet } from "react-router-dom";
-import useSize from "../../hooks/useSize";
-import { LuAlignLeft } from "react-icons/lu";
+import { LuChevronRight } from "react-icons/lu";
 
 const Sidebar: FC = () => {
-  const { width } = useSize();
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
   const toggleDrawer = () => {
@@ -16,31 +13,21 @@ const Sidebar: FC = () => {
   };
 
   return (
-    <main className="text-light h-[100vh] min-h-[100vh] overflow-y-hidden">
+    <main className="text-light h-[100dvh] min-h-[100dvh] overflow-y-hidden">
       {/* Navbar */}
       <Navbar />
-      {/* Body */}
-      <section
-        className={`flex ${
-          width >= 878 ? "items-center" : "items-start"
-        } h-full`}
-      >
-        {width >= 878 ? (
-          <aside className="h-full w-[18vw] min-w-[345px] border-r border-r-[#111111] overflow-y-auto">
-            <div className="flex flex-col overflow-y-auto h-section-h min-h-section-h">
-              <SidebarContent />
-              <Timer format="LT" />
-            </div>
-          </aside>
-        ) : (
-          <div
-            className="fixed z-10 bg-body-bg-color select-none py-[12px] px-[10px] cursor-pointer mt-[10px] ml-[1.8%] rounded-md transition duration-[240ms] ease-in-out"
-            onClick={toggleDrawer}
-          >
-            <LuAlignLeft className="text-[26px]" />
-          </div>
-        )}
-        <section className="w-full h-full overflow-y-auto">
+      <section className="flex overflow-y-auto sm:items-center items-start h-max">
+        <Aside />
+        <div
+          onClick={toggleDrawer}
+          className="fixed sm:hidden flex items-center z-10 bg-body-bg-color select-none py-[12px] px-[10px] cursor-pointer mt-[10px] ml-[1.8%] rounded-md transition duration-[240ms] ease-in-out"
+        >
+          <LuChevronRight className="text-[26px]" />
+          <div>Menu</div>
+        </div>
+
+        {/* Body */}
+        <section className="mb-auto w-full h-[92dvh] overflow-y-auto">
           <Outlet />
         </section>
       </section>

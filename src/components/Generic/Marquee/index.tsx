@@ -16,7 +16,7 @@ const GenericMarquee: FC<MarqueePropsType> = ({
             <img
               src={item.image}
               alt={`Image of ${item.title}`}
-              className="w-48 h-24 object-cover rounded-2xl cursor-pointer"
+              className="w-[270px] h-[140px] object-cover rounded-2xl cursor-pointer"
             />
           </div>
         ))}

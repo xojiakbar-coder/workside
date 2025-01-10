@@ -9,12 +9,15 @@ import {
 
 interface SidebarPropsType {
   onClose?: () => void;
+  toggleSidebar?: boolean;
 }
 
-const SidebarContent: FC<SidebarPropsType> = ({ onClose }) => {
+const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [open, setOpen] = useState<OpenState>([]);
+
+  useEffect(() => {}, [toggleSidebar]);
 
   useEffect(() => {
     const path = JSON.parse(localStorage.getItem("open") || "[]") as OpenState;
@@ -41,11 +44,14 @@ const SidebarContent: FC<SidebarPropsType> = ({ onClose }) => {
     }
   };
 
-  const generalSidebarItemStyle = `flex items-center group rounded-md text-[14px] text-left cursor-pointer group text-item-color hover:text-light transition-all ease-out duration-[115ms] h-[47px] min-h-[47px] px-[14px] font-mont font-medium hover:bg-ghost-bg-color`;
+  const generalSidebarItemStyle = `flex items-center ${
+    toggleSidebar && "justify-center"
+  } group rounded-md text-[14px] text-left gap-[14px] cursor-pointer text-item-color hover:text-light transition-all ease-out duration-[115ms] h-[47px] min-h-[47px] px-[14px] font-mont font-medium hover:bg-dark-bg-color`;
 
   return (
     <div className="w-full h-full flex flex-col gap-[12px] overflow-y-auto p-[16px] select-none">
       {sidebar_items.map((item) => {
+        const Icon = item.icon;
         const active = open.includes(item.id);
         const activeRotate = active ? "rotate-90" : "rotate-0";
         const activePath = location.pathname.includes(item.name);
@@ -56,16 +62,30 @@ const SidebarContent: FC<SidebarPropsType> = ({ onClose }) => {
               <div>
                 <div
                   onClick={(e) => onClickParent(item, e)}
-                  className={`${generalSidebarItemStyle} flex items-center justify-between ${
-                    activePath && "text-primary-btn hover:text-primary-btn"
+                  className={`${generalSidebarItemStyle} flex items-center ${
+                    !toggleSidebar ? "justify-between" : "justify-center"
+                  } ${
+                    activePath &&
+                    "text-primary-btn hover:text-primary-btn bg-dark-bg-color"
                   }`}
                 >
-                  <p className="text-inherit">{item.title}</p>
-                  <i
-                    className={`fa-solid fa-angle-right text-inherit ${activeRotate}`}
-                  />
+                  <p className="flex items-center gap-[14px] text-inherit">
+                    <Icon className="text-[20px]" />
+                    {!toggleSidebar && item.title}
+                  </p>
+                  {!toggleSidebar && (
+                    <i
+                      className={`fa-solid fa-angle-right text-inherit ${activeRotate}`}
+                    />
+                  )}
                 </div>
-                {active && <Tabs data={item.children} type="link" />}
+                {active && (
+                  <Tabs
+                    type="link"
+                    data={item.children}
+                    toggleSidebar={toggleSidebar ? toggleSidebar : false}
+                  />
+                )}
               </div>
             </div>
           );
@@ -73,17 +93,18 @@ const SidebarContent: FC<SidebarPropsType> = ({ onClose }) => {
           return (
             <NavLink
               key={item.id}
-              to={item.name || ""}
               onClick={onClose}
+              to={item.name || ""}
               className={({ isActive }) =>
                 `${generalSidebarItemStyle} ${
                   isActive
-                    ? "text-primary-btn hover:text-primary-btn"
+                    ? "text-primary-btn hover:text-primary-btn bg-dark-bg-color"
                     : "hover:text-light"
                 }`
               }
             >
-              {item.title}
+              <Icon className="text-[20px]" />
+              {!toggleSidebar && item.title}
             </NavLink>
           );
         }
@@ -92,4 +113,4 @@ const SidebarContent: FC<SidebarPropsType> = ({ onClose }) => {
   );
 };
 
-export default SidebarContent;
+export default SidebarItems;

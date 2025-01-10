@@ -2,4 +2,6 @@ type EndpointType = string;
 
 const users_url: EndpointType = `users`;
 
-export { users_url };
+const todos_url: EndpointType = `todos`;
+
+export { users_url, todos_url };

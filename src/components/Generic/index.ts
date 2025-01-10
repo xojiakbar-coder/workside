@@ -11,5 +11,7 @@ export { default as Marquee } from "./Marquee/index.tsx";
 export { default as NumberInput } from "./Input/Number.tsx";
 export { default as Container } from "./Container/index.tsx";
 export { default as ActionBar } from "./ActionBar/index.tsx";
+export { default as ReportCard } from "./Card/ReportCard.tsx";
 export { default as EmptyState } from "./EmptyState/index.tsx";
 export { default as PasswordInput } from "./Input/Password.tsx";
+export { default as Pagination } from "./Pagination/Pagination.tsx";

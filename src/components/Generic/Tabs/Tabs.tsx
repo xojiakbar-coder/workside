@@ -3,13 +3,17 @@ import { TabsProps } from "../../../utils/types/tabs";
 import { NavLink, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect, FC, Fragment } from "react";
 
-const Tabs: FC<TabsProps> = ({ data }) => {
+const Tabs: FC<TabsProps> = ({ data, toggleSidebar }) => {
   const location = useLocation();
   const [indicatorStyle, setIndicatorStyle] = useState({
     top: "0px",
     height: "0px",
     display: "none",
   });
+
+  useEffect(() => {
+    console.log(toggleSidebar);
+  }, [toggleSidebar]);
   const tabRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   const updateIndicator = (activeTabIndex: number) => {
@@ -43,29 +47,30 @@ const Tabs: FC<TabsProps> = ({ data }) => {
   return (
     <Fragment>
       {data && data.length > 0 ? (
-        <div className="w-full max-w-4xl mx-auto flex pl-[8px]">
+        <div className="w-full max-w-4xl mx-auto flex pl-[14px]">
           <div className="flex flex-col relative border-l border-outer-bdr-color w-full gap-[10px] my-[12px]">
             {data.map((item, index) => {
+              // const Icon = item.icon;
               const { id, title, name } = item;
 
               return (
                 <NavLink
                   key={id}
                   to={name}
-                  ref={(el) => (tabRefs.current[index] = el)}
                   onClick={() => handleTabClick(index)}
-                  className={`flex items-center text-[14px] group hover:bg-ghost-bg-color p-2 rounded-r-md text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-mont font-medium text-item-color hover:text-light transition-all duration-300 ${
+                  ref={(el) => (tabRefs.current[index] = el)}
+                  className={`flex items-center text-[14px] group hover:bg-dark-bg-color p-2 rounded-r-md text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-mont font-medium text-item-color hover:text-light transition-all duration-300 ${
                     location.pathname === name &&
-                    "text-primary-btn hover:text-primary-btn"
+                    "text-primary-btn hover:text-primary-btn bg-dark-bg-color"
                   }`}
                 >
-                  {title}
+                  {!toggleSidebar && title}
                 </NavLink>
               );
             })}
             {/* Active tab indicator */}
             <span
-              className="absolute left-0 w-1 bg-primary-btn transition-all duration-300 rounded-r-md"
+              className="absolute left-0 w-1 bg-primary-btn transition-all duration-300 rounded-r-full"
               style={indicatorStyle}
             />
           </div>

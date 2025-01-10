@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      screens: {
+        sm: "878px",
+      },
       keyframes: {
         marquee: {
           to: { transform: "translateX(-50%)" },

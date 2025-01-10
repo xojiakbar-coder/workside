@@ -3,12 +3,13 @@ import Item from "./Item";
 import Lang from "./Lang";
 import Drawer from "./Drawer";
 import { useState } from "react";
+import { Timer } from "../Generic";
 import useSize from "../../hooks/useSize";
 import { LuAlignLeft } from "react-icons/lu";
 import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const { scrollY, width } = useSize();
+  const { scrollY } = useSize();
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
   const toggleDrawer = () => {
@@ -41,23 +42,25 @@ const Navbar = () => {
           shadow && "shadow-navbar-shadow"
         } px-[3%] py-[25px] transition-all ease-out duration-[230ms] h-full`}
       >
-        {width >= 878 && <Logo />}
-        {width >= 878 && (
-          <div className="flex gap-[20px]">
-            <Item dir="row" />
-            <Lang />
-          </div>
-        )}
-        {width < 878 && (
+        <div className="sm:flex hidden">
+          <Logo />
+        </div>
+
+        <div className="sm:flex hidden items-center gap-[20px]">
+          <Item dir="row" />
+          <Timer format="LT" bottom_date_visible={false} />
+          <Lang />
+        </div>
+        <div className="sm:hidden flex w-full justify-between">
           <div
-            className="select-none py-[7px] cursor-pointer rounded-[8px] transition duration-[240ms] ease-in-out"
+            className="sm:hidden flex select-none py-[7px] cursor-pointer rounded-[8px] transition duration-[240ms] ease-in-out"
             onClick={toggleDrawer}
           >
             <LuAlignLeft className="text-[26px]" />
           </div>
-        )}
-        {width < 878 && <Logo />}
-        {width < 878 && <Lang />}
+          <Logo />
+          <Lang />
+        </div>
       </div>
       <Drawer isOpen={isDrawerOpen} onClose={toggleDrawer} />
     </header>

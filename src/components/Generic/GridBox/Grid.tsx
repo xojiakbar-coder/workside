@@ -15,7 +15,7 @@ const GridBox: FC<GridBoxPropsType> = ({
   className,
   ...props
 }) => {
-  const gridClasses = ``;
+  const gridClasses = `overflow-y-auto`;
   return (
     <Grid
       {...props}

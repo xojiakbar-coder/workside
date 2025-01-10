@@ -1,6 +1,7 @@
 import { NavbarItemType } from "./navbar";
 import Home from "../../components/Home/Home";
 import OurCase from "../../components/OurCase";
+import Contact from "../../components/Contact";
 import OurService from "../../components/OurService";
 import {
   RiUser2Fill,
@@ -27,6 +28,13 @@ export const home_sections: NavbarItemType[] = [
     id: 3,
     sidebar: false,
     element: OurCase,
+    path: "/bizning-xizmatlarimiz",
+    title: "Bizning Xizmatlarimiz",
+  },
+  {
+    id: 4,
+    sidebar: false,
+    element: Contact,
     path: "/bizning-xizmatlarimiz",
     title: "Bizning Xizmatlarimiz",
   },

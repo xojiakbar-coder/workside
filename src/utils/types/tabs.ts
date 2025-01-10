@@ -5,6 +5,7 @@ export interface TabDataType {
 }
 
 export interface TabsProps {
-  type: "link" | "text";
   data: TabDataType[];
+  type: "link" | "text";
+  toggleSidebar: boolean;
 }

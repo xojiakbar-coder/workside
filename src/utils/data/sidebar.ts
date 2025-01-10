@@ -1,7 +1,19 @@
 import { ReactNode } from "react";
+import { IconType } from "react-icons";
 import GenericElement from "../../view";
+import { RiCalendar2Fill } from "react-icons/ri";
+import Calendar from "../../components/Calendar";
 import StaffList from "../../components/StaffList";
 import AddNewEmployee from "../../components/AddEmployee";
+import EmployeeReports from "../../components/EmployeeReports";
+import {
+  LuBellPlus,
+  LuSettings,
+  LuSquarePen,
+  LuNotebookText,
+  LuSquareActivity,
+  LuChartNoAxesColumn,
+} from "react-icons/lu";
 
 export interface SidebarChildrenItemType {
   id: string;
@@ -13,8 +25,9 @@ export interface SidebarChildrenItemType {
 export interface SidebarItemType {
   name: string;
   title: string;
-  element: () => ReactNode;
+  icon: IconType;
   id: number | string;
+  element: () => ReactNode;
   children: SidebarChildrenItemType[];
 }
 
@@ -23,43 +36,48 @@ export type OpenState = (number | string)[];
 export const sidebar_items: SidebarItemType[] = [
   {
     id: 1,
+    children: [],
     title: "Hisobotlar",
     name: "/hisobotlar",
-    children: [],
+    icon: LuNotebookText,
     element: GenericElement,
   },
   {
     id: 2,
-    title: "Aktivlik",
-    name: "/umumiy-korinish/aktivlik",
-    element: GenericElement,
     children: [],
+    title: "Aktivlik",
+    icon: LuSquareActivity,
+    element: GenericElement,
+    name: "/umumiy-korinish/aktivlik",
   },
   {
     id: 3,
-    title: "Analitika",
-    name: "/umumiy-korinish/analitika",
-    element: GenericElement,
     children: [],
+    title: "Analitika",
+    element: GenericElement,
+    icon: LuChartNoAxesColumn,
+    name: "/umumiy-korinish/analitika",
   },
   {
     id: 4,
-    title: "Bugungi ishlar",
-    name: "/umumiy-korinish/bugungi-ishlar",
-    element: GenericElement,
     children: [],
+    icon: LuSquarePen,
+    title: "Bugungi ishlar",
+    element: GenericElement,
+    name: "/umumiy-korinish/bugungi-ishlar",
   },
   {
     id: 5,
     title: "Xodimlar",
-    name: "/umumiy-korinish/umumiy-xodimlar",
+    icon: LuSquareActivity,
     element: GenericElement,
+    name: "/umumiy-korinish/umumiy-xodimlar",
     children: [
       {
         id: `5-1`,
         title: "Xodimlar hisobotlari",
         name: "/umumiy-korinish/xodimlar-hisobotlari",
-        element: GenericElement,
+        element: EmployeeReports,
       },
       {
         id: `5-2`,
@@ -78,14 +96,15 @@ export const sidebar_items: SidebarItemType[] = [
   {
     id: 6,
     title: "Loyihalar",
-    name: "/umumiy-korinish/loyihalar",
+    icon: LuSquareActivity,
     element: GenericElement,
+    name: "/umumiy-korinish/loyihalar",
     children: [
       {
         id: `6-1`,
         title: "Media",
-        name: "/umumiy-korinish/media",
         element: GenericElement,
+        name: "/umumiy-korinish/media",
       },
       {
         id: `6-2`,
@@ -103,23 +122,26 @@ export const sidebar_items: SidebarItemType[] = [
   },
   {
     id: 7,
-    title: "Kalendar",
-    name: "/umumiy-korinish/kalendar",
-    element: GenericElement,
     children: [],
+    element: Calendar,
+    title: "Calendar",
+    icon: RiCalendar2Fill,
+    name: "/umumiy-korinish/calendar",
   },
   {
     id: 8,
-    title: "Obuna",
-    name: "/umumiy-korinish/obuna",
-    element: GenericElement,
     children: [],
+    title: "Obuna",
+    icon: LuBellPlus,
+    element: GenericElement,
+    name: "/umumiy-korinish/obuna",
   },
   {
     id: 9,
+    icon: LuSettings,
     title: "Sozlamalar",
-    name: "/umumiy-korinish/sozlamalar",
     element: GenericElement,
+    name: "/umumiy-korinish/sozlamalar",
     children: [
       {
         id: `9-1`,
