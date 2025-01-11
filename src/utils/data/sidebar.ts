@@ -75,21 +75,27 @@ export const sidebar_items: SidebarItemType[] = [
     children: [
       {
         id: `5-1`,
+        element: EmployeeReports,
         title: "Xodimlar hisobotlari",
         name: "/umumiy-korinish/xodimlar-hisobotlari",
-        element: EmployeeReports,
       },
       {
         id: `5-2`,
+        element: StaffList,
         title: "Xodimlar ma'lumotlari",
         name: "/umumiy-korinish/xodimlar-malumotlari",
-        element: StaffList,
       },
       {
         id: `5-3`,
+        element: AddNewEmployee,
         title: "Yangi xodim qo'shish",
         name: "/umumiy-korinish/xodim-qoshish",
-        element: AddNewEmployee,
+      },
+      {
+        id: `5-4`,
+        element: GenericElement,
+        title: "Hisobot tayyorlash",
+        name: "/umumiy-korinish/hisobot-tayyorlash",
       },
     ],
   },
@@ -139,7 +145,7 @@ export const sidebar_items: SidebarItemType[] = [
   {
     id: 9,
     icon: LuSettings,
-    title: "Sozlamalar",
+    title: "Sozlanmalar",
     element: GenericElement,
     name: "/umumiy-korinish/sozlamalar",
     children: [

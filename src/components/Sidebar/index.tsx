@@ -16,7 +16,7 @@ const Sidebar: FC = () => {
     <main className="text-light h-[100dvh] min-h-[100dvh] overflow-y-hidden">
       {/* Navbar */}
       <Navbar />
-      <section className="flex overflow-y-auto sm:items-center items-start h-max">
+      <section className="flex sm:items-center items-start h-[92dvh] py-[20px] pl-[14px]">
         <Aside />
         <div
           onClick={toggleDrawer}

@@ -1,43 +1,38 @@
-import { useState } from "react";
-import { Text } from "@chakra-ui/react";
+import { FC } from "react";
+import { Menu } from "../Generic";
 import { RiGlobalLine } from "react-icons/ri";
-import { Button } from "../../components/ui/button";
-import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "../ui/menu";
+import { GenericMenuPropsType } from "../../utils/types/menu";
 
-const Lang = () => {
-  const [lang, setLang] = useState<"o'zbek" | "english">("o'zbek");
-
-  const handleLanguageChange = (newLang: "o'zbek" | "english") => {
-    setLang(newLang);
+const Lang: FC<Omit<GenericMenuPropsType, "defaultValue">> = ({
+  items,
+  leftIcon,
+}) => {
+  const defaultLeftIcon = {
+    icon: true,
+    iconBody: RiGlobalLine,
   };
 
+  const langItems = items || [
+    {
+      id: 1,
+      value: "o'zbek",
+    },
+    {
+      id: 2,
+      value: "english",
+    },
+    {
+      id: 3,
+      value: "russian",
+    },
+  ];
+
   return (
-    <MenuRoot>
-      <MenuTrigger asChild className="outline-none">
-        <Button variant="outline" size="sm" className="flex items-center group">
-          <RiGlobalLine className="mr-[-2px] text-item-color group-hover:text-light" />
-          <Text className="text-[16px] text-item-color group-hover:text-light">
-            {lang === "o'zbek" ? "o'zbek" : "english"}
-          </Text>
-        </Button>
-      </MenuTrigger>
-      <MenuContent className="flex gap-[14px] flex-col outline-none px-[14px] py-[12px] bg-ghost-bg-color">
-        <MenuItem
-          value="o'zbek"
-          className="px-[10px] py-[8px] cursor-pointer"
-          onClick={() => handleLanguageChange("o'zbek")}
-        >
-          O'zbek
-        </MenuItem>
-        <MenuItem
-          value="english"
-          className="px-[10px] py-[8px] cursor-pointer"
-          onClick={() => handleLanguageChange("english")}
-        >
-          English
-        </MenuItem>
-      </MenuContent>
-    </MenuRoot>
+    <Menu
+      items={langItems}
+      defaultValue="o'zbek"
+      leftIcon={leftIcon || defaultLeftIcon}
+    />
   );
 };
 

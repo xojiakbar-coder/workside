@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+.sidebar {
+  background: rgb(39, 41, 43);
+  background: linear-gradient(
+    -190deg,
+    rgb(32, 34, 36) 0%,
+    rgb(18, 18, 20) 100%
+  );
+}
+
 :root {
   /* padding */
   --padding: 2%;

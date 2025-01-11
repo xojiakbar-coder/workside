@@ -11,15 +11,15 @@ const Aside = () => {
 
   return (
     <aside
-      className={`hidden sm:flex flex-col h-full py-[7px] border-r border-r-[#111111] ${
-        sidebar ? "w-[90px]" : "w-[345px]"
+      className={`hidden sm:flex flex-col h-full py-[7px] sidebar rounded-lg ${
+        sidebar ? "w-[85px]" : "w-[345px]"
       }`}
     >
       {/* Sidebar */}
       <div
-        className={`flex px-[10px] ${
+        className={`flex px-[14px] ${
           sidebar ? "justify-center" : "justify-end"
-        } items-center my-[12px]`}
+        } items-center my-[14px]`}
       >
         {sidebar ? (
           <RiSideBarLine

@@ -49,7 +49,7 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
   } group rounded-md text-[14px] text-left gap-[14px] cursor-pointer text-item-color hover:text-light transition-all ease-out duration-[115ms] h-[47px] min-h-[47px] px-[14px] font-mont font-medium hover:bg-dark-bg-color`;
 
   return (
-    <div className="w-full h-full flex flex-col gap-[12px] overflow-y-auto p-[16px] select-none">
+    <div className="w-full h-max flex flex-col gap-[12px] px-[16px] py-[24px] select-none">
       {sidebar_items.map((item) => {
         const Icon = item.icon;
         const active = open.includes(item.id);

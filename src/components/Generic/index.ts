@@ -1,4 +1,5 @@
 export { default as Tabs } from "./Tabs/Tabs.tsx";
+export { default as Menu } from "./Menu/Menu.tsx";
 export { default as Timer } from "./Timer/Timer.tsx";
 export { default as Title } from "./Title/index.tsx";
 export { default as Table } from "./Table/index.tsx";

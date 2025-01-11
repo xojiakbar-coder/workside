@@ -48,7 +48,7 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar }) => {
     <Fragment>
       {data && data.length > 0 ? (
         <div className="w-full max-w-4xl mx-auto flex pl-[14px]">
-          <div className="flex flex-col relative border-l border-outer-bdr-color w-full gap-[10px] my-[12px]">
+          <div className="flex flex-col relative border-l border-gray-color w-full gap-[10px] my-[12px]">
             {data.map((item, index) => {
               // const Icon = item.icon;
               const { id, title, name } = item;
