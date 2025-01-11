@@ -16,10 +16,10 @@ import {
 } from "react-icons/lu";
 
 export interface SidebarChildrenItemType {
-  id: string;
+  id: string | number;
   name: string;
   title: string;
-  element: () => ReactNode;
+  element?: () => ReactNode;
 }
 
 export interface SidebarItemType {

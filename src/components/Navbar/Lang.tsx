@@ -1,37 +1,34 @@
-import { FC } from "react";
 import { Menu } from "../Generic";
 import { RiGlobalLine } from "react-icons/ri";
-import { GenericMenuPropsType } from "../../utils/types/menu";
+import { SidebarChildrenItemType } from "./../../utils/data/sidebar";
 
-const Lang: FC<Omit<GenericMenuPropsType, "defaultValue">> = ({
-  items,
-  leftIcon,
-}) => {
-  const defaultLeftIcon = {
+const Lang = () => {
+  const leftIcon = {
     icon: true,
     iconBody: RiGlobalLine,
   };
 
-  const langItems = items || [
+  const langItems: SidebarChildrenItemType[] = [
     {
       id: 1,
-      value: "o'zbek",
+      title: "o'zbek",
     },
     {
       id: 2,
-      value: "english",
+      title: "english",
     },
     {
       id: 3,
-      value: "russian",
+      title: "russian",
     },
   ];
 
   return (
     <Menu
       items={langItems}
+      storageName="lang"
       defaultValue="o'zbek"
-      leftIcon={leftIcon || defaultLeftIcon}
+      leftIcon={leftIcon || leftIcon}
     />
   );
 };

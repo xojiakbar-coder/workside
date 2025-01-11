@@ -59,7 +59,7 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
         if (item.children?.length) {
           return (
             <div key={item.id}>
-              <div>
+              <div className={toggleSidebar ? "group" : ""}>
                 <div
                   onClick={(e) => onClickParent(item, e)}
                   className={`${generalSidebarItemStyle} flex items-center ${
@@ -80,12 +80,23 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
                   )}
                 </div>
                 {active && (
+                  <>
+                    {!toggleSidebar && (
+                      <Tabs
+                        type="link"
+                        data={item.children}
+                        toggleSidebar={toggleSidebar ? toggleSidebar : false}
+                      />
+                    )}
+                  </>
+                )}
+                <div className="absolute hidden group-hover:flex z-[888] pt-[4px] w-[280px] h-[200px]">
                   <Tabs
-                    type="link"
+                    type="sidebar"
                     data={item.children}
                     toggleSidebar={toggleSidebar ? toggleSidebar : false}
                   />
-                )}
+                </div>
               </div>
             </div>
           );

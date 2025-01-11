@@ -17,6 +17,7 @@ const Sidebar: FC = () => {
       {/* Navbar */}
       <Navbar />
       <section className="flex sm:items-center items-start h-[92dvh] py-[20px] pl-[14px]">
+        {/* Sidebar */}
         <Aside />
         <div
           onClick={toggleDrawer}

@@ -1,22 +1,14 @@
-import { useForm } from "react-hook-form";
-// import useSize from "../../hooks/useSize";
+import { Field } from "../ui/field";
+import { Textarea } from "@chakra-ui/react";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormValues, schema } from "../../utils/types/form";
-import {
-  Button,
-  Container,
-  GridBox,
-  GrupInput,
-  Input,
-  Title,
-} from "../Generic";
-import { Textarea } from "@chakra-ui/react";
-import { Field } from "../ui/field";
+import { Button, GridBox, Container, NumberInput, Title } from "../Generic";
 
 const Contact = () => {
   // const { width } = useSize();
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
@@ -39,28 +31,27 @@ const Contact = () => {
           gapY="38px"
           className="justify-center w-full lg:px-[25%] md:px-[20%] px-[5%] py-[40px]"
         >
-          <Input
-            label="Ismingiz"
-            inputVariant="subtle"
-            invalid={!!errors.firstName}
-            register={register("firstName")}
-            errorText={errors.firstName?.message}
-            inputplaceHolder="Ismingizni kiriting"
-          />
-          <GrupInput
-            endText="@gmail.com"
-            inputVariant="subtle"
-            invalid={!!errors.email}
-            register={register("email")}
-            inputplaceHolder="gmail manzilingizni kiriting"
-            errorText={errors.email?.message}
-            label="Gmail pochta manzil"
+          <Controller
+            control={control}
+            name="phone"
+            render={({ field }) => (
+              <NumberInput
+                {...field}
+                startText="+998"
+                inputVariant="subtle"
+                invalid={!!errors.phone}
+                label="Xodim aloqa raqami"
+                contentMask="(99) 999-99-99"
+                inputplaceHolder="(99) 999-99-99"
+                errorText={errors.phone?.message}
+              />
+            )}
           />
           <Field label="Xabaringiz" required>
             <Textarea
-              maxLength={590}
+              maxLength={236}
               placeholder="Xabaringizni yozib qoldiring"
-              className="bg-ghost-bg-color p-[12px] outline-none px-[10px] text-[16px] placeholder:text-[16px] h-[120px]"
+              className="bg-ghost-bg-color p-[12px] outline-none px-[10px] text-[16px] placeholder:text-[16px] h-[80px]"
             />
           </Field>
           <div className="pt-[10px] w-full">

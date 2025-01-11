@@ -8,23 +8,26 @@ const GenericMenu: FC<GenericMenuPropsType> = ({
   items,
   leftIcon,
   rightIcon,
+  storageName,
   defaultValue,
 }) => {
   const [menuValue, setMenuValue] = useState(() => {
-    return localStorage.getItem("menu-value") || defaultValue || "";
+    return (
+      localStorage.getItem(storageName || "menu-value") || defaultValue || ""
+    );
   });
 
   const handleLanguageChange = (value: string) => {
     setMenuValue(value);
-    localStorage.setItem("menu-value", value);
+    localStorage.setItem(storageName || "menu-value", value);
   };
 
   return (
     <MenuRoot>
       <MenuTrigger asChild className="outline-none">
         <Button
-          variant="outline"
           size="sm"
+          variant="outline"
           className="flex items-center group gap-[8px]"
         >
           {leftIcon && leftIcon.icon && <leftIcon.iconBody />}
@@ -38,11 +41,11 @@ const GenericMenu: FC<GenericMenuPropsType> = ({
         {items.map((item) => (
           <MenuItem
             key={item.id}
-            value={item.value}
+            value={item.title}
             className="px-[10px] py-[8px] cursor-pointer"
-            onClick={() => handleLanguageChange(item.value)}
+            onClick={() => handleLanguageChange(item.title)}
           >
-            {item.value}
+            {item.title}
           </MenuItem>
         ))}
       </MenuContent>

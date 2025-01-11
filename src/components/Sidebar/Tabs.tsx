@@ -1,9 +1,9 @@
 import { Heading } from "@chakra-ui/react";
-import { TabsProps } from "../../../utils/types/tabs";
+import { TabsProps } from "../../utils/types/tabs";
 import { NavLink, useLocation } from "react-router-dom";
-import { useState, useRef, useEffect, FC, Fragment } from "react";
+import { useState, useRef, useEffect, FC } from "react";
 
-const Tabs: FC<TabsProps> = ({ data, toggleSidebar }) => {
+const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
   const location = useLocation();
   const [indicatorStyle, setIndicatorStyle] = useState({
     top: "0px",
@@ -45,12 +45,17 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar }) => {
   };
 
   return (
-    <Fragment>
+    <div
+      className={`${
+        type === "sidebar"
+          ? "rounded-md bg-body-bg-color border border-outer-bdr-color w-full overflow-y-scroll"
+          : ""
+      }`}
+    >
       {data && data.length > 0 ? (
-        <div className="w-full max-w-4xl mx-auto flex pl-[14px]">
+        <div className={`w-full max-w-4xl mx-auto flex pl-[14px]`}>
           <div className="flex flex-col relative border-l border-gray-color w-full gap-[10px] my-[12px]">
             {data.map((item, index) => {
-              // const Icon = item.icon;
               const { id, title, name } = item;
 
               return (
@@ -59,12 +64,14 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar }) => {
                   to={name}
                   onClick={() => handleTabClick(index)}
                   ref={(el) => (tabRefs.current[index] = el)}
-                  className={`flex items-center text-[14px] group hover:bg-dark-bg-color p-2 rounded-r-md text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-mont font-medium text-item-color hover:text-light transition-all duration-300 ${
+                  className={`flex items-center text-[14px] group hover:bg-dark-bg-color p-2 whitespace-nowrap ${
+                    type !== "sidebar" && "rounded-r-md"
+                  } text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-mont font-medium text-item-color hover:text-light transition-all duration-300 ${
                     location.pathname === name &&
                     "text-primary-btn hover:text-primary-btn bg-dark-bg-color"
                   }`}
                 >
-                  {!toggleSidebar && title}
+                  {title}
                 </NavLink>
               );
             })}
@@ -78,7 +85,7 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar }) => {
       ) : (
         <Heading>No data available</Heading>
       )}
-    </Fragment>
+    </div>
   );
 };
 

@@ -15,13 +15,12 @@ const GridBox: FC<GridBoxPropsType> = ({
   className,
   ...props
 }) => {
-  const gridClasses = `overflow-y-auto`;
   return (
     <Grid
-      {...props}
       templateRows={rows}
+      className={className}
       templateColumns={cols}
-      className={`${gridClasses} ${className}`}
+      {...props}
     >
       {children}
     </Grid>

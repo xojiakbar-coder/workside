@@ -44,7 +44,7 @@ const AddNewEmployee = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Container fluid type="section" className="h-section-h overflow-y-auto">
+      <Container fluid type="section" className="h-section-h">
         <Title type="section">Yangi xodim qo'shish</Title>
         <GridBox
           cols={cols}

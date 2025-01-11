@@ -15,7 +15,6 @@ const Aside = () => {
         sidebar ? "w-[85px]" : "w-[345px]"
       }`}
     >
-      {/* Sidebar */}
       <div
         className={`flex px-[14px] ${
           sidebar ? "justify-center" : "justify-end"

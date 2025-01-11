@@ -1,4 +1,5 @@
 import { IconType } from "react-icons";
+import { SidebarChildrenItemType } from "../data/sidebar";
 
 export interface GenericMenuPropsType {
   leftIcon?: {
@@ -9,11 +10,7 @@ export interface GenericMenuPropsType {
     icon: boolean;
     iconBody: IconType;
   };
-  defaultValue: string;
-  items: GenericMenuItemType[];
-}
-
-export interface GenericMenuItemType {
-  id: number;
-  value: string;
+  storageName?: string;
+  defaultValue?: string;
+  items: SidebarChildrenItemType[];
 }
