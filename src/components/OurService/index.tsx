@@ -33,7 +33,7 @@ const OurService = () => {
     <Container
       fluid
       type="home-section"
-      className="flex w-full flex-col justify-center h-section-h"
+      className="flex w-full flex-col justify-center h-max min-h-section-h"
     >
       <Title type="secondary">Bizning xizmatlar</Title>
       <GridBox

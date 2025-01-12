@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import GenericElement from "../../view";
 import { RiGithubFill } from "react-icons/ri";
-import Contact from "../../components/Contact";
 import { RiTelegramFill } from "react-icons/ri";
 import { RiInstagramLine } from "react-icons/ri";
 
@@ -27,20 +26,6 @@ const navbar_items: NavbarItemType[] = [
     path: "/hisobotlar",
     title: "Hisobotlar",
     element: GenericElement,
-  },
-  {
-    id: 3,
-    sidebar: false,
-    path: "/biz-haqimizda",
-    title: "Biz haqimizda",
-    element: GenericElement,
-  },
-  {
-    id: 4,
-    sidebar: false,
-    path: "/aloqa",
-    title: "Aloqa",
-    element: Contact,
   },
 ];
 
