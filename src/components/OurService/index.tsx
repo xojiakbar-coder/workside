@@ -30,7 +30,11 @@ const OurService = () => {
   const justifyContent = width > 768 ? "justify-evenly" : "justify-center";
 
   return (
-    <Container fluid type="home-section" className="w-full flex-col">
+    <Container
+      fluid
+      type="home-section"
+      className="flex w-full flex-col justify-center h-section-h"
+    >
       <Title type="secondary">Bizning xizmatlar</Title>
       <GridBox
         gap="25px"

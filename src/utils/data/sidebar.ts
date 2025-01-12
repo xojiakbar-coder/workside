@@ -13,13 +13,15 @@ import {
   LuNotebookText,
   LuSquareActivity,
   LuChartNoAxesColumn,
+  LuUsersRound,
+  LuFolders,
 } from "react-icons/lu";
 
 export interface SidebarChildrenItemType {
   id: string | number;
   name: string;
   title: string;
-  element?: () => ReactNode;
+  element: () => ReactNode;
 }
 
 export interface SidebarItemType {
@@ -69,7 +71,7 @@ export const sidebar_items: SidebarItemType[] = [
   {
     id: 5,
     title: "Xodimlar",
-    icon: LuSquareActivity,
+    icon: LuUsersRound,
     element: GenericElement,
     name: "/umumiy-korinish/umumiy-xodimlar",
     children: [
@@ -101,8 +103,8 @@ export const sidebar_items: SidebarItemType[] = [
   },
   {
     id: 6,
+    icon: LuFolders,
     title: "Loyihalar",
-    icon: LuSquareActivity,
     element: GenericElement,
     name: "/umumiy-korinish/loyihalar",
     children: [

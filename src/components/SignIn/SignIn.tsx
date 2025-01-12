@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Field } from "../ui/field";
 import { Button } from "../Generic";
 import { NavLink } from "react-router-dom";
-import { PasswordInput } from "../ui/password-input";
 import { Heading, Input } from "@chakra-ui/react";
+import { PasswordInput } from "../ui/password-input";
 
 const SignIn = () => {
   const [value, setValue] = useState("");

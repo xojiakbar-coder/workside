@@ -13,7 +13,7 @@ const Drawer: FC<DrawerPropsType> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className={`fixed top-0 w-full h-[100dvh] min-h-[100dvh] overflow-y-auto flex flex-col justify-end backdrop-blur-[7px] bg-[#09090bd7] transform transition duration-[370ms] ease-in-out z-[999] ${
+      className={`fixed top-0 w-full h-[100dvh] min-h-[100dvh] flex flex-col justify-end backdrop-blur-[7px] overflow-scroll bg-[#09090bd7] transform transition duration-[370ms] ease-in-out z-[999] ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >

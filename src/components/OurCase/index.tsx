@@ -4,7 +4,7 @@ import our_case_data from "../../utils/data/case";
 
 const OurCase = () => {
   return (
-    <Container fluid flexDirection="column" className="mt-[50px] h-max">
+    <Container fluid className="flex flex-col items-center mt-[100px] h-max">
       <Title type="secondary">Bizning keyslar</Title>
       <GenericMarquee
         speed={60}

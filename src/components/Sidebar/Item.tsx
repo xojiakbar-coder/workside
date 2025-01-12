@@ -59,7 +59,7 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
         if (item.children?.length) {
           return (
             <div key={item.id}>
-              <div className={toggleSidebar ? "group" : ""}>
+              <div className={toggleSidebar ? "group flex items-center" : ""}>
                 <div
                   onClick={(e) => onClickParent(item, e)}
                   className={`${generalSidebarItemStyle} flex items-center ${
@@ -70,7 +70,7 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
                   }`}
                 >
                   <p className="flex items-center gap-[14px] text-inherit">
-                    <Icon className="text-[20px]" />
+                    <Icon className="text-[20px] cursor-pointer" />
                     {!toggleSidebar && item.title}
                   </p>
                   {!toggleSidebar && (
@@ -90,7 +90,7 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
                     )}
                   </>
                 )}
-                <div className="absolute hidden group-hover:flex z-[888] pt-[4px] w-[280px] h-[200px]">
+                <div className="absolute hidden group-hover:flex z-[888] pt-[4px] ml-[50px] pl-[15px] w-[330px] h-[200px]">
                   <Tabs
                     type="sidebar"
                     data={item.children}

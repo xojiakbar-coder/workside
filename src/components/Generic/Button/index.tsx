@@ -51,7 +51,7 @@ const GenericButton: FC<GenericButtonType> = ({
   className,
   ...props
 }) => {
-  const generalStyle = `flex items-center gap-[12px] min-w-max min-h-max font-mont xl:text-[16px] text-[14px] px-[20px] md:py-[34px] py-[22px] text-center outline-none transition-all ease-in-out duration-[240ms] select-none cursor-pointer`;
+  const generalStyle = `flex items-center gap-[12px] min-w-max min-h-max font-mont xl:text-[16px] text-[14px] px-[20px] md:py-[34px] py-[18px] text-center outline-none transition-all ease-in-out duration-[240ms] select-none cursor-pointer`;
 
   return (
     <Button

@@ -48,7 +48,7 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
     <div
       className={`${
         type === "sidebar"
-          ? "rounded-md bg-body-bg-color border border-outer-bdr-color w-full overflow-y-scroll"
+          ? "rounded-r-md bg-body-bg-color border-r border-t border-b border-outer-bdr-color w-full overflow-y-scroll"
           : ""
       }`}
     >

@@ -19,7 +19,7 @@ const Logo: FC<LogoItemType> = ({ logo = true, onClose }) => {
     if (onClose) onClose();
   };
 
-  const logoSize = logo ? "w-[180px]" : "w-[180px] grayscale-[0.6]";
+  const logoSize = logo ? "w-[180px]" : "w-[180px]";
   const responsiveLogoSize = width < 567 && "w-[130px]";
 
   return (

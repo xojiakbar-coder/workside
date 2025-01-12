@@ -1,6 +1,6 @@
 import { Menu } from "../Generic";
 import { RiGlobalLine } from "react-icons/ri";
-import { SidebarChildrenItemType } from "./../../utils/data/sidebar";
+import { MenuItemType } from "../../utils/types/menu";
 
 const Lang = () => {
   const leftIcon = {
@@ -8,7 +8,7 @@ const Lang = () => {
     iconBody: RiGlobalLine,
   };
 
-  const langItems: SidebarChildrenItemType[] = [
+  const langItems: MenuItemType[] = [
     {
       id: 1,
       title: "o'zbek",

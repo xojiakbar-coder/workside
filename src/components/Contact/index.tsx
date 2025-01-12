@@ -3,10 +3,9 @@ import { Textarea } from "@chakra-ui/react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormValues, schema } from "../../utils/types/form";
-import { Button, GridBox, Container, NumberInput, Title } from "../Generic";
+import { Button, Container, NumberInput, Title } from "../Generic";
 
 const Contact = () => {
-  // const { width } = useSize();
   const {
     control,
     handleSubmit,
@@ -20,60 +19,60 @@ const Contact = () => {
   };
 
   return (
-    <Container fluid type="section" className="w-full">
-      <div className="flex flex-col gap-[40px] items-center h-max min-h-section-h pt-[20px]">
-        <Title type="secondary" className="font-mont">
-          Bizga ushbu manbalar orqali aloqaga chiqishingiz mumkin
-        </Title>
-        <GridBox
-          cols="1fr"
-          gapX="30px"
-          gapY="38px"
-          className="justify-center w-full lg:px-[25%] md:px-[20%] px-[5%] py-[40px]"
-        >
-          <Controller
-            control={control}
-            name="phone"
-            render={({ field }) => (
-              <NumberInput
-                {...field}
-                startText="+998"
-                inputVariant="subtle"
-                invalid={!!errors.phone}
-                label="Xodim aloqa raqami"
-                contentMask="(99) 999-99-99"
-                inputplaceHolder="(99) 999-99-99"
-                errorText={errors.phone?.message}
-              />
-            )}
-          />
-          <Field label="Xabaringiz" required>
-            <Textarea
-              maxLength={236}
-              placeholder="Xabaringizni yozib qoldiring"
-              className="bg-ghost-bg-color p-[12px] outline-none px-[10px] text-[16px] placeholder:text-[16px] h-[80px]"
-            />
-          </Field>
-          <div className="pt-[10px] w-full">
-            <Button
-              type="solid"
-              className="font-semibold w-full"
-              onClick={handleSubmit(onSubmit)}
-            >
-              Yuborish
-            </Button>
-          </div>
-        </GridBox>
-        <div className="flex justify-between w-full py-[100px] lg:px-[25%] md:px-[15%] px-[5%]">
+    <Container
+      fluid
+      type="wrapper"
+      className="flex flex-col bg-dark-bg-color backdrop-blur-[40px] pt-[35px] h-max"
+    >
+      <Title type="secondary" className="pb-[60px]">
+        Bizga ushbu manbalar orqali aloqaga chiqishingiz mumkin
+      </Title>
+      <div className="flex flex-row px-[3%] items-center gap-[40px] justify-between h-[70dvh] pb-[50px] min-h-[70dvh] max-h-[100dvh]">
+        <div className="flex flex-col justify-center items-center w-full h-full">
           <iframe
             width="100%"
-            height="400"
+            height="100%"
             loading="lazy"
-            style={{ border: "0" }}
-            className="shadow-light-shadow rounded-lg"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.1099065125222!2d69.44633727662138!3d41.3934194712991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef189eca30c29%3A0x95727829e4ea1680!2zUWlicmF5LMOVbnFvcsSfb24!5e0!3m2!1sru!2s!4v1733856025520!5m2!1sru!2s"
+            className="rounded-md"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47910.947616615405!2d69.29587752187933!3d41.36464970695823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8cb23888afb9%3A0x31c22300affbc36a!2z0K7QvdGD0YHQsNCx0LDQtNGB0LrQuNC5INGA0LDQudC-0L0sINCi0LDRiNC60LXQvdGCLCDQotCw0YjQutC10L3RgtGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQo9C30LHQtdC60LjRgdGC0LDQvQ!5e0!3m2!1sru!2s!4v1736681586140!5m2!1sru!2s"
           ></iframe>
         </div>
+        <form className="flex flex-col gap-x-[30px] gap-y-[48px] justify-between rounded-md w-full p-[40px] h-full bg-body-bg-color">
+          <div className="flex flex-col gap-y-[38px]">
+            <Controller
+              name="phone"
+              control={control}
+              render={({ field }) => (
+                <NumberInput
+                  {...field}
+                  startText="+998"
+                  inputVariant="subtle"
+                  invalid={!!errors.phone}
+                  label="Xodim aloqa raqami"
+                  contentMask="(99) 999-99-99"
+                  inputplaceHolder="(99) 999-99-99"
+                  errorText={errors.phone?.message}
+                />
+              )}
+            />
+            <Field label="Xabaringiz" required>
+              <Textarea
+                size="lg"
+                autoresize
+                maxLength={236}
+                placeholder="Xabaringizni yozib qoldiring"
+                className="bg-ghost-bg-color p-[12px] outline-none px-[10px] text-[16px] placeholder:text-[16px] h-max"
+              />
+            </Field>
+          </div>
+          <Button
+            type="solid"
+            onClick={handleSubmit(onSubmit)}
+            className="font-semibold w-full mt-auto"
+          >
+            Yuborish
+          </Button>
+        </form>
       </div>
     </Container>
   );

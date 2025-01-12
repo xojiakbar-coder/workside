@@ -126,18 +126,16 @@ const AddNewEmployee = () => {
             errorText={errors.experience?.message}
           />
         </GridBox>
-        <div className="pt-[50px] mt-auto ml-auto">
-          <Button
-            type="solid"
-            onClick={handleSubmit(onSubmit)}
-            className="font-semibold w-max"
-            rightIcon={
-              <i className="fa-solid fa-user-plus text-ghost-bg-color"></i>
-            }
-          >
-            Xodimni qo'shish
-          </Button>
-        </div>
+        <Button
+          type="solid"
+          onClick={handleSubmit(onSubmit)}
+          className="font-semibold mt-[50px] w-max ml-auto"
+          rightIcon={
+            <i className="fa-solid fa-user-plus text-ghost-bg-color"></i>
+          }
+        >
+          Xodimni qo'shish
+        </Button>
       </Container>
     </form>
   );
