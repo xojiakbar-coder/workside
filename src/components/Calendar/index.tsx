@@ -6,6 +6,7 @@ const Calendar = () => {
       <Title type="section">Calendar</Title>
       <div>
         <div>1</div>
+        <div>2</div>
       </div>
     </Container>
   );
