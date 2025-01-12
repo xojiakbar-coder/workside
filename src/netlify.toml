@@ -5,4 +5,4 @@ status = 200
 
 [build]
   publish = "build" # Or "dist" for Vite
-  command = "yarn run build"
+  command = "npm run build"
