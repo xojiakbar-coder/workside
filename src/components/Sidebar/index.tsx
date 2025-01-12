@@ -16,7 +16,7 @@ const Sidebar: FC = () => {
     <main className="text-light h-[100dvh] min-h-[100dvh] overflow-y-hidden">
       {/* Navbar */}
       <Navbar />
-      <section className="flex sm:items-center items-start h-[92dvh]">
+      <section className="flex sm:items-center items-start h-[92dvh] py-[14px]">
         {/* Sidebar */}
         <Aside />
         <div

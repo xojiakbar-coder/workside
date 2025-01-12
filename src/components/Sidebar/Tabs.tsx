@@ -57,6 +57,7 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
           <div className="flex flex-col relative border-l border-gray-color w-full gap-[10px] my-[12px]">
             {data.map((item, index) => {
               const { id, title, name } = item;
+              const Icon = item.icon;
 
               return (
                 <NavLink
@@ -71,6 +72,7 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
                     "text-primary-btn hover:text-primary-btn bg-dark-bg-color"
                   }`}
                 >
+                  <Icon className="text-[20px] mr-[14px]" />
                   {title}
                 </NavLink>
               );

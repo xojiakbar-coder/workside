@@ -15,12 +15,14 @@ import {
   LuChartNoAxesColumn,
   LuUsersRound,
   LuFolders,
+  LuVideo,
 } from "react-icons/lu";
 
 export interface SidebarChildrenItemType {
   id: string | number;
   name: string;
   title: string;
+  icon: IconType;
   element: () => ReactNode;
 }
 
@@ -77,24 +79,28 @@ export const sidebar_items: SidebarItemType[] = [
     children: [
       {
         id: `5-1`,
+        icon: LuVideo,
         element: EmployeeReports,
         title: "Xodimlar hisobotlari",
         name: "/umumiy-korinish/xodimlar-hisobotlari",
       },
       {
         id: `5-2`,
+        icon: LuVideo,
         element: StaffList,
         title: "Xodimlar ma'lumotlari",
         name: "/umumiy-korinish/xodimlar-malumotlari",
       },
       {
         id: `5-3`,
+        icon: LuVideo,
         element: AddNewEmployee,
         title: "Yangi xodim qo'shish",
         name: "/umumiy-korinish/xodim-qoshish",
       },
       {
         id: `5-4`,
+        icon: LuVideo,
         element: GenericElement,
         title: "Hisobot tayyorlash",
         name: "/umumiy-korinish/hisobot-tayyorlash",
@@ -110,18 +116,21 @@ export const sidebar_items: SidebarItemType[] = [
     children: [
       {
         id: `6-1`,
+        icon: LuVideo,
         title: "Media",
         element: GenericElement,
         name: "/umumiy-korinish/media",
       },
       {
         id: `6-2`,
+        icon: LuVideo,
         title: "Xabarlar",
         name: "/umumiy-korinish/xabarlar",
         element: GenericElement,
       },
       {
         id: `6-3`,
+        icon: LuVideo,
         title: "Integratsiyalar",
         name: "/umumiy-korinish/integratsiyalar",
         element: GenericElement,
@@ -153,42 +162,49 @@ export const sidebar_items: SidebarItemType[] = [
     children: [
       {
         id: `9-1`,
+        icon: LuVideo,
         title: "Bildirishnomalar",
         name: "/umumiy-korinish/bildirishnomalar",
         element: GenericElement,
       },
       {
         id: `9-2`,
+        icon: LuVideo,
         title: "Xavsizlik",
         name: "/umumiy-korinish/xavsizlik",
         element: GenericElement,
       },
       {
         id: `9-3`,
+        icon: LuVideo,
         title: "Nazorat qilish",
         name: "/umumiy-korinish/nazorat-qilish",
         element: GenericElement,
       },
       {
         id: `9-4`,
+        icon: LuVideo,
         title: "Afzalliklar",
         name: "/umumiy-korinish/afzalliklar",
         element: GenericElement,
       },
       {
         id: `9-5`,
+        icon: LuVideo,
         title: "Yordam markazi",
         name: "/umumiy-korinish/yordam-markazi",
         element: GenericElement,
       },
       {
         id: `9-6`,
+        icon: LuVideo,
         title: "Biz haqimizda",
         name: "/umumiy-korinish/biz-haqimizda",
         element: GenericElement,
       },
       {
         id: `9-7`,
+        icon: LuVideo,
         title: "Mavzu",
         name: "/umumiy-korinish/mavzu",
         element: GenericElement,
