@@ -13,7 +13,7 @@ const Drawer: FC<DrawerPropsType> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className={`fixed top-0 w-full h-[100dvh] min-h-[100dvh] flex flex-col justify-end backdrop-blur-[7px] overflow-scroll bg-[#09090bd7] transform transition duration-[370ms] ease-in-out z-[999] ${
+      className={`flex 992:hidden fixed top-0 w-full h-[100dvh] min-h-[100dvh] flex flex-col justify-end backdrop-blur-[7px] bg-[#09090bd7] transform transition duration-[370ms] ease-in-out z-[999] ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -23,7 +23,7 @@ const Drawer: FC<DrawerPropsType> = ({ isOpen, onClose }) => {
             <LuX className="text-[28px]" />
           </button>
         </div>
-        <div className="flex flex-col h-full py-[30px]">
+        <div className="flex flex-col overflow-y-auto h-full pb-[60px]">
           <SidebarItems onClose={onClose} />
         </div>
       </aside>

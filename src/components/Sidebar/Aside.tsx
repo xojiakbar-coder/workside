@@ -11,7 +11,7 @@ const Aside = () => {
 
   return (
     <aside
-      className={`hidden sm:flex flex-col h-full py-[7px] sidebar rounded-lg ${
+      className={`hidden 992:flex flex-col h-full py-[7px] sidebar rounded-lg ${
         sidebar ? "w-[85px]" : "w-[345px]"
       }`}
     >

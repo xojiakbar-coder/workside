@@ -207,7 +207,7 @@ export const sidebar_items: SidebarItemType[] = [
         name: "/umumiy-korinish/yordam-markazi",
       },
       {
-        id: `9-7`,
+        id: `9-6`,
         icon: LuMoon,
         title: "Mavzu",
         element: GenericElement,

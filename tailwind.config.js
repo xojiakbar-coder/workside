@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        sm: "992px",
+        992: "992px",
       },
       keyframes: {
         marquee: {

@@ -1,14 +1,14 @@
 const table_head = [
   {
-    id: 2,
+    id: 1,
     title: "Ism",
   },
   {
-    id: 3,
+    id: 2,
     title: "Email",
   },
   {
-    id: 4,
+    id: 3,
     title: "Telefon",
   },
 ];

@@ -42,18 +42,18 @@ const Navbar = () => {
           shadow && "shadow-navbar-shadow"
         } px-[3%] py-[25px] transition-all ease-out duration-[230ms] h-full`}
       >
-        <div className="sm:flex hidden">
+        <div className="992:flex hidden">
           <Logo />
         </div>
 
-        <div className="sm:flex hidden items-center gap-[20px]">
+        <div className="992:flex hidden items-center gap-[20px]">
           <Item dir="row" />
           <Timer format="LT" bottom_date_visible={false} />
           <Lang />
         </div>
-        <div className="sm:hidden flex w-full justify-between">
+        <div className="992:hidden flex w-full justify-between">
           <div
-            className="sm:hidden flex select-none py-[7px] cursor-pointer rounded-[8px] transition duration-[240ms] ease-in-out"
+            className="992:hidden flex select-none py-[7px] cursor-pointer rounded-[8px] transition duration-[240ms] ease-in-out"
             onClick={toggleDrawer}
           >
             <LuAlignLeft className="text-[26px]" />

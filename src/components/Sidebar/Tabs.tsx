@@ -11,9 +11,7 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
     display: "none",
   });
 
-  useEffect(() => {
-    console.log(toggleSidebar);
-  }, [toggleSidebar]);
+  useEffect(() => {}, [toggleSidebar]);
   const tabRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   const updateIndicator = (activeTabIndex: number) => {

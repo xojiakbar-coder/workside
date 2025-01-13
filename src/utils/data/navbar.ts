@@ -1,8 +1,5 @@
 import { ReactNode } from "react";
 import GenericElement from "../../view";
-import { RiGithubFill } from "react-icons/ri";
-import { RiTelegramFill } from "react-icons/ri";
-import { RiInstagramLine } from "react-icons/ri";
 
 export interface NavbarItemType {
   id: number;
@@ -10,6 +7,13 @@ export interface NavbarItemType {
   title: string;
   sidebar?: boolean;
   element: () => ReactNode;
+}
+
+export interface ProfilesItemType {
+  id: number;
+  url: string;
+  icon: string;
+  name: string;
 }
 
 const navbar_items: NavbarItemType[] = [
@@ -30,24 +34,3 @@ const navbar_items: NavbarItemType[] = [
 ];
 
 export default navbar_items;
-
-export const profiles_data = [
-  {
-    id: 1,
-    name: "Instagram",
-    href: "",
-    icon: RiInstagramLine,
-  },
-  {
-    id: 2,
-    name: "Instagram",
-    href: "",
-    icon: RiTelegramFill,
-  },
-  {
-    id: 3,
-    name: "Instagram",
-    href: "",
-    icon: RiGithubFill,
-  },
-];

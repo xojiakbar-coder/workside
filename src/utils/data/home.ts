@@ -18,7 +18,7 @@ export const home_sections: NavbarItemType[] = [
     element: Home,
   },
   {
-    id: 3,
+    id: 2,
     sidebar: false,
     element: OurService,
     path: "/bizning-xizmatlarimiz",
