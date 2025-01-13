@@ -13,8 +13,8 @@ const Drawer: FC<DrawerPropsType> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className={`flex 992:hidden fixed top-0 w-full h-[100dvh] min-h-[100dvh] flex flex-col justify-end backdrop-blur-[7px] bg-[#09090bd7] transform transition duration-[370ms] ease-in-out z-[999] ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
+      className={`flex 992:hidden fixed top-0 w-full h-[100dvh] min-h-[100dvh] flex flex-col justify-end mt-auto backdrop-blur-[7px] bg-[#09090bd7] transform transition duration-[370ms] ease-in-out z-[999] ${
+        isOpen ? "translate-y-0" : "translate-y-full"
       }`}
     >
       <aside className="h-full w-full border-t border-t-[#111111] bg-body-bg-color">

@@ -16,7 +16,7 @@ const StaffList = () => {
   }, []);
 
   return (
-    <Container fluid type="section" className="overflow-y-auto">
+    <Container fluid type="section">
       {data.length > 0 && (
         <>
           <Title type="section">Xodimlar ma'lumotlari</Title>
@@ -28,7 +28,7 @@ const StaffList = () => {
         <GenericEmptyState
           button={true}
           buttonContent="Yangi xodim qo'shish"
-          buttonPath="/umumiy-korinish/xodim-qoshish"
+          buttonPath="/umumiy/xodim-qoshish"
           title="Hozircha xodimlar ma'lumotlari topilmadi"
           description="Agar siz yangi xodim qo'shishni xohlasangiz xodimlarni qo'shish sahifasiga o'ting"
         />

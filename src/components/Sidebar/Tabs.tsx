@@ -63,7 +63,7 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
                   to={name}
                   onClick={() => handleTabClick(index)}
                   ref={(el) => (tabRefs.current[index] = el)}
-                  className={`flex items-center text-[14px] group hover:bg-dark-bg-color p-2 whitespace-nowrap ${
+                  className={`flex items-center capitalize text-[14px] group hover:bg-dark-bg-color p-2 whitespace-nowrap ${
                     type !== "sidebar" && "rounded-r-md"
                   } text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-mont font-medium text-item-color hover:text-light transition-all duration-300 ${
                     location.pathname === name &&

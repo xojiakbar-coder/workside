@@ -26,7 +26,7 @@ const GenericTable: FC<TablePropsType> = ({ table_head, table_body }) => {
   ));
 
   return (
-    <Table.Root variant="outline" className="rounded-md w-full mb-[60px]">
+    <Table.Root variant="outline" className="rounded-md w-full">
       <Table.Header className="w-full">
         <Table.Row className="w-full h-[68px] border-red-700">
           <Table.ColumnHeader className="text-[14px] leading-[20px] font-[500] font-mont md:px-[32px] px-[14px] md:py-[17px] py-[14px]">

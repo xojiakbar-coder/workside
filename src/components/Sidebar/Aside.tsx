@@ -10,8 +10,8 @@ const Aside = () => {
   };
 
   return (
-    <aside
-      className={`hidden 992:flex flex-col h-full py-[7px] sidebar rounded-lg ${
+    <div
+      className={`flex flex-col h-full py-[7px] sidebar rounded-lg ${
         sidebar ? "w-[85px]" : "w-[345px]"
       }`}
     >
@@ -35,7 +35,7 @@ const Aside = () => {
       <div className="flex flex-col overflow-y-auto h-section-h min-h-section-h">
         <SidebarItems toggleSidebar={sidebar} />
       </div>
-    </aside>
+    </div>
   );
 };
 

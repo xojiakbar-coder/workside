@@ -24,7 +24,7 @@ const Navbar = () => {
   }
 
   if (
-    !location.pathname.search("/umumiy-korinish") ||
+    !location.pathname.search("/umumiy") ||
     !location.pathname.search("/hisobotlar")
   ) {
     shdaowVisible = true;
