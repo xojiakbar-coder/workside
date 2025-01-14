@@ -1,6 +1,5 @@
 import { FC } from "react";
-import { Container, GridBox } from "..";
-import useSize from "../../../hooks/useSize";
+import { Container } from "..";
 
 interface GenericReportsCardPropsType {
   title: string;
@@ -17,26 +16,12 @@ const GenericReportCard: FC<GenericReportsCardPropsType> = ({
   data_about,
   data_date,
 }) => {
-  const { width } = useSize();
-
-  const cols =
-    width >= 1140
-      ? "70% 30%"
-      : width <= 1140
-      ? "60% 40%"
-      : width <= 768
-      ? "100%"
-      : "1fr";
-
   return (
     <Container
       fluid
       className="border h-[230px] rounded-md border-outer-bdr-color"
     >
-      <GridBox
-        cols={cols}
-        className="h-full md:px-[20px] px-[12px] py-[10px] relative"
-      >
+      <div className="grid sm:grid-cols-2 grid-cols-1 h-full md:px-[20px] px-[12px] py-[10px] relative">
         <div className="flex justify-between w-full h-[90%] overflow-hidden">
           <div className="flex flex-col pt-[5px] md:gap-[10px] gap-[7px]">
             <div className="md:text-[18px] text-[16px] font-mont font-semibold">
@@ -55,11 +40,11 @@ const GenericReportCard: FC<GenericReportsCardPropsType> = ({
           fluid
           className="flex justify-center items-end min-w-[200px]"
         >
-          <div className="flex justify-center items-center w-[170px] h-[170px] border border-ghost-bg-color rounded-full uppercase">
+          <div className="flex justify-center items-center 992:w-[170px] 992:h-[170px] w-[110px] h-[110px] border border-ghost-bg-color rounded-full uppercase 992:text-[18px] text-[14px] whitespace-nowrap">
             {chart_type}
           </div>
         </Container>
-      </GridBox>
+      </div>
     </Container>
   );
 };

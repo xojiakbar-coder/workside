@@ -31,7 +31,7 @@ const Sidebar: FC = () => {
         <section className="mb-auto w-full h-full overflow-y-auto">
           <div
             onClick={toggleDrawer}
-            className="992:hidden h-max flex items-center cursor-pointer bg-transparent border-b border-[#111111] py-[12px] w-full px-[14px] pr-[18px]"
+            className="992:hidden h-max flex items-center text-[14px] cursor-pointer bg-transparent border-b border-[#111111] py-[12px] w-full px-[14px] pr-[18px]"
           >
             <div className="flex items-center gap-x-[5px]">
               <LuChevronRight className="text-[18px]" />
