@@ -1,5 +1,5 @@
-import { FC } from "react";
 import moment from "moment";
+import { FC, useEffect, useState } from "react";
 
 interface TimeType {
   format: string;
@@ -12,14 +12,25 @@ const GenericTimer: FC<TimeType> = ({
   bottom_date,
   bottom_date_visible,
 }) => {
+  const [time, setTime] = useState(moment().format(format));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(moment().format(format));
+    }, 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [format]);
+
   return (
     <div className="flex flex-col justify-center text-light px-[24px] gap-[10px] py-[18px] border-outer-bdr-color h-full">
       <div className="font-mont text-[16px] w-max text-item-color font-medium uppercase">
-        {moment().format(format)}
+        {time}
       </div>
-      {bottom_date_visible && (
+      {bottom_date_visible && bottom_date && (
         <div className="font-mont text-[14px] w-max text-item-color font-medium">
-          {`${moment().format(bottom_date)}`}
+          {moment().format(bottom_date)}
         </div>
       )}
     </div>

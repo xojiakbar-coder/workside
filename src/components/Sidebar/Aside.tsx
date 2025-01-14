@@ -12,7 +12,7 @@ const Aside = () => {
   return (
     <div
       className={`flex flex-col h-full py-[7px] sidebar rounded-lg ${
-        sidebar ? "w-[85px]" : "w-[345px]"
+        sidebar ? "w-[82px]" : "w-[290px]"
       }`}
     >
       <div

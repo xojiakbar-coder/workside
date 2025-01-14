@@ -37,7 +37,7 @@ const Contact = () => {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47910.947616615405!2d69.29587752187933!3d41.36464970695823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8cb23888afb9%3A0x31c22300affbc36a!2z0K7QvdGD0YHQsNCx0LDQtNGB0LrQuNC5INGA0LDQudC-0L0sINCi0LDRiNC60LXQvdGCLCDQotCw0YjQutC10L3RgtGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQo9C30LHQtdC60LjRgdGC0LDQvQ!5e0!3m2!1sru!2s!4v1736681586140!5m2!1sru!2s"
           ></iframe>
         </div> */}
-        <form className="flex flex-col gap-x-[30px] gap-y-[48px] justify-between rounded-md 992:w-[50%] w-[90%] p-[40px] h-full bg-body-bg-color">
+        <form className="flex flex-col gap-x-[30px] gap-y-[48px] justify-between rounded-md 992:w-[50%] sm:w-[80%] w-full p-[40px] h-full bg-body-bg-color">
           <div className="flex flex-col gap-y-[38px]">
             <NumberInput
               startText="+998"
