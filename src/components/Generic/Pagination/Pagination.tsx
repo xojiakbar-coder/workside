@@ -7,27 +7,34 @@ import {
   PaginationNextTrigger,
 } from "../../ui/pagination";
 
+export interface PageChangeDetails {
+  page: number;
+}
+
 interface GenericPaginationPropsType {
-  count: number;
+  page: number;
   pageSize: number;
   className?: string;
-  // currentPage: number;
+  data_length: number;
   defaultPage?: number;
+  handlePageChange: (details: PageChangeDetails) => void;
 }
 
 const GenericPagination: FC<GenericPaginationPropsType> = ({
-  count,
+  page,
   pageSize,
   defaultPage,
-  // currentPage,
+  data_length,
+  handlePageChange,
 }) => {
   return (
     <PaginationRoot
-      // page={currentPage}
-      count={count || 20}
+      page={page}
+      pageSize={pageSize}
       className="my-[38px]"
-      pageSize={pageSize || 2}
-      defaultPage={defaultPage || 1}
+      defaultPage={defaultPage}
+      onPageChange={handlePageChange}
+      count={Math.ceil(data_length / 1)}
     >
       <HStack>
         <PaginationPrevTrigger />
