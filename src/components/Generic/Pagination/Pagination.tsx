@@ -36,7 +36,7 @@ const GenericPagination: FC<GenericPaginationPropsType> = ({
       count={Math.ceil(data_length / 1)}
       className="flex justify-center items-center my-[38px] 992:text-[16px] text-[14px]"
     >
-      <HStack className="flex gap-[2px] w-[100%]" gap={"0.6"}>
+      <HStack className="flex gap-[2px] w-full" gap={"0.6"}>
         <PaginationPrevTrigger />
         <PaginationItems />
         <PaginationNextTrigger />

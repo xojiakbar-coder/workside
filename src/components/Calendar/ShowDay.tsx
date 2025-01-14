@@ -22,7 +22,7 @@ const ShowDay = () => {
   const todayHoursAndMinutes = getTodayHoursAndMinutes();
 
   return (
-    <div className="grid grid-cols-4">
+    <div className="grid xl:grid-cols-4 grid-cols-2">
       {todayHoursAndMinutes.map((hourBlock, index) => (
         <div
           key={index}
@@ -36,18 +36,6 @@ const ShowDay = () => {
             <div className="font-[500]">
               {!hourBlock.isPast ? hourBlock.hour : <del>{hourBlock.hour}</del>}
             </div>
-            {!hourBlock.isPast && (
-              <div className="flex items-center justify-between w-full">
-                <input
-                  maxLength={100}
-                  placeholder="your subtext"
-                  className="outline-none h-full w-full p-[10px] bg-ghost-bg-color resize-none text-[14px]  placeholder:text-subtitle-color text-light"
-                />
-                <button className="w-max border border-outer-bdr-color py-[10px] px-[14px] rounded-md">
-                  saqlash
-                </button>
-              </div>
-            )}
           </div>
         </div>
       ))}

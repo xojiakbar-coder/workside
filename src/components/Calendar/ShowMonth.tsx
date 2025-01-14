@@ -43,9 +43,9 @@ const ShowMonth = () => {
                 index < 7 && (
                   <Table.ColumnHeader
                     key={item.date}
-                    className="flex items-center justify-center h-[50px] border border-outer-bdr-color text-[14px] leading-[20px] font-[500] font-mont px-[10px] text-orange-200"
+                    className="flex items-center justify-center h-[50px] border md:text-[16px] text-[14px] border-outer-bdr-color text-[14px] leading-[20px] font-[500] font-mont px-[10px] text-orange-200"
                   >
-                    {item.dayName}
+                    {item.dayName.slice(0, 2)}
                   </Table.ColumnHeader>
                 )
             )}
@@ -65,11 +65,6 @@ const ShowMonth = () => {
                     {+item.date.split("-")[2]}
                   </div>
                 </div>
-                <textarea
-                  maxLength={100}
-                  placeholder="your subtext"
-                  className="outline-none h-full w-full p-[10px] bg-ghost-bg-color resize-none text-[14px] text-subtitle-color"
-                />
               </Table.Cell>
             </Table.Row>
           ))}
