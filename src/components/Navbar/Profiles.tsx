@@ -6,20 +6,10 @@ const Profiles = () => {
   const [data, setData] = useState<ProfilesItemType[] | []>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/profiles");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setData(data);
-      } catch (error) {
-        console.error("There was an error!", error);
-      }
-    };
-
-    fetchData();
+    fetch("http://localhost:3000/profiles")
+      .then((res) => res.json())
+      .then((res) => setData(res))
+      .catch((err) => console.error(err));
   }, []);
 
   return (

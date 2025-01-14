@@ -24,17 +24,17 @@ interface GenericButtonType {
 const getButtonStyle = (type: GenericButtonType["type"], disabled = false) => {
   switch (type) {
     case "primary":
-      return "bg-primary-btn text-light rounded-md";
+      return "bg-primary-btn text-light rounded-sm";
     case "outline":
-      return "bg-transparent hover:bg-ghost-bg-color border-outer-bdr-color text-light border-[2px] rounded-md";
+      return "bg-transparent hover:bg-ghost-bg-color border-outer-bdr-color text-light border-[2px] rounded-sm";
     case "surface":
-      return "bg-ghost-bg-color text-light rounded-md";
+      return "bg-ghost-bg-color text-light rounded-sm";
     case "solid":
-      return `bg-light text-body-bg-color hover:bg-[#d9d9d9] rounded-md ${
+      return `bg-light text-body-bg-color hover:bg-[#d9d9d9] rounded-sm ${
         disabled && "bg-[#b1b0b0]"
       }`;
     case "ghost":
-      return "bg-transparent hover:bg-ghost-bg-color text-light rounded-md";
+      return "bg-transparent hover:bg-ghost-bg-color text-light rounded-sm";
     case "danger":
       return "text-light font-mont bg-danger rounded-[12px] hover:bg-hover-danger";
     default:

@@ -28,6 +28,7 @@ import {
   LuMessageSquareText,
   LuGem,
 } from "react-icons/lu";
+import Subscribe from "../../components/Subscribe";
 
 export interface SidebarChildrenItemType {
   id: string | number;
@@ -161,7 +162,7 @@ export const sidebar_items: SidebarItemType[] = [
     icon: LuGem,
     children: [],
     title: "Obuna",
-    element: GenericElement,
+    element: Subscribe,
     name: "/umumiy/obuna",
   },
   {
