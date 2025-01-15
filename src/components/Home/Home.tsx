@@ -11,7 +11,7 @@ const Home = () => {
           Raqamli kelajak sari yana <br /> bir qadam
         </Title>
         <p className="text-[18px] text-subtitle-color text-balance text-center font-semibold md:w-[100%] w-[80%]">
-          UZREPODASH loyihasi orqali ishlaringizni raqamlashtiring.
+          WORKSIDE loyihasi orqali ishlaringizni raqamlashtiring.
         </p>
         <div className="grid grid-cols-2 gap-[10px] mt-[10px] w-max">
           <Button

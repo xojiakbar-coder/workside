@@ -32,7 +32,7 @@ const Logo: FC<LogoItemType> = ({ logo = true, onClose }) => {
     >
       <img
         src={logoSvg}
-        alt="uzrepodash logo not found"
+        alt="workside logo not found"
         className={`${logoSize} ${responsiveLogoSize}`}
       />
     </div>
