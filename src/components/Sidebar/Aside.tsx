@@ -11,9 +11,9 @@ const Aside = () => {
 
   return (
     <div
-      className={`flex flex-col h-full py-[7px] sidebar rounded-lg ${
-        sidebar ? "w-[82px]" : "w-[290px]"
-      }`}
+      className={`flex flex-col h-full py-[7px] sidebar w-[290px] min-w-[290px] ${
+        sidebar && "w-[82px] min-w-[82px]"
+      } rounded-lg`}
     >
       <div
         className={`flex px-[14px] ${
@@ -32,7 +32,7 @@ const Aside = () => {
           />
         )}
       </div>
-      <div className="flex flex-col overflow-y-auto h-section-h min-h-section-h">
+      <div className="flex flex-col overflow-y-auto h-section min-h-section">
         <SidebarItems toggleSidebar={sidebar} />
       </div>
     </div>

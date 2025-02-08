@@ -12,7 +12,7 @@ const getTitleType = (
 ): string => {
   switch (type) {
     case "primary":
-      return "font-semibold text-primary-btn text-[32px]";
+      return "font-semibold text-primary-color text-[32px]";
     case "secondary":
       return "font-semibold text-light md:text-[28px] sm:text-[28px] text-[22px] font-mont text-center py-[34px] md:leading-[40px] lg:leading-[42px] leading-[38px]";
     case "title":

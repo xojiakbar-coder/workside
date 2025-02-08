@@ -28,10 +28,10 @@ const Calendar = () => {
   return (
     <Container fluid type="wrapper">
       <Container fluid className="flex flex-col py-[30px] gap-[20px]">
-        <Title type="section">Calendar</Title>
+        <Title type="section">Kalendar</Title>
         <Tabs.Root
           variant="plain"
-          defaultValue="month"
+          defaultValue="year"
           className="flex flex-col justify-center items-center w-full"
         >
           <Tabs.List bg="bg.muted" p="1" className="w-[400px] rounded-md">

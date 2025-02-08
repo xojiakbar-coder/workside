@@ -16,7 +16,7 @@ interface GenericContainerType extends React.ComponentProps<typeof Container> {
 const getContainerStyle = (type: GenericContainerType["type"]) => {
   switch (type) {
     case "wrapper":
-      return `px-main-padding `;
+      return `px-main-padding`;
     case "section":
       return `flex-col px-main-padding pt-[25px] pb-[30px] h-max overflow-y-auto`;
     case "center":

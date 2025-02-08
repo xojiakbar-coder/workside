@@ -6,7 +6,7 @@ const GenericElement = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col gap-[60px] justify-center h-section-h min-h-section-h items-center w-full py-[100px] px-[3%]">
+    <div className="flex flex-col gap-[60px] justify-center h-section min-h-section items-center w-full py-[100px] px-[3%]">
       <h1 className="text-light font-jost text-[24px] w-full text-center">
         {location.pathname} page coming soon. . .
       </h1>

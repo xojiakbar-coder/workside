@@ -13,7 +13,9 @@ const Layout: FC<ChildrenPageProps> = ({ children }) => {
       {children ? (
         <Fragment>
           <Navbar />
-          <Fragment>{children}</Fragment>
+          <div className="overflow-y-auto">
+            {children}
+          </div>
           <Footer />
         </Fragment>
       ) : (

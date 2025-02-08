@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import GenericElement from "../../view";
+import Subscribe from "../../components/Subscribe";
 
 export interface NavbarItemType {
   id: number;
@@ -30,6 +31,13 @@ const navbar_items: NavbarItemType[] = [
     path: "/hisobotlar",
     title: "Hisobotlar",
     element: GenericElement,
+  },
+  {
+    id: 3,
+    sidebar: false,
+    path: "/obuna",
+    title: "Obuna",
+    element: Subscribe,
   },
 ];
 

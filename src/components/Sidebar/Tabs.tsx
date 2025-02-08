@@ -46,7 +46,7 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
     <div
       className={`${
         type === "sidebar"
-          ? "rounded-r-md bg-body-bg-color border-r border-t border-b border-outer-bdr-color w-full overflow-y-scroll"
+          ? "rounded-r-md bg-body-bg-color border-r border-t border-b border-outer-bdr-color w-full overflow-y-scroll h-[200px]"
           : ""
       }`}
     >
@@ -63,11 +63,11 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
                   to={name}
                   onClick={() => handleTabClick(index)}
                   ref={(el) => (tabRefs.current[index] = el)}
-                  className={`flex items-center capitalize text-[14px] group hover:bg-dark-bg-color p-2 whitespace-nowrap ${
+                  className={`flex items-center text-[14px] group hover:bg-dark-bg-color p-2 whitespace-nowrap ${
                     type !== "sidebar" && "rounded-r-md"
                   } text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-mont font-medium text-item-color hover:text-light transition-all duration-300 ${
                     location.pathname === name &&
-                    "text-primary-btn hover:text-primary-btn bg-dark-bg-color"
+                    "text-primary-color hover:text-primary-color bg-dark-bg-color"
                   }`}
                 >
                   <Icon className="text-[20px] mr-[14px]" />
@@ -77,7 +77,7 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
             })}
             {/* Active tab indicator */}
             <span
-              className="absolute left-0 w-1 bg-primary-btn transition-all duration-300 rounded-r-full"
+              className="absolute left-0 w-1 bg-primary-color transition-all duration-300 rounded-r-full"
               style={indicatorStyle}
             />
           </div>

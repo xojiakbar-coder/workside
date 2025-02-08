@@ -1,41 +1,55 @@
 import moment from "moment";
 
-const getCurrentWeekDates = () => {
-  const startOfWeek = moment().startOf("week");
-  const endOfWeek = moment().endOf("week");
-  let days = [];
-
-  for (let day = startOfWeek; day <= endOfWeek; day.add(1, "day")) {
-    days.push({
-      date: day.format("MM-DD-YYYY"),
-      dayOfWeek: day.isoWeekday(),
-      dayName: day.format("dddd"),
-    });
-  }
-
-  return days;
-};
+const weeksData = [
+  { id: 1, day_name: "Monday", day_index: 1 },
+  { id: 2, day_name: "Tuesday", day_index: 2 },
+  { id: 3, day_name: "Wednesday", day_index: 3 },
+  { id: 4, day_name: "Thursday", day_index: 4 },
+  { id: 5, day_name: "Friday", day_index: 5 },
+  { id: 6, day_name: "Saturday", day_index: 6 },
+  { id: 7, day_name: "Sunday", day_index: 7 },
+];
 
 const ShowWeek = () => {
-  const weekDates = getCurrentWeekDates();
+  const today = moment();
+  const currentDayIndex = today.isoWeekday();
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 justify-between items-center gap-4">
-      {weekDates.map((day) => (
-        <div
-          key={day.date}
-          className="flex flex-col items-center relative justify-center border border-outer-bdr-color py-[12px] bg-ghost-bg-color hover:bg-outer-bdr-color transition"
-        >
-          <div className="text-sm text-orange-200">{day.dayName}</div>
+    <div className="grid 576:grid-cols-2 992:grid-cols-5 grid-cols-1 justify-between items-center gap-4">
+      {weeksData.map((day, index) => {
+        const currentDate = today
+          .clone()
+          .startOf("isoWeek")
+          .add(day.day_index - 1, "days");
+        const formattedDate = currentDate.format("DD.MM.YYYY");
+        const isActive = day.day_index === currentDayIndex;
+        const isPast = currentDate.isBefore(today, "day");
+
+        return (
           <div
-            className={`text-md font-medium font-mont my-[20px] ${
-              +moment().day() === +day.dayOfWeek && "text-primary-btn px-[8px]"
+            key={index}
+            className={`flex flex-col items-center relative justify-center border border-outer-bdr-color py-[12px] bg-ghost-bg-color transition ${
+              isPast ? "opacity-50 select-none" : "hover:bg-outer-bdr-color"
             }`}
-          >{`Day ${day.dayOfWeek}`}</div>
-          <div className="absolute right-[4px] bottom-0 text-gray-500 text-[14px] font-[500]">
-            {day.date}
+          >
+            <div
+              className={`text-sm text-orange-200 ${
+                !isActive && "text-orange-100"
+              }`}
+            >
+              {day.day_name}
+            </div>
+            <div
+              className={`text-md font-medium font-mont my-[20px] ${
+                !isActive && "line-through"
+              }`}
+            >{`Day ${day.day_index}`}</div>
+            <div className="absolute right-[4px] bottom-0 text-gray-500 text-[14px] font-[500]">
+              {formattedDate}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

@@ -26,9 +26,7 @@ import {
   LuSquareActivity,
   LuChartNoAxesColumn,
   LuMessageSquareText,
-  LuGem,
 } from "react-icons/lu";
-import Subscribe from "../../components/Subscribe";
 
 export interface SidebarChildrenItemType {
   id: string | number;
@@ -153,62 +151,54 @@ export const sidebar_items: SidebarItemType[] = [
     id: 7,
     children: [],
     element: Calendar,
-    title: "Calendar",
+    title: "Kalendar",
     icon: RiCalendar2Fill,
     name: "/umumiy/calendar",
   },
   {
     id: 8,
-    icon: LuGem,
-    children: [],
-    title: "Obuna",
-    element: Subscribe,
-    name: "/umumiy/obuna",
-  },
-  {
-    id: 9,
     icon: LuSettings,
     title: "Sozlanmalar",
     element: GenericElement,
     name: "/umumiy/sozlamalar",
     children: [
       {
-        id: `9-1`,
+        id: `8-1`,
         icon: LuBell,
         element: GenericElement,
         title: "Bildirishnomalar",
         name: "/umumiy/bildirishnomalar",
       },
       {
-        id: `9-2`,
+        id: `8-2`,
         icon: LuFolderCog,
         title: "Xavsizlik",
         element: GenericElement,
         name: "/umumiy/xavsizlik",
       },
       {
-        id: `9-3`,
+        id: `8-3`,
         icon: LuCog,
         title: "Nazorat qilish",
         element: GenericElement,
         name: "/umumiy/nazorat-qilish",
       },
       {
-        id: `9-4`,
+        id: `8-4`,
         icon: LuStar,
         title: "Afzalliklar",
         element: GenericElement,
         name: "/umumiy/afzalliklar",
       },
       {
-        id: `9-5`,
+        id: `8-5`,
         icon: LuBadgeHelp,
         title: "Yordam markazi",
         element: GenericElement,
         name: "/umumiy/yordam-markazi",
       },
       {
-        id: `9-6`,
+        id: `8-6`,
         icon: LuMoon,
         title: "Mavzu",
         element: GenericElement,

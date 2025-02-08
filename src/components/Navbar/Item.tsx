@@ -22,7 +22,7 @@ const Item: FC<ItemType> = ({ dir = "row", onClose }) => {
         {navbar_items.map((item) => {
           const { id, title, path } = item;
 
-          const activeClass = "text-primary-btn";
+          const activeClass = "text-primary-color";
           const defaultClass =
             "text-[14px] text-item-color font-mont font-medium cursor-pointer transition-all ease-out duration-[115ms] tracking-[.5px] py-[6px] px-[9px] rounded-[4px]";
 

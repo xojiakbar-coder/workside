@@ -5,12 +5,21 @@ import { MarqueePropsType } from "../../../utils/data/case";
 
 const GenericMarquee: FC<MarqueePropsType> = ({
   speed,
+  gradient,
   pauseOnHover,
   marquee_data,
+  gradientColor,
+  gradientWidth,
 }) => {
   return (
     <Container fluid className="relative mt-[12px] mb-[100px]">
-      <Marquee gradient={false} speed={speed} pauseOnHover={pauseOnHover}>
+      <Marquee
+        speed={speed}
+        gradient={gradient}
+        pauseOnHover={pauseOnHover}
+        gradientColor={gradientColor}
+        gradientWidth={gradientWidth}
+      >
         {marquee_data.concat(marquee_data, marquee_data).map((item, index) => (
           <div key={index} className="flex items-center justify-center mx-2">
             <img

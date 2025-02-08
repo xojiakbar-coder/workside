@@ -24,7 +24,7 @@ interface GenericButtonType {
 const getButtonStyle = (type: GenericButtonType["type"], disabled = false) => {
   switch (type) {
     case "primary":
-      return "bg-primary-btn text-light rounded-sm";
+      return "bg-primary-color text-light rounded-sm";
     case "outline":
       return "bg-transparent hover:bg-ghost-bg-color border-outer-bdr-color text-light border-[2px] rounded-sm";
     case "surface":

@@ -1,13 +1,5 @@
+@import url(./tansition.css);
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
-.sidebar {
-  background: rgb(39, 41, 43);
-  background: linear-gradient(
-    -190deg,
-    rgb(32, 34, 36) 0%,
-    rgb(18, 18, 20) 100%
-  );
-}
 
 :root {
   /* padding */
@@ -19,7 +11,7 @@
   --light: #ffff;
   /* --light: #c7c2c2; */
   /* button bg colors */
-  --primary-btn-bg-color: #3700ff;
+  --primary-color-bg-color: #3700ff;
 
   /* item color */
   --item-color: #a9a9a9;
@@ -33,10 +25,11 @@
   --subtitle-color: #a4a4a4;
   --outer-border-color: #27272a;
 
+  --content-height: calc(100dvh - 156px);
+
   /* bg colors */
   --black-color: #000000;
   --body-bg-color: #09090b;
-  /* --body-bg-color: #16161a; */
   --ghost-bg-color: #18181b;
   --dark-bg-color: #0f0f13a9;
 
@@ -46,9 +39,13 @@
 
   /* custom shadows */
   --light-shadow: 0px 2px 20px rgba(255, 255, 255, 0.9);
-  --navbar-shadow: rgba(110, 110, 110, 0.253) 0px 6px 12px -2px,
+  --navbar-shadow: rgb(30, 30, 34) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   --login-shadow: rgba(85, 85, 85, 0.07) 0px 1px 1px,
     rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px,
     rgba(100, 100, 100, 0.253) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.content-height {
+  height: calc(100dvh - 186px);
 }

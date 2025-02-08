@@ -23,7 +23,7 @@ export const AccordionItemTrigger = React.forwardRef<
       </HStack>
       {indicatorPlacement === "end" && (
         <Accordion.ItemIndicator rotate={{ base: "-90deg", _open: "0deg" }}>
-          <LuChevronDown className={`${name && "text-primary-btn"}`} />
+          <LuChevronDown className={`${name && "text-primary-color"}`} />
         </Accordion.ItemIndicator>
       )}
     </Accordion.ItemTrigger>

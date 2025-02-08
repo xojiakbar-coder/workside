@@ -2,7 +2,6 @@ import { FC } from "react";
 import Layout from "./layout";
 import Sidebar from "../components/Sidebar";
 import navbar_items from "../utils/data/navbar";
-import SignIn from "../components/SignIn/SignIn";
 import SignUp from "../components/SignUp/SignUp";
 import { Route, Routes } from "react-router-dom";
 import NotFoundPage from "../components/NotFound";
@@ -70,7 +69,7 @@ const Root: FC = () => {
       </Route>
 
       {/* SignIn and SignUp pages */}
-      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signin" element={<SignUp />} />
       <Route path="/signup" element={<SignUp />} />
 
       {/* 404 NOT FOUND page */}

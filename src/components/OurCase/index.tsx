@@ -8,7 +8,10 @@ const OurCase = () => {
       <Title type="secondary">Bizning keyslar</Title>
       <GenericMarquee
         speed={60}
+        gradient={true}
         pauseOnHover={true}
+        gradientColor="#000"
+        gradientWidth="400px"
         marquee_data={our_case_data}
       />
     </Container>

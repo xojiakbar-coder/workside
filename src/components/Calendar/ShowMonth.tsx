@@ -59,7 +59,7 @@ const ShowMonth = () => {
                   <div
                     className={`p-[8px] ${
                       today.day === item.date.split("-")[2] &&
-                      "bg-primary-btn rounded-md"
+                      "bg-primary-color px-[14px] rounded-md"
                     }`}
                   >
                     {+item.date.split("-")[2]}

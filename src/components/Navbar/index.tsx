@@ -33,9 +33,9 @@ const Navbar = () => {
   return (
     //  Sticky Navbar
     <header
-      className={`sticky z-[999] backdrop-blur-[14px] bg-[#09090be0] ${
-        !shadow && shdaowVisible && "border border-[#111111]"
-      } top-0 w-full h-[8vh] min-h-[8vh]`}
+      className={`sticky z-[999] bg-body-bg-color ${
+        !shadow && shdaowVisible && "border-b border-[#111111]"
+      } top-0 w-full h-[78px] min-h-[78px]`}
     >
       <div
         className={`flex justify-between items-center ${

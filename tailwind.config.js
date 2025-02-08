@@ -4,7 +4,13 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        1400: "1400px",
+        1200: "1200px",
+        1024: "1024px",
         992: "992px",
+        768: "768px",
+        576: "576px",
+        400: "400px",
       },
       keyframes: {
         marquee: {
@@ -41,7 +47,8 @@ module.exports = {
         "in-out-expo": "cubic-bezier(.22,.68,0,1.71)",
       },
       height: {
-        "section-h": "var(--height)",
+        section: "var(--height)",
+        "content-height": "var(--content-height)",
       },
       padding: {
         "main-padding": "var(--padding)",
@@ -57,7 +64,7 @@ module.exports = {
         "body-bg-color": "var(--body-bg-color)",
         "subtitle-color": "var(--subtitle-color)",
         "ghost-bg-color": "var(--ghost-bg-color)",
-        "primary-btn": "var(--primary-btn-bg-color)",
+        "primary-color": "var(--primary-color-bg-color)",
         "outer-bdr-color": "var(--outer-border-color)",
       },
       fontFamily: {

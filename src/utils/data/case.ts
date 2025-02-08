@@ -10,7 +10,10 @@ export interface MarqueeItemType {
 
 export interface MarqueePropsType {
   speed: number;
+  gradient: boolean;
   pauseOnHover: boolean;
+  gradientColor?: string;
+  gradientWidth?: string;
   marquee_data: MarqueeItemType[];
 }
 

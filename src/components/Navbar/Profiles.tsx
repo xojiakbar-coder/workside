@@ -21,7 +21,7 @@ const Profiles = () => {
           <div
             key={id}
             title={name}
-            className="flex items-center justify-center rounded-md hover:bg-primary-btn w-[50px] h-[50px] transition-all ease-out duration-[215ms] cursor-pointer text-[24px]"
+            className="flex items-center justify-center rounded-md hover:bg-primary-color w-[50px] h-[50px] transition-all ease-out duration-[215ms] cursor-pointer text-[24px]"
           >
             <IconComponent title={name} />
           </div>

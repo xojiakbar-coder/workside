@@ -5,7 +5,7 @@ import { PageChangeDetails } from "../Generic/Pagination/Pagination";
 
 const ShowYear = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const pageSize = 3;
+  const pageSize = 6;
 
   const months = Array.from({ length: 12 }, (_, monthIndex) => {
     return moment().month(monthIndex).format("MMMM");
@@ -68,10 +68,10 @@ const ShowYear = () => {
                             </div>
                           )}
                           <div
-                            className={`pb-[8px] pt-[8px] px-[12px] active:bg-body-bg-color active:rounded-md ${
+                            className={`py-[10px] ${
                               today.month === monthName &&
                               today.day === item.date.split("-")[2] &&
-                              "bg-primary-btn rounded-md"
+                              "bg-primary-color h-max py-[8px] rounded-md px-[16px]"
                             }`}
                           >
                             {+item.date.split("-")[2]}

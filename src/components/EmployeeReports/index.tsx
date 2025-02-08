@@ -9,7 +9,7 @@ import { Container, GridBox, Pagination, ReportCard, Title } from "../Generic";
 const EmployeeReports = () => {
   const [data, setData] = useState<TodosDataType>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const pageSize = 2;
+  const pageSize = 3;
 
   useEffect(() => {
     fetch(`${BASE_URL}/${todos_url}/`)
@@ -33,11 +33,13 @@ const EmployeeReports = () => {
           selectedData.map((item) => (
             <ReportCard
               key={item.id}
-              title={item?.name}
               chart_type="Pie chart"
-              data_about={item?.title}
+              title={item?.title}
               data_date={`${moment().format("MMM Do, Y")}`}
-              subtitle={`this is subtitle for report card ${item?.id}`}
+              subtitle={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+        accusantium, inventore placeat natus aliquid facilis quis obcaecati
+        autem quos doloremque voluptas commodi tempore ut hic odit est
+        distinctio vel repellat`}
             />
           ))}
       </GridBox>

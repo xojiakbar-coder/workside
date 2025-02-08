@@ -61,12 +61,13 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
             <div key={item.id}>
               <div className={toggleSidebar ? "group flex items-center" : ""}>
                 <div
+                  title={item.title}
                   onClick={(e) => onClickParent(item, e)}
                   className={`${generalSidebarItemStyle} flex items-center ${
                     !toggleSidebar ? "justify-between" : "justify-center"
                   } ${
                     activePath &&
-                    "text-primary-btn hover:text-primary-btn bg-dark-bg-color"
+                    "text-primary-color hover:text-primary-color bg-dark-bg-color"
                   }`}
                 >
                   <p className="flex items-center gap-[14px] text-inherit">
@@ -90,7 +91,7 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
                     )}
                   </>
                 )}
-                <div className="absolute hidden group-hover:flex z-[888] pt-[4px] ml-[50px] pl-[15px] w-[330px] h-[200px]">
+                <div className="absolute w-0 min-w-0 group-hover:w-[330px] group-hover:min-w-[330px] overflow-y-auto z-[888] mt-[50px] ml-[50px] left-[50px] tabs h-[240px]">
                   <Tabs
                     type="sidebar"
                     data={item.children}
@@ -105,11 +106,12 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
             <NavLink
               key={item.id}
               onClick={onClose}
+              title={item.title}
               to={item.name || ""}
               className={({ isActive }) =>
                 `${generalSidebarItemStyle} ${
                   isActive
-                    ? "text-primary-btn hover:text-primary-btn bg-dark-bg-color"
+                    ? "text-primary-color hover:text-primary-color bg-dark-bg-color"
                     : "hover:text-light"
                 }`
               }
