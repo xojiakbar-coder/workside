@@ -27,6 +27,7 @@ import {
   LuChartNoAxesColumn,
   LuMessageSquareText,
 } from "react-icons/lu";
+import Media from "../../components/Media";
 
 export interface SidebarChildrenItemType {
   id: string | number;
@@ -128,7 +129,7 @@ export const sidebar_items: SidebarItemType[] = [
         id: `6-1`,
         icon: LuVideo,
         title: "Media",
-        element: GenericElement,
+        element: Media,
         name: "/umumiy/media",
       },
       {

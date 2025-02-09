@@ -49,3 +49,12 @@
 .content-height {
   height: calc(100dvh - 186px);
 }
+
+.inst {
+  background-image: linear-gradient(
+    to left top,
+    rgb(131, 58, 180),
+    rgb(253, 29, 29),
+    rgb(252, 176, 69)
+  );
+}

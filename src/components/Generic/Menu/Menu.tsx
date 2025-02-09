@@ -30,7 +30,9 @@ const GenericMenu: FC<GenericMenuPropsType> = ({
           variant="outline"
           className="flex items-center group gap-[8px]"
         >
-          {leftIcon && leftIcon.icon && <leftIcon.iconBody />}
+          <div className="mt-[2px]">
+            {leftIcon && leftIcon.icon && <leftIcon.iconBody />}
+          </div>
           <Text className="text-[16px] text-item-color group-hover:text-light">
             {menuValue}
           </Text>

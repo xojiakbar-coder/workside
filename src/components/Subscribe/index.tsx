@@ -7,7 +7,7 @@ const Subscribe = () => {
         <Title type="section">Subscribe</Title>
         <Container
           fluid
-          className="grid 1024:grid-cols-3 grid-cols-1 justify-center items-center h-full 992:gap-[40px]"
+          className="grid 1024:grid-cols-3 grid-cols-1 justify-center items-center h-full 992:gap-[40px] gap-[30px]"
         >
           <div className="flex flex-col border border-outer-bdr-color py-[24px] rounded-[16px] px-[20px] gap-[14px]">
             <div className="capitalize text-center w-full font-bold 992:text-[30px] sm:text-[24px] text-[22px]">
