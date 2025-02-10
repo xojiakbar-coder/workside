@@ -4,87 +4,91 @@ import { Pagination } from "../Generic";
 import { PageChangeDetails } from "../Generic/Pagination/Pagination";
 
 const ShowYear = () => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 6;
 
-  const months = Array.from({ length: 12 }, (_, monthIndex) => {
-    return moment().month(monthIndex).format("MMMM");
-  });
+  const months_data = [];
+  const week = Array.from({ length: 7 }, (_, i) =>
+    moment()
+      .day(i + 1)
+      .format("dddd")
+  );
 
-  function getDaysOfMonth(year: number, monthIndex: number) {
-    const daysInMonth = moment(
-      `${year}-${monthIndex + 1}`,
-      "YYYY-MM"
-    ).daysInMonth();
-    const days = Array.from({ length: daysInMonth }, (_, dayIndex) => {
-      const date = moment(
-        `${year}-${monthIndex + 1}-${dayIndex + 1}`,
-        "YYYY-MM-DD"
-      );
-      return {
-        date: date.format("YYYY-MM-DD"),
-        dayName: date.format("dddd"),
-      };
+  for (let i = 1; i <= 12; i++) {
+    months_data.push({
+      index: i,
+      month_name: moment()
+        .month(i - 1)
+        .format("MMMM"),
+      length: moment()
+        .month(i - 1)
+        .daysInMonth(),
     });
-
-    return days;
   }
 
-  const today = {
-    year: moment().format("YYYY"),
-    month: moment().format("MMMM"),
-    day: moment().format("DD"),
-    dayName: moment().format("dddd"),
-  };
-
-  const startIndex = (currentPage - 1) * pageSize;
-  const selectedData = months.slice(startIndex, startIndex + pageSize);
-
-  const handlePageChange = (details: PageChangeDetails): void => {
+  const handlePageChange = (details: PageChangeDetails) => {
     setCurrentPage(details.page);
   };
 
+  const paginatedData = months_data.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize
+  );
+
   return (
     <div className="flex flex-col justify-center w-full">
-      <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[20px]">
-        {selectedData.map((monthName, monthIndex) => (
-          <div key={monthIndex} className="hover:cursor-pointer">
-            <div className="flex items-center justify-center h-full">
-              <div className="flex flex-col justify-start items-start h-full bg-ghost-bg-color border border-outer-bdr-color h-full md:w-full sm:w-[70%] w-full">
-                <div className="relative flex flex-col items-center pt-[20px] pb-[14px] px-[8px] font-mont text-[15px] w-full h-full">
-                  <div className="md:text-[18px] 992:text-[16px] font-[500]">
-                    {monthName}
-                  </div>
-                  <div className="grid grid-cols-7 w-full justify-between mt-[24px]">
-                    {getDaysOfMonth(Number(today.year), monthIndex).map(
-                      (item, index) => (
-                        <div
-                          className="flex justify-center flex-col items-center"
-                          key={item.date}
-                        >
-                          {index < 7 && (
-                            <div className="text-orange-200 mb-[8px]">
-                              {item.dayName.slice(0, 1)}
-                            </div>
-                          )}
-                          <div
-                            className={`py-[10px] ${
-                              today.month === monthName &&
-                              today.day === item.date.split("-")[2] &&
-                              "bg-primary-color h-max py-[8px] rounded-md px-[16px]"
-                            }`}
-                          >
-                            {+item.date.split("-")[2]}
-                          </div>
-                        </div>
-                      )
-                    )}
-                  </div>
+      <div className="grid 1024:grid-cols-3 992:grid-cols-2 grid-cols-1 gap-[20px]">
+        {paginatedData.map((item) => {
+          const start = item.length - 5 + 1;
+          const days = Array.from({ length: item.length }, (_, i) => i + 1);
+          const firstDays = Array.from({ length: 5 }, (_, i) => start + i);
+          return (
+            <div
+              key={item.index}
+              className="py-[20px] bg-ghost-bg-color rounded-md border border-outer-bdr-color"
+            >
+              <div className="w-full text-center font-semibold">
+                {item.month_name}
+              </div>
+              <div className="pt-[30px] w-full">
+                <div className="grid grid-cols-7 place-items-center w-full select-none">
+                  {week.map((item) => {
+                    return (
+                      <div key={item} className="text-orange-200 mb-[16px]">
+                        {item.slice(0, 2)}
+                      </div>
+                    );
+                  })}
+                  {firstDays.map((item) => {
+                    return (
+                      <div
+                        key={item}
+                        className="text-zinc-500 my-[5px] py-[5px] mx-[5px] px-[12px] hover:bg-gray-color rounded-[4px]"
+                      >
+                        {item}
+                      </div>
+                    );
+                  })}
+                  {days.map((day) => {
+                    return (
+                      <div
+                        key={day}
+                        className={`hover:bg-gray-color rounded-[4px] my-[5px] py-[5px] mx-[5px] px-[12px] ${
+                          item.index == moment().month() &&
+                          day === moment().date()
+                            ? "bg-primary-color"
+                            : "bg-transparent"
+                        }`}
+                      >
+                        {day}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <div className="flex justify-center w-full">
         <Pagination
@@ -92,7 +96,7 @@ const ShowYear = () => {
           page={currentPage}
           pageSize={pageSize}
           className="my-[38px]"
-          data_length={months.length}
+          data_length={months_data.length}
           handlePageChange={handlePageChange}
         />
       </div>

@@ -58,3 +58,7 @@
     rgb(252, 176, 69)
   );
 }
+
+.register{
+  height: calc(100dvh - 78px);
+}
