@@ -73,11 +73,11 @@ const ShowYear = () => {
                     return (
                       <div
                         key={day}
-                        className={`hover:bg-gray-color rounded-[4px] my-[5px] py-[5px] mx-[5px] px-[12px] ${
-                          item.index == moment().month() &&
+                        className={`rounded-[4px] my-[5px] py-[5px] mx-[5px] px-[12px] ${
+                          item.index == moment().month() + 1 &&
                           day === moment().date()
                             ? "bg-primary-color"
-                            : "bg-transparent"
+                            : "bg-transparent hover:bg-gray-color"
                         }`}
                       >
                         {day}

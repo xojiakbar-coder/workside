@@ -28,21 +28,14 @@ const ShowWeek = () => {
         return (
           <div
             key={index}
-            className={`flex flex-col items-center relative justify-center border border-outer-bdr-color py-[12px] bg-ghost-bg-color transition ${
-              isPast ? "opacity-50 select-none" : "hover:bg-outer-bdr-color"
-            }`}
+            className={`flex flex-col items-center relative justify-center border border-outer-bdr-color py-[12px] bg-ghost-bg-color transition 
+             ${isPast ? "opacity-50 select-none" : ""}`}
           >
+            <div className={`text-sm text-orange-200`}>{day.day_name}</div>
             <div
-              className={`text-sm text-orange-200 ${
-                !isActive && "text-orange-100"
-              }`}
-            >
-              {day.day_name}
-            </div>
-            <div
-              className={`text-md font-medium font-mont my-[20px] ${
-                !isActive && "line-through"
-              }`}
+              className={`uppercase text-md font-medium font-mont my-[20px] ${
+                isActive && "text-primary-color"
+              } ${!isActive && isPast && "line-through"}`}
             >{`Day ${day.day_index}`}</div>
             <div className="absolute right-[4px] bottom-0 text-gray-500 text-[14px] font-[500]">
               {formattedDate}

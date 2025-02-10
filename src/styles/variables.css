@@ -11,7 +11,8 @@
   --light: #ffff;
   /* --light: #c7c2c2; */
   /* button bg colors */
-  --primary-color-bg-color: #3700ff;
+  /* --primary-color-bg-color: #3700ff; */
+  --primary-color-bg-color: #0085ff;
 
   /* item color */
   --item-color: #a9a9a9;
@@ -59,6 +60,6 @@
   );
 }
 
-.register{
+.register {
   height: calc(100dvh - 78px);
 }

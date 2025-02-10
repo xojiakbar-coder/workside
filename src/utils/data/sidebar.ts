@@ -154,7 +154,7 @@ export const sidebar_items: SidebarItemType[] = [
     element: Calendar,
     title: "Kalendar",
     icon: RiCalendar2Fill,
-    name: "/umumiy/calendar",
+    name: "/umumiy/kalendar",
   },
   {
     id: 8,
