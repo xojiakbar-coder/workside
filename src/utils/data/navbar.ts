@@ -21,7 +21,7 @@ const navbar_items: NavbarItemType[] = [
   {
     id: 1,
     path: "/",
-    sidebar: true,
+    sidebar: false,
     title: "Asosiy",
     element: GenericElement,
   },

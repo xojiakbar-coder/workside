@@ -1,12 +1,5 @@
-.sidebar {
+.sidebar-transition {
   transition: all cubic-bezier(0.51, 0.92, 0.24, 1.15) 220ms;
-
-  background: rgb(39, 41, 43);
-  background: linear-gradient(
-    -190deg,
-    rgb(32, 34, 36) 0%,
-    rgb(18, 18, 20) 100%
-  );
 }
 
 .tabs {

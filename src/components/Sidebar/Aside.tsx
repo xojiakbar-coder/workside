@@ -11,9 +11,9 @@ const Aside = () => {
 
   return (
     <div
-      className={`flex flex-col h-full py-[7px] sidebar w-[290px] min-w-[290px] ${
+      className={`flex flex-col h-full py-[5px] sidebar-transition border-r border-border-color w-[290px] min-w-[290px] ${
         sidebar && "w-[82px] min-w-[82px]"
-      } rounded-lg`}
+      }`}
     >
       <div
         className={`flex px-[14px] ${

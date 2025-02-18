@@ -23,9 +23,9 @@ const ShowMonth = () => {
   }
 
   const today = {
+    day: moment().format("DD"),
     year: moment().format("YYYY"),
     month: moment().format("MMMM"),
-    day: moment().format("DD"),
     dayName: moment().format("dddd"),
   };
 
@@ -43,7 +43,7 @@ const ShowMonth = () => {
                 index < 7 && (
                   <Table.ColumnHeader
                     key={item.date}
-                    className="flex items-center justify-center h-[50px] border md:text-[16px] text-[14px] border-outer-bdr-color text-[14px] leading-[20px] font-[500] font-mont px-[10px] text-orange-200"
+                    className="flex items-center justify-center h-[50px] border-r border-b md:text-[16px] border-outer-bdr-color text-[14px] leading-[20px] font-[500] font-mont px-[10px] text-orange-200"
                   >
                     {item.dayName.slice(0, 2)}
                   </Table.ColumnHeader>
@@ -51,19 +51,17 @@ const ShowMonth = () => {
             )}
           </Table.Row>
         </Table.Header>
-        <Table.Body className="grid grid-cols-7 w-full">
+        <Table.Body className="grid grid-cols-7 w-full h-full">
           {daysOfMonth.map((item, dayIndex) => (
             <Table.Row key={dayIndex} className="w-full">
-              <Table.Cell className="flex flex-col justify-start items-start h-full bg-ghost-bg-color w-full border border-outer-bdr-color">
-                <div className="relative flex items-center p-[10px] font-mont text-[15px] w-full">
-                  <div
-                    className={`p-[8px] ${
-                      today.day === item.date.split("-")[2] &&
-                      "bg-primary-color px-[14px] rounded-md"
-                    }`}
-                  >
-                    {+item.date.split("-")[2]}
-                  </div>
+              <Table.Cell className="flex flex-col justify-start items-start h-full bg-ghost-bg-color w-full">
+                <div
+                  className={`relative flex items-center 576:justify-start justify-center py-[10px] font-mont text-[15px] w-full ${
+                    today.day === item.date.split("-")[2] &&
+                    "bg-primary-color rounded-md"
+                  }`}
+                >
+                  <div className={`p-[8px]`}>{+item.date.split("-")[2]}</div>
                 </div>
               </Table.Cell>
             </Table.Row>

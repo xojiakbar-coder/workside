@@ -1,7 +1,6 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
 import BASE_URL from "../../config/baseUrl";
-import { todos_url } from "../../config/endpoints";
 import { TodosDataType } from "../../utils/types/reports";
 import { PageChangeDetails } from "../Generic/Pagination/Pagination";
 import { Container, GridBox, Pagination, ReportCard, Title } from "../Generic";
@@ -12,7 +11,7 @@ const EmployeeReports = () => {
   const pageSize = 3;
 
   useEffect(() => {
-    fetch(`${BASE_URL}/${todos_url}/`)
+    fetch(`${BASE_URL}/home/`)
       .then((res) => res.json())
       .then((res) => setData(res))
       .catch((err) => console.error(err));

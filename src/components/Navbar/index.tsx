@@ -34,7 +34,7 @@ const Navbar = () => {
     //  Sticky Navbar
     <header
       className={`sticky z-[999] bg-body-bg-color ${
-        !shadow && shdaowVisible && "border-b border-[#111111]"
+        !shadow && shdaowVisible && "border-b border-border-color"
       } top-0 w-full h-[78px] min-h-[78px]`}
     >
       <div

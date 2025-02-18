@@ -15,7 +15,7 @@ const ShowWeek = () => {
   const currentDayIndex = today.isoWeekday();
 
   return (
-    <div className="grid 576:grid-cols-2 992:grid-cols-5 grid-cols-1 justify-between items-center gap-4">
+    <div className="grid 1400:grid-cols-7 992:grid-cols-2 grid-cols-1 justify-between items-center gap-4">
       {weeksData.map((day, index) => {
         const currentDate = today
           .clone()

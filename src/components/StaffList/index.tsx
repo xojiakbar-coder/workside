@@ -1,6 +1,5 @@
 import BASE_URL from "../../config/baseUrl";
 import { useEffect, useState } from "react";
-import { users_url } from "../../config/endpoints";
 import { Container, Table, Title } from "../Generic";
 import GenericEmptyState from "../Generic/EmptyState";
 import { table_head } from "../../utils/data/staffList";
@@ -10,7 +9,7 @@ const StaffList = () => {
   const [data, setData] = useState<TableBodyType[] | []>([]);
 
   useEffect(() => {
-    fetch(`${BASE_URL}/${users_url}/`)
+    fetch(`${BASE_URL}//`)
       .then((res) => res.json())
       .then((res) => setData(res));
   }, []);

@@ -60,6 +60,7 @@ module.exports = {
         "gray-color": "var(--gray-color)",
         "black-color": "var(--black-color)",
         "hover-danger": "var(--hover-danger)",
+        "border-color": "var(--border-color)",
         "dark-bg-color": "var(--dark-bg-color)",
         "body-bg-color": "var(--body-bg-color)",
         "subtitle-color": "var(--subtitle-color)",

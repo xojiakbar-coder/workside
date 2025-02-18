@@ -26,6 +26,33 @@ const ShowYear = () => {
     });
   }
 
+  let monthLastDaysLength = [2, 5, 5, 1, 3, 0, 1, 4, 0, 2, 5, 0];
+
+  function updateMonthLastDays() {
+    const currentYear = moment().year();
+    const lastRunYear = localStorage.getItem("lastRunYear");
+
+    if (!lastRunYear || parseInt(lastRunYear, 10) < currentYear) {
+      console.log(`Funksiya ${currentYear}-yilda ishga tushdi.`);
+
+      let arr = [];
+
+      for (let i in monthLastDaysLength) {
+        if (+i === 11) break;
+        arr.push(monthLastDaysLength[i] + 1);
+      }
+
+      monthLastDaysLength = arr;
+      console.log("Yangilangan massiv:", monthLastDaysLength);
+
+      localStorage.setItem("lastRunYear", String(currentYear));
+    } else {
+      console.log(`Funksiya ${currentYear}-yilda allaqachon ishga tushgan.`);
+    }
+  }
+
+  updateMonthLastDays();
+
   const handlePageChange = (details: PageChangeDetails) => {
     setCurrentPage(details.page);
   };
@@ -37,11 +64,14 @@ const ShowYear = () => {
 
   return (
     <div className="flex flex-col justify-center w-full">
-      <div className="grid 1024:grid-cols-3 992:grid-cols-2 grid-cols-1 gap-[20px]">
-        {paginatedData.map((item) => {
-          const start = item.length - 5 + 1;
+      <div className="grid 1400:grid-cols-3 992:grid-cols-2 576:grid-cols-[567px] grid-cols-1 place-content-center auto-rows gap-[20px]">
+        {paginatedData.map((item, index) => {
+          const start = item.length - monthLastDaysLength[index] + 1;
           const days = Array.from({ length: item.length }, (_, i) => i + 1);
-          const firstDays = Array.from({ length: 5 }, (_, i) => start + i);
+          const firstDays = Array.from(
+            { length: monthLastDaysLength[index] },
+            (_, i) => start + i
+          );
           return (
             <div
               key={item.index}
@@ -73,7 +103,7 @@ const ShowYear = () => {
                     return (
                       <div
                         key={day}
-                        className={`rounded-[4px] my-[5px] py-[5px] mx-[5px] px-[12px] ${
+                        className={`rounded-md my-[5px] py-[5px] mx-[5px] px-[12px] ${
                           item.index == moment().month() + 1 &&
                           day === moment().date()
                             ? "bg-primary-color"

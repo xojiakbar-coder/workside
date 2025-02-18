@@ -30,15 +30,20 @@ const Calendar = () => {
       <Container fluid className="flex flex-col py-[30px] gap-[20px]">
         <Title type="section">Kalendar</Title>
         <Tabs.Root
-          variant="plain"
+          variant="enclosed"
           defaultValue="year"
+          // orientation="vertical"
           className="flex flex-col justify-center items-center w-full"
         >
-          <Tabs.List bg="bg.muted" p="1" className="w-[400px] rounded-md">
+          <Tabs.List
+            p="1"
+            bg="bg.muted"
+            className="576:w-[400px] w-[320px] rounded-md"
+          >
             {langItems.map((item) => {
               return (
                 <Tabs.Trigger
-                  className="flex items-center justify-center w-full px-[10px] capitalize"
+                  className="flex items-center justify-center w-full 576:px-[10px] px-[3px] capitalize 576:text-[16px] text-[14px]"
                   value={item.title}
                   key={item.id}
                 >
