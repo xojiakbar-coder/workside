@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <Container fluid type="wrapper" className="h-section">
       <Container fluid gap="24px" type="full-center" flexDirection="column">
-        <Title type="title" className="">
+        <Title type="title" className="text-wrap">
           {data?.title}
         </Title>
         <p className="text-[18px] text-subtitle-color text-balance text-center font-semibold md:w-[100%] w-[80%]">

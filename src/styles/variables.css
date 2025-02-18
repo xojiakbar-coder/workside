@@ -50,10 +50,6 @@
     rgba(100, 100, 100, 0.253) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
-.content-height {
-  height: calc(100dvh - 186px);
-}
-
 .inst {
   background-image: linear-gradient(
     to left top,
@@ -90,10 +86,5 @@
 
 .yellow-btn:hover {
   background-position: right center;
-  /* color: #fff; */
   text-decoration: none;
-}
-
-.auto-rows {
-  grid-auto-rows: 400px;
 }

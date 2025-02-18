@@ -1,29 +1,15 @@
-// import useSize from "../../hooks/useSize";
 import { Container, Title } from "../Generic";
 import { our_sevices } from "../../utils/data/home";
 
 const OurService = () => {
-  // const { width } = useSize();
-
-  // const gridAutoRows =
-  //   width > 1400
-  //     ? "380px"
-  //     : width > 1250
-  //     ? "350px"
-  //     : width > 768
-  //     ? "450px"
-  //     : width > 567
-  //     ? "400px"
-  //     : "370px";
-
   return (
     <Container
       fluid
-      className="flex w-full flex-col justify-center h-max min-h-max"
+      className="flex w-full flex-col justify-center h-screen min-h-screen"
     >
       <Title type="secondary">Bizning xizmatlar</Title>
       <div
-        className={`grid 992:grid-cols-3 576:grid-cols-[80%] grid-cols-1 h-max 992:justify-between justify-center 992:gap-0 gap-[20px] w-full mt-[12px] border-y border-border-color mb-[100px] auto-rows-[400px]`}
+        className={`grid 992:grid-cols-3 576:grid-cols-[80%] grid-cols-1 992:justify-between justify-center 992:gap-0 gap-[20px] w-full mt-[12px] border-y border-border-color mb-[100px] auto-rows-full h-[60%]`}
       >
         {our_sevices.map(({ id, title, icon: Icon }) => (
           <div

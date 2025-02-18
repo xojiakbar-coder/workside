@@ -12,10 +12,12 @@ const SignUp = () => {
     <div className="flex flex-col h-screen">
       <div className="flex items-center px-[3%] py-[25px] justify-between h-[78px] w-full border-b border-b-border-color">
         <Logo />
-        <Button type="outline">Contact</Button>
+        <Button type="outline" className="rounded-md">
+          Contact
+        </Button>
       </div>
       <div className="flex items-center justify-center flex-col register w-full px-[3%]">
-        <div className="flex flex-col py-[40px] justify-between 768:w-[600px] w-full border border-ghost-bg-color px-[37px] h-max min-h-max rounded-[14px] gap-[60px]">
+        <div className="flex flex-col py-[40px] justify-between 768:w-[600px] w-full border-2 border-border-color px-[37px] h-max min-h-max rounded-[14px] gap-[60px]">
           <div className="flex items-center justify-center w-full gap-[20px]">
             <div
               onClick={() => navigate("/signin")}
@@ -45,14 +47,14 @@ const SignUp = () => {
           <div className="flex flex-col w-full justify-start gap-[50px] h-full">
             <div className="flex flex-col gap-[30px]">
               <Input
-                variant="outline"
+                variant="subtle"
                 placeholder="Your email address"
-                className="flex items-center outline-none rounded-[4px] border border-ghost-bg-color py-[18px] px-[20px] h-max 992:text-[18px] text-[14px]"
+                className="flex items-center outline-none rounded-[6px] py-[18px] px-[20px] h-max 992:text-[18px] text-[14px]"
               />
               <PasswordInput
-                variant="outline"
+                variant="subtle"
                 placeholder="Your password"
-                className="flex items-center outline-none rounded-[4px] border border-ghost-bg-color py-[18px] px-[20px] h-max 992:text-[18px] text-[14px]"
+                className="flex items-center outline-none rounded-[6px] py-[18px] px-[20px] h-max 992:text-[18px] text-[14px]"
               />
             </div>
           </div>
