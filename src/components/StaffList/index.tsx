@@ -9,7 +9,7 @@ const StaffList = () => {
   const [data, setData] = useState<TableBodyType[] | []>([]);
 
   useEffect(() => {
-    fetch(`${BASE_URL}//`)
+    fetch(`${BASE_URL}/reports`)
       .then((res) => res.json())
       .then((res) => setData(res));
   }, []);

@@ -1,7 +1,9 @@
 .sidebar-transition {
-  transition: all cubic-bezier(0.51, 0.92, 0.24, 1.15) 220ms;
+  transition: all cubic-bezier(0.51, 0.92, 0.24, 1.15) 400ms;
 }
 
 .tabs {
   transition: all cubic-bezier(0.86, 0.36, 0, 0.46) 370ms;
 }
+
+

@@ -1,5 +1,4 @@
 import { FC } from "react";
-import useSize from "../../hooks/useSize";
 import logoSvg from "../../assets/icons/logo.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -10,7 +9,6 @@ interface LogoItemType {
 }
 
 const Logo: FC<LogoItemType> = ({ logo = true, onClose }) => {
-  const { width } = useSize();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -18,9 +16,6 @@ const Logo: FC<LogoItemType> = ({ logo = true, onClose }) => {
     if (location.pathname !== "/" && logo) navigate("/");
     if (onClose) onClose();
   };
-
-  const logoSize = logo ? "w-[180px]" : "w-[180px]";
-  const responsiveLogoSize = width < 567 && "w-[130px]";
 
   return (
     <div
@@ -32,8 +27,8 @@ const Logo: FC<LogoItemType> = ({ logo = true, onClose }) => {
     >
       <img
         src={logoSvg}
-        alt="workside logo not found"
-        className={`${logoSize} ${responsiveLogoSize}`}
+        alt="logo not found"
+        className="576:w-[180px] w-[130px]"
       />
     </div>
   );

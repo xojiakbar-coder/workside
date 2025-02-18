@@ -5,30 +5,28 @@ import { TablePropsType } from "../../../utils/types/table";
 const GenericTable: FC<TablePropsType> = ({ table_head, table_body }) => {
   const rows = table_body.map((item, index) => (
     <Table.Row
-      key={item.name}
-      className={`px-[20px] py-[12px] ${
-        table_body[table_body.length - 1].id !== item.id && "border-b"
-      } border-b-ghost-bg-color w-full`}
+      key={item.id}
+      className={`px-[20px] py-[12px] border-y border-y-border-color w-full`}
     >
-      <Table.Cell className="md:px-[32px] px-[14px] md:py-[17px] py-[14px] lg:text-[16px] md:text-[14px] sm:text-[10px] text-[8px]">
+      <Table.Cell className="md:px-[32px] px-[14px] 992:py-[17px] py-[14px] 576:text-[16px]">
         {index + 1}
       </Table.Cell>
-      <Table.Cell className="md:px-[32px] px-[14px] md:py-[17px] py-[14px] lg:text-[16px] md:text-[14px] sm:text-[10px] text-[8px]">
+      <Table.Cell className="md:px-[32px] px-[14px] 992:py-[17px] py-[14px] 576:text-[16px]">
         {item.name}
       </Table.Cell>
-      <Table.Cell className="md:px-[32px] px-[14px] md:py-[17px] py-[14px] lg:text-[16px] md:text-[14px] sm:text-[10px] text-[8px]">
-        {item.email}
+      <Table.Cell className="md:px-[32px] px-[14px] 992:py-[17px] py-[14px] 576:text-[16px]">
+        {item.position}
       </Table.Cell>
-      <Table.Cell className="md:px-[32px] px-[14px] md:py-[17px] py-[14px] lg:text-[16px] md:text-[14px] sm:text-[10px] text-[8px]">
-        {item.phone}
+      <Table.Cell className="md:px-[32px] px-[14px] 992:py-[17px] py-[14px] 576:text-[16px]">
+        {item.work_schedule}
       </Table.Cell>
     </Table.Row>
   ));
 
   return (
-    <Table.Root variant="outline" className="rounded-md w-full">
+    <Table.Root variant="line" className="">
       <Table.Header className="w-full">
-        <Table.Row className="w-full h-[68px] border-red-700">
+        <Table.Row className="w-full h-[68px] bg-ghost-bg-color">
           <Table.ColumnHeader className="text-[14px] leading-[20px] font-[500] font-mont md:px-[32px] px-[14px] md:py-[17px] py-[14px]">
             ID
           </Table.ColumnHeader>

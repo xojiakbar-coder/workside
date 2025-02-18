@@ -11,7 +11,7 @@ const Aside = () => {
 
   return (
     <div
-      className={`flex flex-col h-full py-[5px] sidebar-transition border-r border-border-color w-[290px] min-w-[290px] ${
+      className={`flex flex-col h-full py-[5px] sidebar-transition border-r overflow-x-hidden border-border-color w-[290px] min-w-[290px] ${
         sidebar && "w-[82px] min-w-[82px]"
       }`}
     >
@@ -32,7 +32,7 @@ const Aside = () => {
           />
         )}
       </div>
-      <div className="flex flex-col overflow-y-auto h-section min-h-section">
+      <div className="flex flex-col overflow-y-auto h-section overflow-x-hidden min-h-section">
         <SidebarItems toggleSidebar={sidebar} />
       </div>
     </div>

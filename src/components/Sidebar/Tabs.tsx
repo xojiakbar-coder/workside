@@ -46,13 +46,13 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
     <div
       className={`${
         type === "sidebar"
-          ? "rounded-r-md bg-body-bg-color border-r border-t border-b border-outer-bdr-color w-full overflow-y-scroll h-[200px]"
+          ? "rounded-r-md bg-body-bg-color border-r border-t border-b border-border-color w-full overflow-y-scroll h-[200px]"
           : ""
       }`}
     >
       {data && data.length > 0 ? (
         <div className={`w-full max-w-4xl mx-auto flex pl-[14px]`}>
-          <div className="flex flex-col relative border-l border-gray-color w-full gap-[10px] my-[12px]">
+          <div className="flex flex-col relative border-l border-gray-color w-full gap-[16px] my-[12px]">
             {data.map((item, index) => {
               const { id, title, name } = item;
               const Icon = item.icon;

@@ -91,7 +91,7 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
                     )}
                   </>
                 )}
-                <div className="absolute w-0 min-w-0 group-hover:w-[330px] group-hover:min-w-[330px] overflow-y-auto z-[888] mt-[50px] ml-[50px] left-[50px] tabs h-[240px]">
+                <div className="absolute w-0 min-w-0 group-hover:w-[330px] group-hover:min-w-[330px] overflow-y-auto z-[888] mt-[50px] ml-[31px] left-[50px] tabs h-[240px]">
                   <Tabs
                     type="sidebar"
                     data={item.children}

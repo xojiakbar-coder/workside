@@ -5,11 +5,11 @@ const table_head = [
   },
   {
     id: 2,
-    title: "Email",
+    title: "Lavozim",
   },
   {
     id: 3,
-    title: "Telefon",
+    title: "Ish vaqtlari",
   },
 ];
 

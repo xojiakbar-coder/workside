@@ -1,11 +1,8 @@
 export interface TableBodyType {
   id: number;
-  job?: string;
-  email?: string;
-  phone?: string;
-  username?: string;
-  name?: string | number;
-  salary?: string | number;
+  name: string;
+  position: string;
+  work_schedule: string;
 }
 
 export interface TableHeadType {

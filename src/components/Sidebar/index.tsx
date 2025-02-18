@@ -25,7 +25,7 @@ const Sidebar: FC = () => {
       {/* Navbar */}
       <Navbar />
       <section className="flex 992:items-center items-start h-[93dvh]">
-        <aside className="hidden 992:flex h-full">
+        <aside className="hidden 992:flex h-full relative">
           <Aside />
         </aside>
         <section className="mb-auto w-full h-full overflow-y-auto">

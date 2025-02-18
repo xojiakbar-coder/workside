@@ -33,8 +33,6 @@ const ShowYear = () => {
     const lastRunYear = localStorage.getItem("lastRunYear");
 
     if (!lastRunYear || parseInt(lastRunYear, 10) < currentYear) {
-      console.log(`Funksiya ${currentYear}-yilda ishga tushdi.`);
-
       let arr = [];
 
       for (let i in monthLastDaysLength) {
@@ -43,11 +41,7 @@ const ShowYear = () => {
       }
 
       monthLastDaysLength = arr;
-      console.log("Yangilangan massiv:", monthLastDaysLength);
-
       localStorage.setItem("lastRunYear", String(currentYear));
-    } else {
-      console.log(`Funksiya ${currentYear}-yilda allaqachon ishga tushgan.`);
     }
   }
 
