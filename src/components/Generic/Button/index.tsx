@@ -24,17 +24,19 @@ interface GenericButtonType {
 const getButtonStyle = (type: GenericButtonType["type"], disabled = false) => {
   switch (type) {
     case "primary":
-      return "bg-primary-color rounded-sm";
+      return "bg-primary-color rounded-xl";
     case "outline":
-      return "bg-transparent hover:bg-dark-bg-color border-border-color text-light border-2 rounded-md";
+      return "bg-transparent hover:bg-dark-bg-color border-border-color text-light border-2 rounded-xl";
     case "surface":
-      return "bg-ghost-bg-color text-light rounded-sm";
+      return "bg-ghost-bg-color text-light rounded-xl";
+    case "subtle":
+      return "hover:bg-ghost-bg-color underline text-light rounded-xl";
     case "solid":
       return `bg-light text-body-bg-color hover:bg-[#d9d9d9] rounded-xl ${
         disabled && "bg-[#b1b0b0]"
       }`;
     case "ghost":
-      return "bg-transparent hover:bg-ghost-bg-color text-light rounded-sm";
+      return "bg-transparent hover:bg-ghost-bg-color text-light rounded-xl";
     case "danger":
       return "text-light font-mont bg-danger rounded-[12px] hover:bg-hover-danger";
     default:
@@ -48,18 +50,18 @@ const GenericButton: FC<GenericButtonType> = ({
   children,
   leftIcon,
   rightIcon,
-  className,
+  className = "",
   ...props
 }) => {
-  const generalStyle = `flex items-center gap-[12px] lg:h-[58px] md:h-[48px] h-[42px] min-w-max min-h-max font-mont xl:text-[16px] text-[14px] px-[20px] md:py-[20px] py-[18px] text-center outline-none transition-all ease-in-out duration-[240ms] select-none cursor-pointer`;
+  const generalStyle = `flex items-center gap-[12px] min-w-max min-h-max font-mont xl:text-[16px] text-[14px] px-[20px] text-center outline-none transition-all ease-in-out duration-[240ms] select-none cursor-pointer`;
 
   return (
     <Button
-      className={`${getButtonStyle(type)} ${generalStyle} ${className}`}
-      onClick={onClick}
       {...props}
+      onClick={onClick}
+      className={`${className} ${getButtonStyle(type)} ${generalStyle}`}
     >
-      {leftIcon && <span className="mr-2 ">{leftIcon}</span>}
+      {leftIcon && <span className="mr-2">{leftIcon}</span>}
       {children}
       {rightIcon && <span className="ml-2">{rightIcon}</span>}
     </Button>

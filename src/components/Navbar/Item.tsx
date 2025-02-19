@@ -14,32 +14,30 @@ const Item: FC<ItemType> = ({ dir = "row", onClose }) => {
 
   return (
     <nav
-      className={`flex items-center gap-[20px] ${
+      className={`flex items-center gap-[28px] flex-${dir} ${
         dir === "col" && "justify-center"
       }`}
     >
-      <div className={`flex items-center gap-[25px] flex-${dir}`}>
-        {navbar_items.map((item) => {
-          const { id, title, path } = item;
+      {navbar_items.map((item) => {
+        const { id, title, path } = item;
 
-          const activeClass = "text-primary-color";
-          const defaultClass =
-            "text-[14px] text-item-color font-mont font-medium cursor-pointer transition-all ease-out duration-[115ms] tracking-[.5px] py-[6px] px-[9px] rounded-[4px]";
+        const activeClass = "text-primary-color";
+        const defaultClass =
+          "text-[14px] text-item-color font-mont font-medium cursor-pointer transition-all ease-out duration-[115ms] tracking-[.5px] py-[6px]";
 
-          return (
-            <NavLink
-              key={id}
-              to={path}
-              onClick={() => handleClickItem()}
-              className={({ isActive }) =>
-                `${defaultClass} ${isActive ? activeClass : "hover:text-light"}`
-              }
-            >
-              {title}
-            </NavLink>
-          );
-        })}
-      </div>
+        return (
+          <NavLink
+            key={id}
+            to={path}
+            onClick={() => handleClickItem()}
+            className={({ isActive }) =>
+              `${defaultClass} ${isActive ? activeClass : "hover:text-light"}`
+            }
+          >
+            {title}
+          </NavLink>
+        );
+      })}
     </nav>
   );
 };

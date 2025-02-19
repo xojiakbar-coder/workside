@@ -3,13 +3,14 @@ import Item from "./Item";
 import Lang from "./Lang";
 import Drawer from "./Drawer";
 import { useState } from "react";
-import { Timer } from "../Generic";
 import useSize from "../../hooks/useSize";
+import { Button, Timer } from "../Generic";
 import { LuAlignLeft } from "react-icons/lu";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { scrollY } = useSize();
+  const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
   const toggleDrawer = () => {
@@ -45,10 +46,17 @@ const Navbar = () => {
           <Logo />
         </div>
 
-        <div className="992:flex hidden items-center gap-[20px]">
+        <div className="992:flex hidden items-center gap-[28px]">
           <Item dir="row" />
           <Timer format="LT" bottom_date_visible={false} />
           <Lang />
+          <Button
+            type="outline"
+            onClick={() => navigate("/signin")}
+            className="w-max font-[500] text-[14px] py-[22px]"
+          >
+            SignIn
+          </Button>
         </div>
         <div className="992:hidden flex w-full justify-between">
           <div

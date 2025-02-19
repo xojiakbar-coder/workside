@@ -10,9 +10,9 @@ const SignUp = () => {
 
   return (
     <div className="flex flex-col h-screen">
-      <div className="flex items-center px-[3%] py-[25px] justify-between h-[78px] w-full border-b border-b-border-color">
+      <div className="flex items-center px-[3%] py-[25px] justify-between h-[78px] w-full border-b border-b-dark-bg-color">
         <Logo />
-        <Button type="outline" className="rounded-md">
+        <Button type="outline" className="rounded-md py-[22px]">
           Contact
         </Button>
       </div>

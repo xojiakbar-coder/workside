@@ -24,7 +24,7 @@ const GenericTimer: FC<TimeType> = ({
   }, [format]);
 
   return (
-    <div className="flex flex-col justify-center text-light px-[24px] gap-[10px] py-[18px] border-outer-bdr-color h-full">
+    <div className="flex flex-col justify-center text-light gap-[10px] h-full">
       <div className="font-mont text-[16px] w-max text-item-color font-medium uppercase">
         {time}
       </div>

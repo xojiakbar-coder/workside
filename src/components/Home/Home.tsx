@@ -24,18 +24,18 @@ const Home = () => {
         <p className="text-[18px] text-subtitle-color text-balance text-center font-semibold md:w-[100%] w-[80%]">
           {data?.subtitle}
         </p>
-        <div className="grid grid-cols-2 gap-[10px] mt-[10px] w-max">
+        <div className="grid grid-cols-2 justify-center items-center gap-[10px] mt-[10px] w-max">
           <Button
             type="solid"
-            className="w-full font-semibold"
+            className="font-semibold py-btn-pdg"
             onClick={() => navigate("/hisobotlar")}
           >
             Ishlarni boshlash
           </Button>
           <Button
-            type="surface"
-            className="w-full font-semibold"
-            onClick={() => navigate("/signin")}
+            type="outline"
+            className="font-semibold py-btn-pdg"
+            onClick={() => navigate("/")}
           >
             Kirish
           </Button>

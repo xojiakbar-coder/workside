@@ -12,7 +12,7 @@ const GenericElement = () => {
       </h1>
       <Button
         type="outline"
-        className="font-jost w-max"
+        className="font-jost w-max py-btn-pdg"
         onClick={() => navigate("/")}
         rightIcon={
           <i className="fa-solid fa-chevron-right text-item-color group-hover:text-light mt-[4px]" />

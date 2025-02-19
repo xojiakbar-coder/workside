@@ -51,6 +51,7 @@ module.exports = {
         "content-height": "var(--content-height)",
       },
       padding: {
+        "btn-pdg": "var(--btn-padding)",
         "main-padding": "var(--padding)",
       },
       colors: {

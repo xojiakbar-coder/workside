@@ -1,9 +1,11 @@
-@import url(./tansition.css);
+@import url("./tansition.css");
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
   /* padding */
   --padding: 2%;
+  --btn-padding: 30px;
+
   /* height */
   --height: 86dvh;
 
@@ -35,7 +37,7 @@
   --black-color: #000000;
   --body-bg-color: #09090b;
   --ghost-bg-color: #18181b;
-  --dark-bg-color: #0f0f13a9;
+  --dark-bg-color: #111116e8;
 
   /* fonts */
   --jost: "Jost", serif;
