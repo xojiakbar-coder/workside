@@ -34,8 +34,8 @@ const Home = () => {
           </Button>
           <Button
             type="outline"
-            className="font-semibold py-btn-pdg"
             onClick={() => navigate("/")}
+            className="font-semibold py-btn-pdg"
           >
             Kirish
           </Button>

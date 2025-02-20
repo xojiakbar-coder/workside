@@ -1,20 +1,35 @@
-import moment from "moment";
-import { useEffect, useState } from "react";
 import BASE_URL from "../../config/baseUrl";
+import { useContext, useEffect, useState } from "react";
 import { TodosDataType } from "../../utils/types/reports";
 import { PageChangeDetails } from "../Generic/Pagination/Pagination";
-import { Container, GridBox, Pagination, ReportCard, Title } from "../Generic";
+import { LoaderContext } from "../../context/LoaderContext/LoaderContext";
+import {
+  Title,
+  Loader,
+  GridBox,
+  Container,
+  Pagination,
+  ReportCard,
+} from "../Generic";
 
 const EmployeeReports = () => {
   const [data, setData] = useState<TodosDataType>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const pageSize = 3;
+  const { show_load, setShowLoad } = useContext(LoaderContext);
+  const pageSize = 6;
 
   useEffect(() => {
-    fetch(`${BASE_URL}/home/`)
+    setShowLoad(true);
+    fetch(`${BASE_URL}/reports`)
       .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => console.error(err));
+      .then((res) => {
+        setData(res);
+        setShowLoad(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setShowLoad(false);
+      });
   }, []);
 
   const startIndex = (currentPage - 1) * pageSize;
@@ -27,31 +42,38 @@ const EmployeeReports = () => {
   return (
     <Container fluid type="section" className="overflow-y-auto">
       <Title type="section">Xodimlar hisobotlari</Title>
-      <GridBox cols={"1fr"} gapY={8}>
-        {selectedData.length > 0 &&
-          selectedData.map((item) => (
-            <ReportCard
-              key={item.id}
-              chart_type="Pie chart"
-              title={item?.title}
-              data_date={`${moment().format("MMM Do, Y")}`}
-              subtitle={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-        accusantium, inventore placeat natus aliquid facilis quis obcaecati
-        autem quos doloremque voluptas commodi tempore ut hic odit est
-        distinctio vel repellat`}
+      {!show_load ? (
+        <>
+          <GridBox cols={"1fr 1fr"} gap={8}>
+            {selectedData.length > 0 ? (
+              selectedData.map((item) => (
+                <ReportCard
+                  key={item.id}
+                  name={item?.name}
+                  message={item.message}
+                  position={item.position}
+                  data_date={item.data_date}
+                  chart_data={item.chart_data}
+                />
+              ))
+            ) : (
+              <p>Ma'lumot yo'q</p>
+            )}
+          </GridBox>
+          <Container fluid type="full-center">
+            <Pagination
+              defaultPage={1}
+              page={currentPage}
+              pageSize={pageSize}
+              className="my-[38px]"
+              data_length={data.length}
+              handlePageChange={handlePageChange}
             />
-          ))}
-      </GridBox>
-      <Container fluid type="full-center">
-        <Pagination
-          defaultPage={1}
-          page={currentPage}
-          pageSize={pageSize}
-          className="my-[38px]"
-          data_length={data.length}
-          handlePageChange={handlePageChange}
-        />
-      </Container>
+          </Container>
+        </>
+      ) : (
+        <Loader type="section" />
+      )}
     </Container>
   );
 };

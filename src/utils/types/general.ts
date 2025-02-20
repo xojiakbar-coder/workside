@@ -8,10 +8,16 @@ export interface HomeContentType {
   subtitle: string;
 }
 
+interface SubscribeCardContentItem {
+  id: number;
+  text: string;
+}
+
 export interface SubscribeCardItemType {
   id: number;
   name: string;
   price: number;
+  features: SubscribeCardContentItem[];
 }
 
 export type OnlyChildren = {

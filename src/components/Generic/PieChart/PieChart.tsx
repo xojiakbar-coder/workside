@@ -1,72 +1,46 @@
-import React from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
-
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-];
+import { FC } from "react";
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from "recharts";
 
 const COLORS = ["#3700ff", "#134b42", "#c47623", "#ff4c00"];
 
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({
-  cx,
-  cy,
-  midAngle,
-  innerRadius,
-  outerRadius,
-  percent,
-}: {
-  cx: number;
-  cy: number;
-  midAngle: number;
-  innerRadius: number;
-  outerRadius: number;
-  percent: number;
-  index: number;
-}) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+export interface ChartDataItemType {
+  name: string;
+  value: number | string;
+}
 
-  return (
-    <text
-      x={x}
-      y={y}
-      fill="#ebe2e0"
-      dominantBaseline="central"
-      className="text-sm font-bold"
-      textAnchor={x > cx ? "start" : "end"}
-    >
-      {`${(percent * 100).toFixed(0)}%`}
-    </text>
-  );
-};
+export interface ChartPropsDataType {
+  data: ChartDataItemType[];
+}
 
-const CustomPieChart: React.FC = () => {
+const CustomPieChart: FC<ChartPropsDataType> = ({ data }) => {
   return (
-    <div className="w-full h-full justify-end items-end bg-transparent hover:scale-95 tabs">
+    <div className="w-full h-full bg-transparent flex justify-center items-center">
       <ResponsiveContainer width="100%" height="100%">
-        <PieChart>
+        <PieChart margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
           <Pie
-            cx="50%"
+            cx="40%"
             cy="50%"
             fill="none"
             data={data}
             dataKey="value"
-            outerRadius={90}
+            outerRadius={100}
             labelLine={false}
-            label={renderCustomizedLabel}
           >
-            {data.map((_, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
+            {data.length > 0 &&
+              data.map((_, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
           </Pie>
+          {/* Labelni chart yoniga chiqarish */}
+          <Legend
+            align="left"
+            layout="vertical"
+            iconType="circle"
+            verticalAlign="bottom"
+          />
         </PieChart>
       </ResponsiveContainer>
     </div>

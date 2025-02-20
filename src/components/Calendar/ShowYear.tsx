@@ -58,7 +58,7 @@ const ShowYear = () => {
 
   return (
     <div className="flex flex-col justify-center w-full">
-      <div className="grid 1400:grid-cols-3 992:grid-cols-2 576:grid-cols-[567px] grid-cols-1 place-content-center auto-rows gap-[20px]">
+      <div className="grid 1400:grid-cols-3 992:grid-cols-2 576:grid-cols-[567px] grid-cols-1 place-content-center items-stretch gap-[20px]">
         {paginatedData.map((item, index) => {
           const start = item.length - monthLastDaysLength[index] + 1;
           const days = Array.from({ length: item.length }, (_, i) => i + 1);
