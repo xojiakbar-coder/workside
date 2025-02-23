@@ -3,7 +3,7 @@ import { TabsProps } from "../../utils/types/tabs";
 import { NavLink, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect, FC } from "react";
 
-const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
+const SidebarTabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
   const location = useLocation();
   const [indicatorStyle, setIndicatorStyle] = useState({
     top: "0px",
@@ -52,7 +52,7 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
     >
       {data && data.length > 0 ? (
         <div className={`w-full max-w-4xl mx-auto flex pl-[14px]`}>
-          <div className="flex flex-col relative border-l border-gray-color w-full gap-[16px] my-[12px]">
+          <div className="flex flex-col relative border-l border-body-bg-color w-full gap-[16px] my-[12px]">
             {data.map((item, index) => {
               const { id, title, name } = item;
               const Icon = item.icon;
@@ -64,7 +64,7 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
                   onClick={() => handleTabClick(index)}
                   ref={(el) => (tabRefs.current[index] = el)}
                   className={`flex items-center text-[14px] group hover:bg-dark-bg-color p-2 whitespace-nowrap ${
-                    type !== "sidebar" && "rounded-r-md"
+                    type !== "sidebar" && ""
                   } text-left cursor-pointer h-[47px] min-h-[47px] px-[14px] font-mont font-medium text-item-color hover:text-light transition-all duration-300 ${
                     location.pathname === name &&
                     "text-primary-color hover:text-primary-color bg-dark-bg-color"
@@ -89,4 +89,4 @@ const Tabs: FC<TabsProps> = ({ data, toggleSidebar, type }) => {
   );
 };
 
-export default Tabs;
+export default SidebarTabs;

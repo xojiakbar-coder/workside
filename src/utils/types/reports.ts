@@ -1,4 +1,15 @@
-import { ChartDataItemType } from "../../components/Generic/PieChart/PieChart";
+export interface ChartDataItemType {
+  name: string;
+  value: number | string;
+}
+
+export interface GenericReportsCardPropsType {
+  name: string;
+  message: string;
+  position: string;
+  data_date: string;
+  report_data: ChartDataItemType[];
+}
 
 export interface TodosDataItemType {
   id: number;
@@ -7,7 +18,7 @@ export interface TodosDataItemType {
   message: string;
   position: string;
   data_date: string;
-  chart_data: ChartDataItemType[];
+  report_data: ChartDataItemType[];
 }
 
 export type TodosDataType = TodosDataItemType[];

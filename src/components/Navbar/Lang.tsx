@@ -3,11 +3,6 @@ import { RiGlobalLine } from "react-icons/ri";
 import { MenuItemType } from "../../utils/types/menu";
 
 const Lang = () => {
-  const leftIcon = {
-    icon: true,
-    iconBody: RiGlobalLine,
-  };
-
   const langItems: MenuItemType[] = [
     {
       id: 1,
@@ -25,10 +20,11 @@ const Lang = () => {
 
   return (
     <Menu
+      type="icon"
       items={langItems}
       storageName="lang"
       defaultValue="o'zbek"
-      leftIcon={leftIcon || leftIcon}
+      leftIcon={RiGlobalLine}
     />
   );
 };

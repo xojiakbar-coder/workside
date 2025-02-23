@@ -52,8 +52,8 @@ export const sidebar_items: SidebarItemType[] = [
   {
     id: 1,
     children: [],
-    title: "Hisobotlar",
-    name: "/hisobotlar",
+    title: "Asosiy",
+    name: "/",
     icon: LuNotebookText,
     element: GenericElement,
   },

@@ -1,6 +1,6 @@
-import { FC, ReactNode, useContext } from "react";
+import { FC, ReactNode } from "react";
 import { Container } from "@chakra-ui/react";
-import { LoaderContext } from "../../../context/LoaderContext/LoaderContext";
+// import { LoaderContext } from "../../../context/LoaderContext/LoaderContext";
 
 interface GenericContainerType extends React.ComponentProps<typeof Container> {
   className?: string;
@@ -15,14 +15,12 @@ interface GenericContainerType extends React.ComponentProps<typeof Container> {
 }
 
 const getContainerStyle = (type: GenericContainerType["type"]) => {
-  const { show_load } = useContext(LoaderContext);
+  // const { show_load } = useContext(LoaderContext);
   switch (type) {
     case "wrapper":
-      return `${!show_load ? "px-main-padding" : ""}`;
+      return `px-main-padding`;
     case "section":
-      return `flex-col ${
-        !show_load ? "px-main-padding pb-[30px]" : ""
-      } pt-[25px] h-max overflow-y-auto`;
+      return `flex-col px-main-padding pb-[30px] pt-[25px] h-max overflow-y-auto`;
     case "center":
       return "justify-center";
     case "full-center":

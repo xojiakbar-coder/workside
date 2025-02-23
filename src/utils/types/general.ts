@@ -14,10 +14,11 @@ interface SubscribeCardContentItem {
 }
 
 export interface SubscribeCardItemType {
-  id: number;
+  id?: number;
   name: string;
   price: number;
   features: SubscribeCardContentItem[];
+  category?: "small-teams" | "enterprises";
 }
 
 export type OnlyChildren = {

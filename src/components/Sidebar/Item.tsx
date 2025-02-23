@@ -1,4 +1,4 @@
-import { Tabs } from "../Generic";
+import SidebarTabs from "./Tabs.tsx";
 import { FC, useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
@@ -46,7 +46,7 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
 
   const generalSidebarItemStyle = `flex items-center ${
     toggleSidebar && "justify-center"
-  } group rounded-md text-[14px] text-left gap-[14px] cursor-pointer text-item-color hover:text-light transition-all ease-out duration-[115ms] h-[47px] min-h-[47px] px-[14px] font-mont font-medium hover:bg-dark-bg-color`;
+  } group text-[14px] text-left gap-[14px] cursor-pointer text-item-color hover:text-light transition-all ease-out duration-[115ms] h-[47px] min-h-[47px] px-[14px] font-mont font-medium hover:bg-dark-bg-color`;
 
   return (
     <div className="w-full h-max flex flex-col gap-[12px] px-[16px] py-[24px] select-none">
@@ -59,15 +59,20 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
         if (item.children?.length) {
           return (
             <div key={item.id}>
-              <div className={toggleSidebar ? "group flex items-center" : ""}>
+              <div
+                className={`${active && "bg-ghost-bg-color rounded-md"} ${
+                  toggleSidebar ? "group flex items-center" : ""
+                }`}
+              >
                 <div
                   title={item.title}
                   onClick={(e) => onClickParent(item, e)}
                   className={`${generalSidebarItemStyle} flex items-center ${
                     !toggleSidebar ? "justify-between" : "justify-center"
                   } ${
-                    activePath &&
-                    "text-primary-color hover:text-primary-color bg-dark-bg-color"
+                    activePath
+                      ? "text-primary-color hover:text-primary-color bg-dark-bg-color rounded-t-md"
+                      : "rounded-md"
                   }`}
                 >
                   <p className="flex items-center gap-[14px] text-inherit">
@@ -83,7 +88,7 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
                 {active && (
                   <>
                     {!toggleSidebar && (
-                      <Tabs
+                      <SidebarTabs
                         type="link"
                         data={item.children}
                         toggleSidebar={toggleSidebar ? toggleSidebar : false}
@@ -92,7 +97,7 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
                   </>
                 )}
                 <div className="absolute w-0 min-w-0 group-hover:w-[330px] group-hover:min-w-[330px] overflow-y-auto z-[888] mt-[50px] ml-[31px] left-[50px] tabs h-[240px]">
-                  <Tabs
+                  <SidebarTabs
                     type="sidebar"
                     data={item.children}
                     toggleSidebar={toggleSidebar ? toggleSidebar : false}
@@ -109,7 +114,7 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
               title={item.title}
               to={item.name || ""}
               className={({ isActive }) =>
-                `${generalSidebarItemStyle} ${
+                `${generalSidebarItemStyle} rounded-md ${
                   isActive
                     ? "text-primary-color hover:text-primary-color bg-dark-bg-color"
                     : "hover:text-light"

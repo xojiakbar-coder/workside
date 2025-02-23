@@ -27,7 +27,10 @@ const GenericEmptyState: FC<GenericEmptyStateParamType> = ({
       className={`flex items-center justify-center h-section min-h-section`}
     >
       {button && (
-        <Button onClick={() => navigate(buttonPath || "/")}>
+        <Button
+          className="p-btn-pdg"
+          onClick={() => navigate(buttonPath || "/")}
+        >
           {buttonContent || ""}
         </Button>
       )}

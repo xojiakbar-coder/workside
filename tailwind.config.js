@@ -66,7 +66,7 @@ module.exports = {
         "body-bg-color": "var(--body-bg-color)",
         "subtitle-color": "var(--subtitle-color)",
         "ghost-bg-color": "var(--ghost-bg-color)",
-        "primary-color": "var(--primary-color-bg-color)",
+        "primary-color": "var(--primary-color)",
         "outer-bdr-color": "var(--outer-border-color)",
       },
       fontFamily: {

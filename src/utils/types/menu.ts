@@ -6,15 +6,23 @@ export interface MenuItemType {
 }
 
 export interface GenericMenuPropsType {
-  leftIcon?: {
-    icon: boolean;
-    iconBody: IconType;
-  };
-  rightIcon?: {
-    icon: boolean;
-    iconBody: IconType;
-  };
+  leftIcon?: IconType;
+  rightIcon?: IconType;
   storageName?: string;
   defaultValue?: string;
   items: MenuItemType[];
+  type: "text" | "icon" | "text-icon";
+}
+
+export interface GenericMenuContentPropsType {
+  items: MenuItemType[];
+  menuValue: string;
+  handleLanguageChange: (value: string) => void;
+}
+
+export interface GenericMenuTriggerPropsType {
+  leftIcon?: IconType;
+  menuValue?: string;
+  rightIcon?: IconType;
+  type: "text" | "icon" | "text-icon";
 }

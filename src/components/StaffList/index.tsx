@@ -8,7 +8,7 @@ import { LoaderContext } from "../../context/LoaderContext/LoaderContext";
 
 const StaffList = () => {
   const { show_load, setShowLoad } = useContext(LoaderContext);
-  const [data, setData] = useState<TableBodyType[] | []>([]);
+  const [data, setData] = useState<TableBodyType[] | null>(null);
 
   useEffect(() => {
     setShowLoad(true);
@@ -27,22 +27,24 @@ const StaffList = () => {
   return (
     <Container fluid type="section">
       <Title type="section">Xodimlar ma'lumotlari</Title>
-      {!show_load ? (
-        <>
-          {data.length > 0 ? (
-            <Table table_head={table_head} table_body={data} />
-          ) : (
-            <GenericEmptyState
-              button={true}
-              buttonContent="Yangi xodim qo'shish"
-              buttonPath="/umumiy/xodim-qoshish"
-              title="Hozircha xodimlar ma'lumotlari topilmadi"
-              description="Agar siz yangi xodim qo'shishni xohlasangiz xodimlarni qo'shish sahifasiga o'ting"
-            />
-          )}
-        </>
-      ) : (
-        <Loader type="section" />
+
+      {/* If the information has not yet arrived, let the Loader exit. */}
+      {show_load && <Loader type="section" loader_type="spinner" />}
+
+      {/* If data is received and it is empty, return GenericEmpty */}
+      {!show_load && data?.length === 0 && (
+        <GenericEmptyState
+          button={true}
+          buttonContent="Yangi xodim qo'shish"
+          buttonPath="/umumiy/xodim-qoshish"
+          title="Hozircha xodimlar ma'lumotlari topilmadi"
+          description="Agar siz yangi xodim qo'shishni xohlasangiz xodimlarni qo'shish sahifasiga o'ting"
+        />
+      )}
+
+      {/* If data is received and it is not empty, then Table should be output. */}
+      {!show_load && data && data.length > 0 && (
+        <Table table_head={table_head} table_body={data} />
       )}
     </Container>
   );

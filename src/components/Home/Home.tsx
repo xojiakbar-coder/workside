@@ -34,7 +34,7 @@ const Home = () => {
           </Button>
           <Button
             type="outline"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/signin")}
             className="font-semibold py-btn-pdg"
           >
             Kirish

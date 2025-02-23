@@ -11,11 +11,11 @@ const Layout: FC<ChildrenPageProps> = ({ children }) => {
   return (
     <Fragment>
       {children ? (
-        <div>
+        <Fragment>
           <Navbar />
           <div>{children}</div>
           <Footer />
-        </div>
+        </Fragment>
       ) : (
         <GenericElement />
       )}

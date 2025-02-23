@@ -13,8 +13,8 @@
   --light: #ffff;
   /* --light: #c7c2c2; */
   /* button bg colors */
-  /* --primary-color-bg-color: #3700ff; */
-  --primary-color-bg-color: #0085ff;
+  /* --primary-color: #3700ff; */
+  --primary-color: #0085ff;
 
   /* item color */
   --item-color: #a9a9a9;
@@ -69,27 +69,23 @@
   height: calc(100dvh - 280px);
 }
 
+.min-h-h {
+  min-height: calc(100dvh - 312px);
+}
+
 .section-load {
   height: calc(100dvh - 168px);
 }
 
 .yellow-btn {
-  background-image: linear-gradient(
-    to right,
-    #ff8008 0%,
-    #ffc837 51%,
-    #ff8008 100%
-  );
+  background: transparent !important;
+  border: 1px solid #ffb108 !important;
 }
 
 .yellow-btn {
-  margin: 10px;
-  background-size: 200% auto;
-  border-radius: 10px !important;
-  transition: all cubic-bezier(0.55, 0.055, 0.675, 0.19) 300ms !important;
+  transition: all 120ms ease-in-out !important;
 }
 
 .yellow-btn:hover {
-  background-position: right center;
-  text-decoration: none;
+  background: var(--dark-bg-color) !important;
 }

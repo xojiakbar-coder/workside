@@ -1,48 +1,36 @@
-import { Text } from "@chakra-ui/react";
+import { Button, Title } from "../Generic";
 import { useNavigate } from "react-router-dom";
-import { Button, Container, Title } from "../Generic";
 
 const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
-    <Container
-      fluid
-      type="wrapper"
-      flexDirection="column"
-      className="justify-center items-center h-screen min-h-screen w-full relative"
-    >
-      <Container fluid type="full-center" className="absolute">
-        <Text className="font-jost font-extrabold text-ghost-bg-color text-center w-full flex justify-center md:pl-[120px] pl-[30px] md:text-[180px] text-[100px] md:tracking-[130px] sm:tracking-[70px] tracking-[30px] blur-[7px]">
-          404
-        </Text>
-      </Container>
-      <Container
-        fluid
-        gap={10}
-        type="wrapper"
-        flexDirection="column"
-        className="w-full h-full justify-center items-center h-screen min-h-screen overflow-hidden text-center px-[12px]"
-      >
+    <div className="flex justify-center items-center h-screen min-h-screen w-full">
+      <div className="absolute flex w-full items-center justify-evenly h-max text-center w-full z-[10] font-jost font-extrabold text-border-color select-none 992:text-[160px] text-[130px]">
+        <b>4</b>
+        <b>0</b>
+        <b>4</b>
+      </div>
+      <div className="absolute z-[40] top-0 flex flex-col gap-[25px] w-full h-full backdrop-blur-[10px] justify-center items-center min-h-max overflow-hidden text-center px-[12px]">
         <Title
           type="danger-title"
           className="text-center w-full font-mont leading-10"
         >
           Kechirasiz, bu sahifa mavjud emas
         </Title>
-        <Text className="leading-7">
+        <div className="leading-7">
           Siz izlagan sahifani topa olmadik. Asosiy sahifaga qaytishga harakat
           qiling
-        </Text>
+        </div>
         <Button
           type="solid"
-          className="font-bold h-[65px]"
           onClick={() => navigate("/")}
+          className="font-bold h-[65px]"
         >
           Bosh sahifaga qaytish
         </Button>
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 };
 
