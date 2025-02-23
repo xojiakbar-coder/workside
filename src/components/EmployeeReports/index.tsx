@@ -1,5 +1,5 @@
 import BASE_URL from "../../config/baseUrl";
-// import GenericEmptyState from "../Generic/EmptyState";
+import GenericEmptyState from "../Generic/EmptyState";
 import { useContext, useEffect, useState } from "react";
 import { TodosDataType } from "../../utils/types/reports";
 import { PageChangeDetails } from "../Generic/Pagination/Pagination";
@@ -42,7 +42,7 @@ const EmployeeReports = () => {
       <Title type="section">Xodimlar hisobotlari</Title>
 
       {/* Show Empty State only if data is empty ([]) */}
-      {/* {data !== null && data.length === 0 && (
+      {data !== null && data.length === 0 && (
         <GenericEmptyState
           button={true}
           buttonPath="/hisobotlar"
@@ -50,7 +50,7 @@ const EmployeeReports = () => {
           title="No employee reports found"
           description="If you want to add a report, go to the add report page."
         />
-      )} */}
+      )}
 
       {/* Show GridBox & ReportCard only if data is available */}
       {data !== null && selectedData.length > 0 && (
