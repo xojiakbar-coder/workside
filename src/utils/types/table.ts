@@ -24,3 +24,7 @@ export interface TbodyProps {
   checking: boolean | false | undefined;
   setSelection: React.Dispatch<React.SetStateAction<number[]>>;
 }
+
+export interface TableBodyPropsType {
+  table_body: TableBodyType[];
+}

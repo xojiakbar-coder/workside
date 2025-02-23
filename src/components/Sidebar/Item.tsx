@@ -70,10 +70,11 @@ const SidebarItems: FC<SidebarPropsType> = ({ onClose, toggleSidebar }) => {
                   className={`${generalSidebarItemStyle} flex items-center ${
                     !toggleSidebar ? "justify-between" : "justify-center"
                   } ${
-                    activePath
-                      ? "text-primary-color hover:text-primary-color bg-dark-bg-color rounded-t-md"
-                      : "rounded-md"
-                  }`}
+                    activePath &&
+                    "text-primary-color hover:text-primary-color bg-dark-bg-color"
+                  }
+                  ${!active ? "rounded-md" : "rounded-t-md"}
+                  `}
                 >
                   <p className="flex items-center gap-[14px] text-inherit">
                     <Icon className="text-[20px] cursor-pointer" />

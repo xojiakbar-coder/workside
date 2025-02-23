@@ -11,15 +11,12 @@ import {
   Input,
   Select,
   Button,
-  GridBox,
-  Container,
   GrupInput,
+  Container,
   NumberInput,
 } from "../Generic";
-import useSize from "../../hooks/useSize";
 
 const AddNewEmployee = () => {
-  const { width } = useSize();
   const {
     register,
     handleSubmit,
@@ -33,25 +30,11 @@ const AddNewEmployee = () => {
     console.log("Form data:", data);
   };
 
-  const cols =
-    width > 1400
-      ? "1fr 1fr 1fr"
-      : width > 1024
-      ? "1fr 1fr"
-      : width > 567
-      ? "1fr"
-      : "1fr";
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Container fluid type="section" className="h-section">
+      <Container fluid type="section">
         <Title type="section">Yangi xodim qo'shish</Title>
-        <GridBox
-          cols={cols}
-          gapX={"30px"}
-          gapY={"38px"}
-          className="justify-center"
-        >
+        <div className="grid 1400:grid-cols-3 1024:grid-cols-2 grid-cols-1 gap-[30px] justify-center mb-[30px]">
           <Input
             label="Ism"
             inputVariant="subtle"
@@ -125,11 +108,11 @@ const AddNewEmployee = () => {
             invalid={!!errors.experience}
             errorText={errors.experience?.message}
           />
-        </GridBox>
+        </div>
         <Button
           type="solid"
           onClick={handleSubmit(onSubmit)}
-          className="font-semibold mt-[50px] w-max ml-auto"
+          className="font-semibold w-max py-[27px]"
           rightIcon={
             <i className="fa-solid fa-user-plus text-ghost-bg-color"></i>
           }

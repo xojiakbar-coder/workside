@@ -1,9 +1,10 @@
 import BASE_URL from "../../config/baseUrl";
+import { Container, Table, Title } from "../Generic";
 import GenericEmptyState from "../Generic/EmptyState";
 import { table_head } from "../../utils/data/staffList";
 import { useContext, useEffect, useState } from "react";
 import { TableBodyType } from "../../utils/types/table";
-import { Container, Loader, Table, Title } from "../Generic";
+import TableSkeleton from "../Generic/Table/TableSkeleton";
 import { LoaderContext } from "../../context/LoaderContext/LoaderContext";
 
 const StaffList = () => {
@@ -29,7 +30,7 @@ const StaffList = () => {
       <Title type="section">Xodimlar ma'lumotlari</Title>
 
       {/* If the information has not yet arrived, let the Loader exit. */}
-      {show_load && <Loader type="section" loader_type="spinner" />}
+      {show_load && <TableSkeleton />}
 
       {/* If data is received and it is empty, return GenericEmpty */}
       {!show_load && data?.length === 0 && (

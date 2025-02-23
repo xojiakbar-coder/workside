@@ -26,3 +26,10 @@ export type OnlyChildren = {
 };
 
 export default ChildrenType;
+
+export interface DigitCardPropsType {
+  id?: number;
+  icon: string;
+  name: string;
+  value: string;
+}

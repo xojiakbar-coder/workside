@@ -7,7 +7,7 @@
   --btn-padding: 30px;
 
   /* height */
-  --height: 86dvh;
+  --height: calc(100dvh - 79px);
 
   /* light color */
   --light: #ffff;

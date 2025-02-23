@@ -29,7 +29,6 @@ export { default as Select } from "./Select/Select.tsx";
 export { default as Button } from "./Button/index.tsx";
 
 // Wrapper
-export { default as GridBox } from "./GridBox/Grid.tsx";
 export { default as Container } from "./Container/index.tsx";
 
 export { default as Marquee } from "./Marquee/index.tsx";

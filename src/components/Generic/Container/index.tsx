@@ -20,7 +20,7 @@ const getContainerStyle = (type: GenericContainerType["type"]) => {
     case "wrapper":
       return `px-main-padding`;
     case "section":
-      return `flex-col px-main-padding pb-[30px] pt-[25px] h-max overflow-y-auto`;
+      return `flex-col px-main-padding pb-[30px] pt-[25px] h-section min-h-section overflow-y-auto`;
     case "center":
       return "justify-center";
     case "full-center":

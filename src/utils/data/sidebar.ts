@@ -28,6 +28,7 @@ import {
   LuMessageSquareText,
 } from "react-icons/lu";
 import Media from "../../components/Media";
+import GeneralReports from "../../components/GeneralReports";
 
 export interface SidebarChildrenItemType {
   id: string | number;
@@ -55,7 +56,7 @@ export const sidebar_items: SidebarItemType[] = [
     title: "Asosiy",
     name: "/",
     icon: LuNotebookText,
-    element: GenericElement,
+    element: GeneralReports,
   },
   {
     id: 2,

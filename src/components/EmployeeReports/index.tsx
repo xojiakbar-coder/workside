@@ -3,8 +3,8 @@ import GenericEmptyState from "../Generic/EmptyState";
 import { useContext, useEffect, useState } from "react";
 import { TodosDataType } from "../../utils/types/reports";
 import { PageChangeDetails } from "../Generic/Pagination/Pagination";
+import { Title, Container, Pagination, ReportCard } from "../Generic";
 import { LoaderContext } from "../../context/LoaderContext/LoaderContext";
-import { Title, GridBox, Container, Pagination, ReportCard } from "../Generic";
 import ReportCardSkeleton from "./../Generic/Card/ReportCard/ReportCardSkeleton";
 
 const EmployeeReports = () => {
@@ -52,9 +52,9 @@ const EmployeeReports = () => {
         />
       )}
 
-      {/* Show GridBox & ReportCard only if data is available */}
+      {/* Show ReportCard only if data is available */}
       {data !== null && selectedData.length > 0 && (
-        <GridBox cols={"1fr"} gap={8}>
+        <div className="grid grid-cols-1 gap-[10px]">
           {selectedData.map((item) => (
             <ReportCard
               key={item.id}
@@ -65,10 +65,11 @@ const EmployeeReports = () => {
               report_data={item.report_data}
             />
           ))}
-        </GridBox>
+        </div>
       )}
       {data === null && (
-        <div className="flex flex-col gap-[32px] w-full">
+        <div className="flex flex-col gap-[30px] w-full">
+          <ReportCardSkeleton />
           <ReportCardSkeleton />
           <ReportCardSkeleton />
           <ReportCardSkeleton />
