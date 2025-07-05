@@ -2,9 +2,10 @@ import { FC } from "react";
 // import Layout from "./layout";
 import Sidebar from "../components/Sidebar";
 import navbar_items from "../utils/data/navbar";
-import SignUp from "../components/SignUp/SignUp";
+import SignUp from "../pages/SignUp/SignUp";
 import { Route, Routes } from "react-router-dom";
 import NotFoundPage from "../components/NotFound";
+import { type RouteObject } from "react-router-dom";
 // import { home_sections } from "../utils/data/home";
 import { sidebar_items } from "../utils/data/sidebar";
 

@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import GenericElement from "../../view";
-import Subscribe from "../../components/Subscribe";
+import { ReactNode } from 'react';
+import GenericElement from '../../view/GenericPage';
+import Subscribe from '../../components/Subscribe';
 
 export interface NavbarItemType {
   id: number;
@@ -20,25 +20,25 @@ export interface ProfilesItemType {
 const navbar_items: NavbarItemType[] = [
   {
     id: 1,
-    path: "/",
+    path: '/',
     sidebar: false,
-    title: "Asosiy",
-    element: GenericElement,
+    title: 'Asosiy',
+    element: GenericElement
   },
   {
     id: 2,
     sidebar: true,
-    path: "/hisobotlar",
-    title: "Hisobotlar",
-    element: GenericElement,
+    path: '/hisobotlar',
+    title: 'Hisobotlar',
+    element: GenericElement
   },
   {
     id: 3,
     sidebar: false,
-    path: "/obuna",
-    title: "Obuna",
-    element: Subscribe,
-  },
+    path: '/obuna',
+    title: 'Obuna',
+    element: Subscribe
+  }
 ];
 
 export default navbar_items;

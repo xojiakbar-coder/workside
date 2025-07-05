@@ -1,16 +1,19 @@
-import "./index.css";
-import Root from "./root/root";
-import { StrictMode } from "react";
-import RootProvider from "./context";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+// import Root from './root/root';
+import './assets/styles/main.css';
+import { StrictMode } from 'react';
+import GenericElement from './view/GenericPage';
+import { createRoot } from 'react-dom/client';
+import { MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
+import { BrowserRouter } from 'react-router-dom';
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <RootProvider>
-        <Root />
-      </RootProvider>
+      <MantineProvider>
+        <Notifications />
+        <GenericElement />
+      </MantineProvider>
     </BrowserRouter>
   </StrictMode>
 );
