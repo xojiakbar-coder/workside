@@ -30,7 +30,7 @@ export const sidebar_items: SidebarItemType[] = [
     id: 2,
     children: null,
     title: 'Attendance',
-    name: 'general/attendance',
+    name: '/attendance',
     icon: null,
     element: null
   },
@@ -40,35 +40,35 @@ export const sidebar_items: SidebarItemType[] = [
     icon: null,
     title: 'Tasks',
     element: null,
-    name: '/general/bugungi-ishlar'
+    name: '/tasks'
   },
   {
     id: 4,
-    title: 'Xodimlar',
+    title: 'Employees',
     icon: null,
     element: null,
-    name: '/general/general-xodimlar',
+    name: '/employees',
     children: [
       {
         id: `4-1`,
         icon: null,
         element: null,
-        title: 'Xodimlar hisobotlari',
-        name: '/general/xodimlar-hisobotlari'
+        title: 'Employees report',
+        name: '/employees/employees-report'
       },
       {
         id: `4-2`,
         icon: null,
         element: null,
-        title: "Xodimlar ma'lumotlari",
-        name: '/general/xodimlar-malumotlari'
+        title: 'Employees info',
+        name: '/employees/employees-info'
       },
       {
         id: `4-3`,
         icon: null,
         element: null,
-        title: "Xodim qo'shish",
-        name: '/general/xodim-qoshish'
+        title: 'Add employee',
+        name: '/employees/add-employee'
       }
       // {
       //   id: `4-4`,
@@ -82,30 +82,30 @@ export const sidebar_items: SidebarItemType[] = [
   {
     id: 5,
     icon: null,
-    title: 'Loyihalar',
+    title: 'Projects',
     element: null,
-    name: '/general/loyihalar',
+    name: '/projects',
     children: [
       {
         id: `5-1`,
         icon: null,
         title: 'Media',
         element: null,
-        name: '/general/media'
+        name: '/projects/media'
       },
       {
         id: `5-2`,
-        title: 'Xabarlar',
+        title: 'News',
         element: null,
         icon: null,
-        name: '/general/xabarlar'
+        name: '/projects/news'
       },
       {
         id: `5-3`,
         icon: null,
         element: null,
-        title: 'Integratsiyalar',
-        name: '/general/integratsiyalar'
+        title: 'Integrations',
+        name: '/projects/integrations'
       }
     ]
   },
@@ -113,58 +113,58 @@ export const sidebar_items: SidebarItemType[] = [
     id: 6,
     children: null,
     element: null,
-    title: 'Kalendar',
+    title: 'Calendar',
     icon: null,
-    name: '/general/kalendar'
+    name: '/calendar'
   },
   {
     id: 7,
     icon: null,
-    title: 'Sozlanmalar',
+    title: 'Settings',
     element: null,
-    name: '/general/sozlamalar',
+    name: '/settings',
     children: [
       {
         id: `7-1`,
         icon: null,
         element: null,
-        title: 'Bildirishnomalar',
-        name: '/general/bildirishnomalar'
+        title: 'Notifications',
+        name: '/settings/notifications'
       },
       {
         id: `7-2`,
         icon: null,
-        title: 'Xavsizlik',
+        title: 'Security',
         element: null,
-        name: '/general/xavsizlik'
+        name: '/settings/security'
       },
       {
         id: `7-3`,
         icon: null,
-        title: 'Nazorat qilish',
+        title: 'Monitoring',
         element: null,
-        name: '/general/nazorat-qilish'
+        name: '/settings/monitoring'
       },
       {
         id: `7-4`,
         icon: null,
-        title: 'Afzalliklar',
+        title: 'Advantages',
         element: null,
-        name: '/general/afzalliklar'
+        name: '/settings/advantages'
       },
       {
         id: `7-5`,
         icon: null,
-        title: 'Yordam markazi',
+        title: 'Help center',
         element: null,
-        name: '/general/yordam-markazi'
+        name: '/settings/help-center'
       },
       {
         id: `7-6`,
         icon: null,
-        title: 'Mavzu',
+        title: 'Theme',
         element: null,
-        name: '/general/mavzu'
+        name: '/settings/theme'
       }
     ]
   }

@@ -8,43 +8,39 @@ const routes_data: RouteObject[] = [
     Component: Layout,
     children: [
       { index: true, Component: TempPage },
-      { path: 'general/attendance', Component: TempPage },
-      { path: 'general/bugungi-ishlar', Component: TempPage },
+      { path: '/attendance', Component: TempPage },
+      { path: '/tasks', Component: TempPage },
       {
-        path: 'general/xodimlar',
+        path: '/employees',
         Component: TempPage,
         children: [
-          { index: true, Component: TempPage },
-          { path: 'settings', Component: TempPage }
+          { path: 'employees-report', Component: TempPage },
+          { path: 'employees-info', Component: TempPage },
+          { path: 'add-employee', Component: TempPage }
+        ]
+      },
+      {
+        path: '/projects',
+        Component: TempPage,
+        children: [
+          { path: 'media', Component: TempPage },
+          { path: 'news', Component: TempPage },
+          { path: 'integrations', Component: TempPage }
+        ]
+      },
+      { path: '/calendar', Component: TempPage },
+      {
+        path: 'settings',
+        Component: TempPage,
+        children: [
+          { path: 'notifications', Component: TempPage },
+          { path: 'security', Component: TempPage },
+          { path: 'monitoring', Component: TempPage },
+          { path: 'advantages', Component: TempPage },
+          { path: 'help-center', Component: TempPage },
+          { path: 'theme', Component: TempPage }
         ]
       }
-    ]
-  },
-  {
-    path: '/auth',
-    Component: TempPage
-  },
-  {
-    path: '/',
-    Component: TempPage
-  },
-  {
-    path: '/general/aktivlik',
-    Component: TempPage
-  },
-  {
-    path: '/general/analitika',
-    Component: TempPage
-  },
-  {
-    path: '/general/bugungi-ishlar',
-    Component: TempPage
-  },
-  {
-    path: '/general/xodimlar',
-    children: [
-      { index: true, Component: TempPage },
-      { path: 'settings', Component: TempPage }
     ]
   }
 ];
