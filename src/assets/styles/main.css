@@ -21,6 +21,6 @@
 body {
   margin: 0;
   color: var(--light);
-  font-family: var(--mont);
-  background-color: var(--bodyBgColor);
+  font-family: var(--inter-font);
+  background-color: var(--body-bg-color);
 }

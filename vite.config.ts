@@ -10,22 +10,14 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   server: {
-    port: 3000,
-    open: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-        secure: false
-      }
-    }
+    port: 3005
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@/': path.resolve(__dirname, './src/assets/images/'),
-      '@/features': path.resolve(__dirname, './src/features/'),
-      '@/components': path.resolve(__dirname, './src/shared/components/')
+      '@': path.resolve(__dirname, 'src'),
+      '@utils': path.resolve(__dirname, 'src/core/utils'),
+      '@features': path.resolve(__dirname, 'src/features'),
+      '@layout': path.resolve(__dirname, 'src/core/layout')
     }
   }
 });

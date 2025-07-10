@@ -1,14 +1,7 @@
-@import url("./tansition.css");
-@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('./tansition.css');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-  /* padding */
-  --padding: 2%;
-  --btn-padding: 30px;
-
-  /* height */
-  --height: calc(100dvh - 79px);
-
   /* light color */
   --light: #ffff;
   /* --light: #c7c2c2; */
@@ -35,57 +28,26 @@
 
   /* bg colors */
   --black-color: #000000;
-  --body-bg-color: #09090b;
+  --body-bg-color: #13141b;
   --ghost-bg-color: #18181b;
   --dark-bg-color: #111116e8;
 
   /* fonts */
-  --jost: "Jost", serif;
-  --mont: "Montserrat", serif;
+  --inter-font: 'Inter', sans-serif;
+  --fira-font: 'Fira Sans', sans-serif;
 
   /* custom shadows */
   --light-shadow: 0px 2px 20px rgba(255, 255, 255, 0.9);
-  --navbar-shadow: rgb(30, 30, 34) 0px 3px 5px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  --login-shadow: rgba(85, 85, 85, 0.07) 0px 1px 1px,
-    rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px,
+  --navbar-shadow: rgb(30, 30, 34) 0px 3px 5px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  --login-shadow: rgba(85, 85, 85, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px,
     rgba(100, 100, 100, 0.253) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
-.inst {
+/* .inst {
   background-image: linear-gradient(
     to left top,
     rgb(131, 58, 180),
     rgb(253, 29, 29),
     rgb(252, 176, 69)
   );
-}
-
-.register {
-  height: calc(100dvh - 78px);
-}
-
-.home-pgs {
-  height: calc(100dvh - 280px);
-}
-
-.min-h-h {
-  min-height: calc(100dvh - 312px);
-}
-
-.section-load {
-  height: calc(100dvh - 168px);
-}
-
-.yellow-btn {
-  background: transparent !important;
-  border: 1px solid #ffb108 !important;
-}
-
-.yellow-btn {
-  transition: all 120ms ease-in-out !important;
-}
-
-.yellow-btn:hover {
-  background: var(--dark-bg-color) !important;
-}
+} */
