@@ -1,4 +1,8 @@
 .sidebar {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
   border-right: 1px solid #1f212c;
 }
 
@@ -90,5 +94,23 @@
   &_last_child_item {
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
+  }
+}
+
+// sidebar footer
+.sidebar_footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 16px 0 16px;
+  height: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  width: 100%;
+
+  &_version {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
   }
 }

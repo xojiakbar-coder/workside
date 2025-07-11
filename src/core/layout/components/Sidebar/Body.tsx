@@ -10,7 +10,6 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 const SidebarBody = () => {
   const location = useLocation();
-
   const [activeItems, setActiveItems] = useState<number[]>([]);
 
   const handleClick = (id: number) => {
@@ -60,7 +59,7 @@ const SidebarBody = () => {
                 >
                   <div>{parent.title}</div>
                   <IconChevronRight
-                    stroke={1.25}
+                    stroke={2}
                     className={cx(styles.item_icon, activeItems.includes(+parent.id) && styles.item_active_icon)}
                   />
                 </NavLink>
