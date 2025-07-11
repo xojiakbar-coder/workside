@@ -1,15 +1,17 @@
+import { IconBell, IconBriefcase, IconCalendar, IconCalendarEvent, IconClipboardPlus, IconHelp, IconHome, IconList, IconNews, IconPalette, IconPhotoVideo, IconReportAnalytics, IconSettings, IconShield, IconStar, IconTransfer, IconUserPlus, IconUsers, type Icon } from "@tabler/icons-react";
+
 export interface SidebarChildrenItemType {
   id: string | number;
   name: string;
   title: string;
-  icon: null;
+  icon: Icon | null;
   element: null;
 }
 
 export interface SidebarItemType {
   name: string;
   title: string;
-  icon: null;
+  icon: Icon | null;
   id: number | string;
   element: null;
   children: SidebarChildrenItemType[] | null;
@@ -21,7 +23,7 @@ export const sidebar_items: SidebarItemType[] = [
   {
     id: 1,
     name: '/',
-    icon: null,
+    icon: IconHome,
     element: null,
     children: null,
     title: 'Dashboard'
@@ -31,13 +33,13 @@ export const sidebar_items: SidebarItemType[] = [
     children: null,
     title: 'Attendance',
     name: '/attendance',
-    icon: null,
+    icon: IconCalendarEvent,
     element: null
   },
   {
     id: 3,
     children: null,
-    icon: null,
+    icon: IconList,
     title: 'Tasks',
     element: null,
     name: '/tasks'
@@ -45,50 +47,50 @@ export const sidebar_items: SidebarItemType[] = [
   {
     id: 4,
     title: 'Employees',
-    icon: null,
+    icon: IconUsers,
     element: null,
     name: '/employees',
     children: [
       {
         id: `4-1`,
-        icon: null,
+        icon: IconReportAnalytics,
         element: null,
         title: 'Employees report',
         name: '/employees/employees-report'
       },
       {
         id: `4-2`,
-        icon: null,
+        icon: IconUsers,
         element: null,
         title: 'Employees info',
         name: '/employees/employees-info'
       },
       {
         id: `4-3`,
-        icon: null,
+        icon: IconUserPlus,
         element: null,
         title: 'Add employee',
         name: '/employees/add-employee'
+      },
+      {
+        id: `4-4`,
+        icon: IconClipboardPlus,
+        element: null,
+        title: 'Create Report',
+        name: '/employees/create-report'
       }
-      // {
-      //   id: `4-4`,
-      //   icon: null,
-      //   element: null,
-      //   title: "Hisobot tayyorlash",
-      //   name: "/general/hisobot-tayyorlash",
-      // },
     ]
   },
   {
     id: 5,
-    icon: null,
+    icon: IconBriefcase,
     title: 'Projects',
     element: null,
     name: '/projects',
     children: [
       {
         id: `5-1`,
-        icon: null,
+        icon: IconPhotoVideo,
         title: 'Media',
         element: null,
         name: '/projects/media'
@@ -97,12 +99,12 @@ export const sidebar_items: SidebarItemType[] = [
         id: `5-2`,
         title: 'News',
         element: null,
-        icon: null,
+        icon: IconNews,
         name: '/projects/news'
       },
       {
         id: `5-3`,
-        icon: null,
+        icon: IconTransfer,
         element: null,
         title: 'Integrations',
         name: '/projects/integrations'
@@ -114,54 +116,47 @@ export const sidebar_items: SidebarItemType[] = [
     children: null,
     element: null,
     title: 'Calendar',
-    icon: null,
+    icon: IconCalendar,
     name: '/calendar'
   },
   {
     id: 7,
-    icon: null,
+    icon: IconSettings,
     title: 'Settings',
     element: null,
     name: '/settings',
     children: [
       {
         id: `7-1`,
-        icon: null,
+        icon: IconBell,
         element: null,
         title: 'Notifications',
         name: '/settings/notifications'
       },
       {
         id: `7-2`,
-        icon: null,
+        icon: IconShield,
         title: 'Security',
         element: null,
         name: '/settings/security'
       },
       {
         id: `7-3`,
-        icon: null,
-        title: 'Monitoring',
-        element: null,
-        name: '/settings/monitoring'
-      },
-      {
-        id: `7-4`,
-        icon: null,
+        icon: IconStar,
         title: 'Advantages',
         element: null,
         name: '/settings/advantages'
       },
       {
-        id: `7-5`,
-        icon: null,
+        id: `7-4`,
+        icon: IconHelp,
         title: 'Help center',
         element: null,
         name: '/settings/help-center'
       },
       {
-        id: `7-6`,
-        icon: null,
+        id: `7-5`,
+        icon: IconPalette,
         title: 'Theme',
         element: null,
         name: '/settings/theme'

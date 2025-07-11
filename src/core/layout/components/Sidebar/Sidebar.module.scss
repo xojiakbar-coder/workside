@@ -28,14 +28,27 @@
   justify-content: space-between;
   color: #fff;
   font-size: 15px;
+  gap: 10px;
   user-select: none;
   border-radius: 6px;
   text-decoration: none;
-  padding: 10px 6px 10px 10px;
+  padding: 10px 6px 10px 16px;
 
   &:hover {
     cursor: pointer;
     background-color: #1f212c;
+  }
+
+  &_title_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  &_item_icon {
+    width: 20px;
+    height: 20px;
   }
 
   &_active {

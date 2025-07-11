@@ -43,7 +43,10 @@ const SidebarBody = () => {
                 to={parent.name}
                 className={cx(styles.item, location.pathname === parent.name && styles.item_active)}
               >
-                <div>{parent.title}</div>
+                <div className={styles.item_title_wrapper}>
+                  {parent.icon && <parent.icon stroke={2} className={styles.item_icon} />}
+                  <div>{parent.title}</div>
+                </div>
               </NavLink>
             );
           } else {
@@ -57,7 +60,10 @@ const SidebarBody = () => {
                   )}
                   onClick={() => handleClick(+parent.id)}
                 >
-                  <div>{parent.title}</div>
+                  <div className={styles.item_title_wrapper}>
+                    {parent.icon && <parent.icon stroke={2} className={styles.item_title_icon} />}
+                    <div>{parent.title}</div>
+                  </div>
                   <IconChevronRight
                     stroke={2}
                     className={cx(styles.item_icon, activeItems.includes(+parent.id) && styles.item_active_icon)}
@@ -76,7 +82,10 @@ const SidebarBody = () => {
                             location.pathname === item.name && styles.item_active_children_item
                           )}
                         >
-                          <div>{item.title}</div>
+                          <div className={styles.item_title_wrapper}>
+                            {item.icon && <item.icon stroke={2} className={styles.item_icon} />}
+                            <div>{item.title}</div>
+                          </div>
                         </NavLink>
                       );
                     })}

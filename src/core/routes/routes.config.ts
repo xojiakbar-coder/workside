@@ -16,7 +16,8 @@ const routes_data: RouteObject[] = [
         children: [
           { path: 'employees-report', Component: TempPage },
           { path: 'employees-info', Component: TempPage },
-          { path: 'add-employee', Component: TempPage }
+          { path: 'add-employee', Component: TempPage },
+          { path: 'create-report', Component: TempPage }
         ]
       },
       {
