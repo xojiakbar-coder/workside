@@ -1,4 +1,7 @@
 import './assets/styles/main.css';
+import '@mantine/core/styles.css';
+// import '@mantine/core/styles/global.css';
+import '@mantine/core/styles/NavLink.css';
 import '@mantine/core/styles/Accordion.css';
 import { Router } from './router';
 import { createRoot } from 'react-dom/client';

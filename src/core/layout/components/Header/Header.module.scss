@@ -15,9 +15,16 @@
 }
 
 .top_action_bar {
-  height: 30px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 12px;
 }
 
 .bottom_action_bar {
-  height: 60px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 12px;
+  background-color: #262835;
 }

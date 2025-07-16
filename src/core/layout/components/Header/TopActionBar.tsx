@@ -1,9 +1,10 @@
 // import React from 'react'
+import Breadcrumbs from '@components/Breadcrumbs';
 
 const TopActionBar = () => {
   return (
     <div>
-      <p>Top Action Bar</p>
+      <Breadcrumbs />
     </div>
   )
 }

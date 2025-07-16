@@ -47,6 +47,11 @@
   }
 
   &_item_icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  &_title_icon {
     width: 20px;
     height: 20px;
   }
@@ -72,14 +77,18 @@
     gap: 8px;
     background-color: #181921;
     border-radius: 6px;
+    // transition: all cubic-bezier(0.51, 0.92, 0.24, 1.15) 400ms;
+    // overflow: hidden;
+    // height: max-content;
   }
-
+  
   &_children_body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    height: 100%;
   }
-
+  
   &_children_item {
     display: flex;
     align-items: center;
@@ -88,7 +97,7 @@
     font-size: 14px;
     user-select: none;
     text-decoration: none;
-    padding: 10px 6px 10px 16px;
+    padding: 10px 6px 8px 16px;
     min-height: 44px;
     max-height: 44px;
     height: 44px;
@@ -125,5 +134,11 @@
     color: #fff;
     font-size: 14px;
     font-weight: 500;
+  }
+}
+
+:global(.mantine-NavLink-root) {
+  &:hover {
+    background-color: transparent !important;
   }
 }

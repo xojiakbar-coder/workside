@@ -1,11 +1,5 @@
-// import React from 'react'
-
 const BottomActionBar = () => {
-  return (
-    <div>
-      <p>Bottom Action Bar</p>
-    </div>
-  );
+  return <div>Bottom Action Bar</div>;
 };
 
 export default BottomActionBar;

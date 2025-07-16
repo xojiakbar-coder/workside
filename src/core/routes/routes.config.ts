@@ -1,4 +1,5 @@
 import Layout from '@layout/Layout';
+import Home from '@/pages/Dashboard/Dashboard';
 import TempPage from '@/view/TempPage';
 import { type RouteObject } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ const routes_data: RouteObject[] = [
     path: '/',
     Component: Layout,
     children: [
-      { index: true, Component: TempPage },
+      { index: true, Component: Home },
       { path: '/attendance', Component: TempPage },
       { path: '/tasks', Component: TempPage },
       {

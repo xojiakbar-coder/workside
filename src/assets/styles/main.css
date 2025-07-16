@@ -1,9 +1,5 @@
 @import url('./base/variables.css');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
   margin: 0;
   padding: 0;
@@ -19,8 +15,8 @@
 }
 
 body {
-  margin: 0;
-  color: var(--light);
-  font-family: var(--inter-font);
-  background-color: var(--body-bg-color);
+  margin: 0 !important;
+  color: var(--light) !important;
+  font-family: var(--inter-font) !important;
+  background-color: var(--body-bg-color) !important;
 }

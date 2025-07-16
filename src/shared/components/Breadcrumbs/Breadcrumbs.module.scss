@@ -1,0 +1,38 @@
+.breadcrumbs_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.breadcrumb_segment {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.breadcrumb_item {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.breadcrumb_title {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.link_item {
+  text-decoration: none;
+  transition: color 0.2s ease;
+  &:hover {
+    color: #ccc;
+  }
+}
+
+.separator {
+  width: 18px;
+  height: 18px;
+  transform: rotate(-14deg);
+}
