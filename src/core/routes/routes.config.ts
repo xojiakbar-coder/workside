@@ -1,6 +1,7 @@
 import Layout from '@layout/Layout';
-import Home from '@/pages/Dashboard/Dashboard';
 import TempPage from '@/view/TempPage';
+import Home from '@/pages/Dashboard/Dashboard';
+import Calendar from '@/pages/Calendar/Calendar';
 import { type RouteObject } from 'react-router-dom';
 
 const routes_data: RouteObject[] = [
@@ -10,7 +11,23 @@ const routes_data: RouteObject[] = [
     children: [
       { index: true, Component: Home },
       { path: '/attendance', Component: TempPage },
-      { path: '/tasks', Component: TempPage },
+      {
+        path: '/work',
+        Component: TempPage,
+        children: [
+          { path: 'tasks', Component: TempPage },
+          { path: 'workload', Component: TempPage },
+          { path: 'projects', Component: TempPage },
+          { path: 'sprints', Component: TempPage },
+          { path: 'reports', Component: TempPage },
+          { path: 'timesheet', Component: TempPage },
+          { path: 'project-roadmap', Component: TempPage }
+        ]
+      },
+      {
+        path: '/colleagues',
+        Component: TempPage
+      },
       {
         path: '/employees',
         Component: TempPage,
@@ -30,7 +47,7 @@ const routes_data: RouteObject[] = [
           { path: 'integrations', Component: TempPage }
         ]
       },
-      { path: '/calendar', Component: TempPage },
+      { path: '/calendar', Component: Calendar },
       {
         path: 'settings',
         Component: TempPage,

@@ -1,4 +1,29 @@
-import { IconBell, IconBriefcase, IconCalendar, IconCalendarEvent, IconClipboardPlus, IconHelp, IconHome, IconList, IconNews, IconPalette, IconPhotoVideo, IconReportAnalytics, IconSettings, IconShield, IconStar, IconTransfer, IconUserPlus, IconUsers, type Icon } from "@tabler/icons-react";
+import {
+  IconBell,
+  IconBriefcase,
+  IconCalendar,
+  IconCalendarEvent,
+  IconFileSpreadsheet,
+  IconHelp,
+  IconHome,
+  IconList,
+  IconMapBolt,
+  IconPalette,
+  IconPaperclip,
+  IconReport,
+  // IconNews,
+  // IconPhotoVideo,
+  // IconReportAnalytics,
+  IconSettings,
+  IconShield,
+  IconStar,
+  IconSubtask,
+  IconUsersGroup,
+  // IconTransfer,
+  // IconUserPlus,
+  // IconUsers,
+  type Icon
+} from '@tabler/icons-react';
 
 export interface SidebarChildrenItemType {
   id: string | number;
@@ -38,79 +63,124 @@ export const sidebar_items: SidebarItemType[] = [
   },
   {
     id: 3,
-    children: null,
-    icon: IconList,
-    title: 'Tasks',
+    icon: IconBriefcase,
+    title: 'Work',
     element: null,
-    name: '/tasks'
+    name: '/work',
+    children: [
+      {
+        id: `3-1`,
+        icon: IconList,
+        title: 'Tasks',
+        element: null,
+        name: '/work/tasks'
+      },
+      {
+        id: `3-2`,
+        icon: IconPaperclip,
+        title: 'Projects',
+        element: null,
+        name: '/work/projects'
+      },
+      {
+        id: `3-3`,
+        icon: IconSubtask,
+        title: 'Sprints',
+        element: null,
+        name: '/work/sprints'
+      },
+      {
+        id: `3-4`,
+        icon: IconReport,
+        element: null,
+        title: 'Reports',
+        name: '/work/reports'
+      },
+      {
+        id: `3-5`,
+        icon: IconFileSpreadsheet,
+        element: null,
+        title: 'Timesheet',
+        name: '/work/timesheet'
+      },
+      {
+        id: `3-6`,
+        icon: IconMapBolt,
+        element: null,
+        title: 'Project Roadmap',
+        name: '/work/project-roadmap'
+      }
+    ]
   },
   {
     id: 4,
-    title: 'Employees',
-    icon: IconUsers,
+    children: null,
     element: null,
-    name: '/employees',
-    children: [
-      {
-        id: `4-1`,
-        icon: IconReportAnalytics,
-        element: null,
-        title: 'Employees report',
-        name: '/employees/employees-report'
-      },
-      {
-        id: `4-2`,
-        icon: IconUsers,
-        element: null,
-        title: 'Employees info',
-        name: '/employees/employees-info'
-      },
-      {
-        id: `4-3`,
-        icon: IconUserPlus,
-        element: null,
-        title: 'Add employee',
-        name: '/employees/add-employee'
-      },
-      {
-        id: `4-4`,
-        icon: IconClipboardPlus,
-        element: null,
-        title: 'Create Report',
-        name: '/employees/create-report'
-      }
-    ]
+    title: 'Colleagues',
+    icon: IconUsersGroup,
+    name: '/colleagues'
   },
-  {
-    id: 5,
-    icon: IconBriefcase,
-    title: 'Projects',
-    element: null,
-    name: '/projects',
-    children: [
-      {
-        id: `5-1`,
-        icon: IconPhotoVideo,
-        title: 'Media',
-        element: null,
-        name: '/projects/media'
-      },
-      {
-        id: `5-2`,
-        title: 'News',
-        element: null,
-        icon: IconNews,
-        name: '/projects/news'
-      },
-      {
-        id: `5-3`,
-        icon: IconTransfer,
-        element: null,
-        title: 'Integrations',
-        name: '/projects/integrations'
-      }
-    ]
-  },
+
+  // {
+  //   id: 4,
+  //   title: 'Employees',
+  //   icon: IconUsers,
+  //   element: null,
+  //   name: '/employees',
+  //   children: [
+  //     {
+  //       id: `4-1`,
+  //       icon: IconReportAnalytics,
+  //       element: null,
+  //       title: 'Employees report',
+  //       name: '/employees/employees-report'
+  //     },
+  //     {
+  //       id: `4-2`,
+  //       icon: IconUsers,
+  //       element: null,
+  //       title: 'Employees info',
+  //       name: '/employees/employees-info'
+  //     },
+  //     {
+  //       id: `4-3`,
+  //       icon: IconUserPlus,
+  //       element: null,
+  //       title: 'Add employee',
+  //       name: '/employees/add-employee'
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 5,
+  //   icon: IconBriefcase,
+  //   title: 'Projects',
+  //   element: null,
+  //   name: '/projects',
+  //   children: [
+  //     {
+  //       id: `5-1`,
+  //       icon: IconPhotoVideo,
+  //       title: 'Media',
+  //       element: null,
+  //       name: '/projects/media'
+  //     },
+  //     {
+  //       id: `5-2`,
+  //       title: 'News',
+  //       element: null,
+  //       icon: IconNews,
+  //       name: '/projects/news'
+  //     },
+  //     {
+  //       id: `5-3`,
+  //       icon: IconTransfer,
+  //       element: null,
+  //       title: 'Integrations',
+  //       name: '/projects/integrations'
+  //     }
+  //   ]
+  // },
   {
     id: 6,
     children: null,

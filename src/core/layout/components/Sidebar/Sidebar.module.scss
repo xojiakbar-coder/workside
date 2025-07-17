@@ -1,6 +1,7 @@
 .sidebar {
   display: flex;
   height: 100%;
+  overflow-x: hidden;
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid #1f212c;
@@ -13,6 +14,7 @@
   height: 100%;
   padding: 8px;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .items_wrapper {
@@ -31,6 +33,7 @@
   gap: 10px;
   user-select: none;
   border-radius: 6px;
+  white-space: nowrap;
   text-decoration: none;
   padding: 10px 6px 10px 16px;
 
@@ -81,14 +84,14 @@
     // overflow: hidden;
     // height: max-content;
   }
-  
+
   &_children_body {
     display: flex;
     flex-direction: column;
     gap: 8px;
     height: 100%;
   }
-  
+
   &_children_item {
     display: flex;
     align-items: center;
@@ -96,6 +99,7 @@
     color: #fff;
     font-size: 14px;
     user-select: none;
+    white-space: nowrap;
     text-decoration: none;
     padding: 10px 6px 8px 16px;
     min-height: 44px;
@@ -120,23 +124,42 @@
 }
 
 // sidebar footer
-.sidebar_footer {
+.sidebar_footer_container {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0 16px 0 16px;
-  height: 40px;
-  min-height: 40px;
-  max-height: 40px;
+  justify-content: center;
   width: 100%;
+  padding: 0 7px 14px 7px;
 
-  &_version {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
+  .sidebar_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    border-radius: 6px;
+    padding: 2px 16px 0 16px;
+    background-color: #1f212c;
+
+    &_version {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      width: max-content;
+      white-space: nowrap;
+    }
+
+    &_title {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      width: max-content;
+      white-space: nowrap;
+    }
   }
 }
-
 :global(.mantine-NavLink-root) {
   &:hover {
     background-color: transparent !important;
