@@ -80,9 +80,6 @@
     gap: 8px;
     background-color: #181921;
     border-radius: 6px;
-    // transition: all cubic-bezier(0.51, 0.92, 0.24, 1.15) 400ms;
-    // overflow: hidden;
-    // height: max-content;
   }
 
   &_children_body {
@@ -160,6 +157,7 @@
     }
   }
 }
+
 :global(.mantine-NavLink-root) {
   &:hover {
     background-color: transparent !important;
