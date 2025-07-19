@@ -26,52 +26,51 @@ const Calendar = () => {
 
   return (
     <div className={styles.calendar}>
-      <div className={styles.week_section}>
-        <ul className={styles.week_section_list}>
-          {WeekDaysArray.map(weekDay => (
-            <li key={weekDay}>{weekDay}</li>
-          ))}
-        </ul>
-      </div>
       <div className={styles.days_section}>
+        {WeekDaysArray.map(weekDay => (
+          <div key={weekDay} className={styles.days_section_item_week_day}>
+            {weekDay}
+          </div>
+        ))}
+
         {Array.from({ length: daysLeft }, (_, index) => {
           return (
-            <div key={index} className={styles.days_section_item}>
-              {index + 1} - Empty
+            <div key={index} className={styles.days_section_item_inactive}>
+              {index + 1}
             </div>
           );
         })}
         {days.map(({ day, today, future }) => {
           if (today && checkMonth === 'current') {
             return (
-              <div key={day} className={styles.days_section_item}>
-                {day} - Today
+              <div key={day} className={styles.days_section_item_today}>
+                <div className={styles.days_section_item_today_indicator}>{day}</div>
               </div>
             );
           } else if ((future && checkMonth === 'future') || (checkMonth === 'current' && day > dayjs().date())) {
             return (
               <div key={day} className={styles.days_section_item}>
-                {day} - Future
+                {day}
               </div>
             );
           } else if (checkMonth === 'past' || (checkMonth === 'current' && day < dayjs().date())) {
             return (
               <div key={day} className={styles.days_section_item}>
-                {day} - Past
+                {day}
               </div>
             );
           }
         })}
         {Array.from({ length: futureMonthDays }, (_, index) => {
           return (
-            <div key={index} className={styles.days_section_item}>
-              {index + 1} - Empty
+            <div key={index} className={styles.days_section_item_inactive}>
+              {index + 1}
             </div>
           );
         })}
       </div>
       <div className={styles.selected_date_section}>
-        <button onClick={() => setSelectedDate({ ...selectedDate, year: 2026 })}>2026</button>
+        <button onClick={() => setSelectedDate({ ...selectedDate, year: 2027 })}>2027</button>
         <button onClick={() => setSelectedDate({ ...selectedDate, month: 1 })}>1</button>
       </div>
     </div>

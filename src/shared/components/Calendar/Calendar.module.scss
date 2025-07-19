@@ -182,39 +182,76 @@
 .days_section {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
+  height: calc(100dvh - 760px);
 
-  &_item {
+  &_item,
+  &_item_inactive,
+  &_item_today,
+  &_item_week_day {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 12px 6px;
+    padding: 12px;
     width: 100%;
     height: 100%;
-    border: 0.5px solid #1e1f2b;
-    border-radius: 0;
     outline: none;
+    min-width: 200px;
+    max-width: 100%;
+    min-height: 120px;
+    max-height: 120px;
+
+    border-radius: 0;
+    border: 1px solid #2d2f44;
     transition: all 230ms ease-in-out;
+
     &:hover {
-      border-radius: 6px;
-      border: 0.5px solid #2e3042;
-      background-color: #2e3042 !important;
+      cursor: pointer;
+      border: 1px solid #2e3042;
+      background-color: #1e1f2a !important;
     }
-  }
-}
 
-.week_section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+    &_inactive {
+      color: #7e7e83;
 
-  &_list {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-    width: 100%;
+      &:hover {
+        cursor: auto;
+        border: 1px solid #2d2f44;
+        background-color: transparent !important;
+      }
+    }
+
+    &_today {
+
+      &_indicator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        color: #fff;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+      }
+
+      &:hover {
+        background-color: #1e1f2a !important;
+      }
+    }
+
+    &_week_day {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: 40px;
+      min-height: 40px;
+      max-height: 40px;
+
+      &:hover {
+        cursor: auto;
+        background-color: transparent !important;
+      }
+    }
   }
 }
 
