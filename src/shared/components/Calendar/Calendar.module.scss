@@ -3,186 +3,26 @@
   height: 100%;
 }
 
-// :global {
-//   .mantine-Calendar-calendarHeader {
-//     width: 100% !important;
-//     max-width: 100% !important;
-
-//     @media (max-width: 768px) {
-//       overflow-x: auto;
-//     }
-//   }
-
-//   .mantine-Calendar-calendarHeaderControl {
-//     &:hover {
-//       background-color: transparent !important;
-//     }
-//   }
-
-//   .mantine-Calendar-levelsGroup {
-//     width: 100% !important;
-//   }
-
-//   .mantine-Calendar-calendarHeaderLevel {
-//     &:hover {
-//       background-color: transparent !important;
-//     }
-//   }
-
-//   .mantine-Calendar-month {
-//     // table-layout: fixed;
-//     width: 100% !important;
-//     height: calc(100dvh - 220px) !important;
-//     // border: 1px solid red;
-
-//     @media (max-width: 1600px) {
-//       overflow-x: scroll;
-//     }
-//   }
-
-//   .mantine-Calendar-monthTbody {
-//     width: 100% !important;
-//     height: 100% !important;
-//     max-width: 100% !important;
-//     // border: 1px solid red;
-
-//     @media (max-width: 1600px) {
-//       overflow-x: scroll;
-//     }
-//   }
-
-//   .mantine-Calendar-monthRow {
-//     width: 100% !important;
-//     max-width: 100% !important;
-//     // border: 1px solid teal;
-//   }
-
-//   .mantine-Calendar-day {
-//     display: flex !important;
-//     align-items: flex-start !important;
-//     justify-content: flex-start !important;
-//     width: 100% !important;
-//     height: 100% !important;
-//     color: #fff;
-//     overflow: hidden;
-//     padding: 12px 6px;
-//     border: 0.5px solid #1e1f2b;
-//     border: 0.5px solid #2d304d;
-//     border-radius: 0;
-//     outline: none;
-//     transition: all 230ms ease-in-out;
-//     &:hover {
-//       border-radius: 6px;
-//       border: 0.5px solid #2e3042;
-//       background-color: #2e3042 !important;
-//     }
-//   }
-
-//   .mantine-Textarea-input {
-//     width: 100%;
-//     height: 100%;
-//     color: #fff;
-//     border: transparent;
-//     background-color: transparent !important;
-
-//     &::placeholder {
-//       font-size: 12px;
-//     }
-//   }
-
-//   .mantine-Input-input {
-//     width: 100%;
-//     height: 100%;
-//     color: #fff;
-//     border: transparent;
-//     background-color: transparent !important;
-//   }
-
-//   .mantine-Calendar-day[data-today] {
-//     border: none;
-//     border-radius: 6px;
-//     color: var(--primary-color);
-//     background-color: #242532 !important;
-
-//     &:hover {
-//       border-radius: 6px;
-//       background-color: #242532 !important;
-//     }
-//   }
-
-//   // select month style
-//   .mantine-Calendar-monthsListRow {
-//     display: grid;
-//     grid-template-columns: 1fr 1fr 1fr;
-//     color: #fff !important;
-//     border-top: 1px solid #1e1f2b;
-//     border-left: 1px solid #1e1f2b;
-//   }
-
-//   .mantine-Calendar-monthsListCell {
-//     display: flex;
-//     align-items: center;
-//     color: #fff;
-//     border-bottom: 1px solid #1e1f2b;
-//     border-right: 1px solid #1e1f2b;
-
-//     &:hover {
-//       background-color: #242532 !important;
-//     }
-
-//     & > .mantine-Calendar-monthsListControl {
-//       display: flex;
-//       align-items: center;
-//       justify-content: flex-start;
-//       padding-left: 14px;
-//       width: 100%;
-//       color: #fff !important;
-
-//       &:hover {
-//         background-color: transparent !important;
-//       }
-//     }
-//   }
-
-//   // select year style
-//   .mantine-Calendar-yearsListRow {
-//     display: grid;
-//     grid-template-columns: 1fr 1fr 1fr;
-//     color: #fff !important;
-//     border-top: 1px solid #1e1f2b;
-//     border-left: 1px solid #1e1f2b;
-//   }
-
-//   .mantine-Calendar-yearsListCell {
-//     display: flex;
-//     align-items: center;
-//     color: #fff;
-//     border-bottom: 1px solid #1e1f2b;
-//     border-right: 1px solid #1e1f2b;
-
-//     &:hover {
-//       background-color: #242532 !important;
-//     }
-
-//     & > .mantine-Calendar-yearsListControl {
-//       display: flex;
-//       align-items: center;
-//       justify-content: flex-start;
-//       padding-left: 14px;
-//       width: 100%;
-//       color: #fff !important;
-
-//       &:hover {
-//         background-color: transparent !important;
-//       }
-//     }
-//   }
-// }
-
 .days_section {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  height: calc(100dvh - 760px);
+  grid-template-columns: repeat(7, calc(100% / 7));
+  width: 100%;
+  height: max-content;
+
+  & > :nth-child(13),
+  & > :nth-child(14),
+  & > :nth-child(20),
+  & > :nth-child(21),
+  & > :nth-child(27),
+  & > :nth-child(28),
+  & > :nth-child(34),
+  & > :nth-child(35),
+  & > :nth-child(41),
+  & > :nth-child(42),
+  & > :nth-child(48),
+  & > :nth-child(49) {
+    background-color: rgb(28, 28, 36) !important;
+  }
 
   &_item,
   &_item_inactive,
@@ -195,46 +35,27 @@
     width: 100%;
     height: 100%;
     outline: none;
-    min-width: 200px;
     max-width: 100%;
+    min-width: 100px;
     min-height: 120px;
     max-height: 120px;
-
-    border-radius: 0;
-    border: 1px solid #2d2f44;
+    border: 0.5px solid #2d2f44;
     transition: all 230ms ease-in-out;
-
-    &:hover {
-      cursor: pointer;
-      border: 1px solid #2e3042;
-      background-color: #1e1f2a !important;
-    }
 
     &_inactive {
       color: #7e7e83;
-
-      &:hover {
-        cursor: auto;
-        border: 1px solid #2d2f44;
-        background-color: transparent !important;
-      }
     }
 
     &_today {
-
       &_indicator {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
+        width: 37px;
+        height: 37px;
         color: #fff;
-        border-radius: 50%;
+        border-radius: 7px;
         background-color: var(--primary-color);
-      }
-
-      &:hover {
-        background-color: #1e1f2a !important;
       }
     }
 

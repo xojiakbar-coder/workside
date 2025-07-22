@@ -1,33 +1,34 @@
 import dayjs from 'dayjs';
-import { useState } from 'react';
 
+// Constants
+import * as Constants from './modules/constants';
+
+// Hooks
+import useCalendar from '@/core/context/Calendar/usage';
 import { useDays, useCheckMonth, useToMonday, useColumnsBalance } from './modules/hooks';
 
 // styles
 import styles from './Calendar.module.scss';
-import { WeekDaysArray } from './modules/constants';
+
+// components
+import SelectMonth from './SelectMonth';
 
 const Calendar = () => {
-  const [selectedDate, setSelectedDate] = useState({
-    month: dayjs().month() + 1,
-    year: dayjs().year()
-  });
+  const { year, month } = useCalendar();
 
-  const days = useDays({ month: selectedDate.month, year: selectedDate.year });
-  const checkMonth = useCheckMonth({ year: selectedDate.year, month: selectedDate.month });
+  const days = useDays({ month, year });
+  const checkMonth = useCheckMonth({ year, month });
 
-  const daysLeft = useToMonday({ month: selectedDate.month, year: selectedDate.year }) - 1;
-  const futureMonthDays = useColumnsBalance(
-    daysLeft + dayjs(`${selectedDate.year}-${selectedDate.month}-01`).daysInMonth(),
-    14
-  );
-
-  console.log(selectedDate.month, selectedDate.year);
+  const daysLeft = useToMonday({ month, year }) - 1;
+  const futureMonthDays = useColumnsBalance(daysLeft + dayjs(`${year}-${month}-01`).daysInMonth(), 14);
 
   return (
     <div className={styles.calendar}>
+      <h1>
+        {Constants.monthNamesArray[month - 1]} {year}
+      </h1>
       <div className={styles.days_section}>
-        {WeekDaysArray.map(weekDay => (
+        {Constants.weekDaysArray.map(weekDay => (
           <div key={weekDay} className={styles.days_section_item_week_day}>
             {weekDay}
           </div>
@@ -69,10 +70,7 @@ const Calendar = () => {
           );
         })}
       </div>
-      <div className={styles.selected_date_section}>
-        <button onClick={() => setSelectedDate({ ...selectedDate, year: 2027 })}>2027</button>
-        <button onClick={() => setSelectedDate({ ...selectedDate, month: 1 })}>1</button>
-      </div>
+      <SelectMonth />
     </div>
   );
 };

@@ -8,7 +8,7 @@ export const WeekDays = {
   Sun: 'Sunday'
 } as const;
 
-export const WeekDaysArray = Object.values(WeekDays);
+export const weekDaysArray = Object.values(WeekDays);
 
 export const MonthNames = {
   Jan: 'January',
@@ -25,4 +25,4 @@ export const MonthNames = {
   Dec: 'December'
 } as const;
 
-export const MonthNamesArray = Object.values(MonthNames);
+export const monthNamesArray = Object.values(MonthNames);
