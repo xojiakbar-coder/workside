@@ -1,23 +1,27 @@
 // Constants
 import * as Constants from './modules/constants';
 
-// Hooks
+// hooks
 import useCalendar from '@/core/context/Calendar/usage';
 
-const SelectMonth = () => {
-  const { year, month, setYear, setMonth } = useCalendar();
+// styles
+import styles from './Calendar.module.scss';
 
-  console.log(year, month);
+const SelectMonth = () => {
+  const { setMonth, setView } = useCalendar();
+
+  const handleMonth = (newMonth: number) => {
+    setMonth(newMonth);
+    setView('days');
+  };
 
   return (
-    <div>
-      {Constants.monthNamesArray.map(month => (
-        <div key={month}>{month}</div>
+    <div className={styles.select_month}>
+      {Constants.monthNamesArray.map((month, index) => (
+        <div key={index} className={styles.select_month_item} onClick={() => handleMonth(index + 1)}>
+          <div className={styles.select_month_item_content}>{month.slice(0, 3)}</div>
+        </div>
       ))}
-      <button onClick={() => setYear(year + 1)}>+</button>
-      <button onClick={() => setMonth(month + 1)}>+</button>
-      <button onClick={() => setYear(year - 1)}>-</button>
-      <button onClick={() => setMonth(month - 1)}>-</button>
     </div>
   );
 };

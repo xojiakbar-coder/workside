@@ -28,6 +28,7 @@ export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const [year, setYearState] = useState<number>(getInitialDate().year);
   const [month, setMonthState] = useState<number>(getInitialDate().month);
+  const [view, setViewState] = useState<'month' | 'year' | 'days'>('days');
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify({ year, month }));
@@ -35,6 +36,11 @@ export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const setYear = (newYear: number) => setYearState(newYear);
   const setMonth = (newMonth: number) => setMonthState(newMonth);
+  const setView = (newView: 'month' | 'year' | 'days') => setViewState(newView);
 
-  return <CalendarContext.Provider value={{ year, month, setYear, setMonth }}>{children}</CalendarContext.Provider>;
+  return (
+    <CalendarContext.Provider value={{ year, month, view, setYear, setMonth, setView }}>
+      {children}
+    </CalendarContext.Provider>
+  );
 };
