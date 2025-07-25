@@ -1,11 +1,11 @@
 // Constants
-import * as Constants from './modules/constants';
+import * as Constants from '../modules/constants';
 
 // hooks
 import useCalendar from '@/core/context/Calendar/usage';
 
 // styles
-import styles from './Calendar.module.scss';
+import styles from '../Calendar.module.scss';
 
 const SelectMonth = () => {
   const { setMonth, setView } = useCalendar();

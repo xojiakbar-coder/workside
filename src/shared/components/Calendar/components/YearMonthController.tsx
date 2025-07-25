@@ -2,18 +2,24 @@
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 
 // Constants
-import * as Constants from './modules/constants';
+import * as Constants from '../modules/constants';
 
 // hooks
-import { useDecade } from './modules/hooks';
 import useCalendar from '@/core/context/Calendar/usage';
 
 // styles
-import styles from './Calendar.module.scss';
+import styles from '../Calendar.module.scss';
 
-const YearMonthController = () => {
+type IProps = {
+  decade: {
+    decadeLabel: string;
+    nextDecade: () => void;
+    prevDecade: () => void;
+  };
+};
+
+const YearMonthController = ({ decade }: IProps) => {
   const { year, month, view, setMonth, setView, setYear } = useCalendar();
-  const { decadeLabel, nextDecade, prevDecade } = useDecade();
 
   const handleView = () => {
     if (view === 'month') {
@@ -29,7 +35,7 @@ const YearMonthController = () => {
     } else if (view === 'month') {
       setYear(year + 1);
     } else if (view === 'year') {
-      nextDecade();
+      decade.nextDecade();
     }
   };
 
@@ -39,7 +45,7 @@ const YearMonthController = () => {
     } else if (view === 'month') {
       setYear(year - 1);
     } else if (view === 'year') {
-      prevDecade();
+      decade.prevDecade();
     }
   };
 
@@ -54,7 +60,7 @@ const YearMonthController = () => {
           : view === 'month'
           ? year
           : view === 'year'
-          ? decadeLabel
+          ? decade.decadeLabel
           : ''}
       </div>
       <div className={styles.year_month_controller_button} onClick={plusAction}>

@@ -1,39 +1,20 @@
 import dayjs from 'dayjs';
 
-// Constants
-import * as Constants from './modules/constants';
-
 // hooks
 import useCalendar from '@/core/context/Calendar/usage';
-import { useDays, useCheckMonth, useToMonday, useColumnsBalance } from './modules/hooks';
+import { useCheckMonth, useDays } from '../modules/hooks';
 
 // styles
-import styles from './Calendar.module.scss';
+import styles from '../Calendar.module.scss';
 
-const Days = () => {
+const ThisMonth = () => {
   const { year, month } = useCalendar();
 
   const days = useDays({ month, year });
   const checkMonth = useCheckMonth({ year, month });
 
-  const daysLeft = useToMonday({ month, year }) - 1;
-  const futureMonthDays = useColumnsBalance(daysLeft + dayjs(`${year}-${month}-01`).daysInMonth(), 14);
-
   return (
-    <div className={styles.days_section}>
-      {Constants.weekDaysArray.map(weekDay => (
-        <div key={weekDay} className={styles.days_section_item_week_day}>
-          {weekDay}
-        </div>
-      ))}
-
-      {Array.from({ length: daysLeft }, (_, index) => {
-        return (
-          <div key={index} className={styles.days_section_item_inactive}>
-            {index + 1}
-          </div>
-        );
-      })}
+    <>
       {days.map(({ day, today, future }) => {
         if (today && checkMonth === 'current') {
           return (
@@ -55,15 +36,8 @@ const Days = () => {
           );
         }
       })}
-      {Array.from({ length: futureMonthDays }, (_, index) => {
-        return (
-          <div key={index} className={styles.days_section_item_inactive}>
-            {index + 1}
-          </div>
-        );
-      })}
-    </div>
+    </>
   );
 };
 
-export default Days;
+export default ThisMonth;

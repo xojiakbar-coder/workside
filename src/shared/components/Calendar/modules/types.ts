@@ -10,4 +10,13 @@ export declare namespace IEntity {
   }
 
   export type CheckMonthReturnType = 'past' | 'current' | 'future';
+
+  export type ThisMonthProps = {
+    days: {
+      day: number;
+      today: boolean;
+      future: boolean;
+    }[];
+    checkMonth: CheckMonthReturnType;
+  };
 }
