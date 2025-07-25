@@ -1,0 +1,16 @@
+// mantine ui css files
+@import '@mantine/core/styles.css';
+@import '@mantine/core/styles/global.css';
+
+// mantine ui components css files
+@import '@mantine/core/styles/NavLink.css';
+@import '@mantine/core/styles/Accordion.css';
+
+// mantine ui extensions section components css files
+@import '@mantine/dates/styles.css';
+
+// base custom scss files
+@import './layout';
+@import './sizing';
+@import './spacing';
+@import './colorscape';

@@ -1,5 +1,5 @@
 // native and custom hooks
-import { storage } from '@/services';
+import { storage } from '@/services/storage';
 import { useEffect, useState } from 'react';
 
 // routes outlet

@@ -1,4 +1,5 @@
 @import url('./base/variables.css');
+@import url('./base/global.scss');
 
 * {
   margin: 0;

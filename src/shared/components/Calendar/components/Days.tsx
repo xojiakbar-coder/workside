@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 
 // hooks
 import useCalendar from '@/core/context/Calendar/usage';
-import { useToMonday, useColumnsBalance } from '../modules/hooks';
+import { useToMonday, useColumnsBalance, useLastMonthDays } from '../modules/hooks';
 
 // styles
 import styles from '../Calendar.module.scss';
@@ -15,6 +15,7 @@ const Days = () => {
   const { year, month } = useCalendar();
 
   const daysLeft = useToMonday({ month, year }) - 1;
+  const lastMonthDays = useLastMonthDays(daysLeft);
   const futureMonthDays = useColumnsBalance(daysLeft + dayjs(`${year}-${month}-01`).daysInMonth(), 14);
 
   return (
@@ -23,10 +24,10 @@ const Days = () => {
       <WeekDays />
 
       {/* Past month days */}
-      {Array.from({ length: daysLeft }, (_, index) => {
+      {lastMonthDays.map(day => {
         return (
-          <div key={index} className={styles.days_section_item_inactive}>
-            {index + 1}
+          <div key={day} className={styles.days_section_item_inactive}>
+            {day}
           </div>
         );
       })}

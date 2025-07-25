@@ -1,4 +1,4 @@
-import { storage } from '@/services';
+import { storage } from '@/services/storage';
 import { useEffect, useState } from 'react';
 import { sidebar_items } from '@utils/data/sidebar';
 
