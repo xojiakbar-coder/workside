@@ -1,4 +1,11 @@
-@import url('./base/variables.css');
+/* mantine ui css import */
+@import url('@mantine/core/styles.css');
+@import url('@mantine/dates/styles.css');
+@import url('@mantine/core/styles/global.css');
+@import url('@mantine/core/styles/NavLink.css');
+@import url('@mantine/core/styles/Accordion.css');
+
+/* base custom scss import */
 @import url('./base/global.scss');
 
 * {

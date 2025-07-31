@@ -1,5 +1,5 @@
-import './assets/styles/main.css';
 import { Router } from './router';
+import './assets/styles/main.scss';
 import { createRoot } from 'react-dom/client';
 import AppProvider from './core/providers/AppProvider';
 

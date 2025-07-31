@@ -28,8 +28,7 @@
       "@/*": ["*"],
       "@utils/*": ["core/utils/*"],
       "@features/*": ["features/*"],
-      "@layout/*": ["core/layout/*"],
-      "@components/*": ["shared/components/*"]
+      "@layout/*": ["core/layout/*"]
     }
   },
   "include": ["src"]
