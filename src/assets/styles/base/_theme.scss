@@ -1,0 +1,19 @@
+@mixin theme-light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+@mixin theme-dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+@mixin theme($mode: light) {
+  @if $mode == light {
+    background-color: #ffffff;
+    color: #000000;
+  } @else if $mode == dark {
+    background-color: #121212;
+    color: #ffffff;
+  }
+}

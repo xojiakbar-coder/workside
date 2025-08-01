@@ -2,7 +2,7 @@
 import { useContext } from 'react';
 
 // Context
-import { CalendarContext } from './CalendarProvider';
+import { CalendarContext } from './Calendar';
 
 // Hook
 const useCalendar = () => {
