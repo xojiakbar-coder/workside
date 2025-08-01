@@ -15,7 +15,7 @@ const Days = () => {
   const { year, month } = useCalendar();
 
   const daysLeft = useToMonday({ month, year }) - 1;
-  const lastMonthDays = useLastMonthDays(daysLeft);
+  const lastMonthDays = useLastMonthDays({ count: daysLeft, month, year });
   const futureMonthDays = useColumnsBalance(daysLeft + dayjs(`${year}-${month}-01`).daysInMonth(), 14);
 
   return (

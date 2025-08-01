@@ -1,27 +1,26 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-// Types
 import * as Types from './types';
+import * as Constants from './constants';
+
+// Hooks
+import { storage } from '@/services/storage';
 
 // Context
 export const CalendarContext = createContext<Types.IProps | undefined>(undefined);
-
-const LOCAL_STORAGE_KEY = 'calendar-date';
 
 export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const now = new Date();
 
   const getInitialDate = () => {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+    const saved = storage.session.get(Constants.SESSION_STORAGE_KEY);
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
         if (typeof parsed.year === 'number' && typeof parsed.month === 'number') {
           return parsed;
         }
-      } catch {
-        // fallback to current date
-      }
+      } catch {}
     }
     return { year: now.getFullYear(), month: now.getMonth() + 1 };
   };
@@ -31,7 +30,7 @@ export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [view, setViewState] = useState<'month' | 'year' | 'days'>('days');
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify({ year, month }));
+    storage.session.set(Constants.SESSION_STORAGE_KEY, JSON.stringify({ year, month }));
   }, [year, month]);
 
   const setYear = (newYear: number) => setYearState(newYear);

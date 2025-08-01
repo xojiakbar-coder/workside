@@ -1,18 +1,17 @@
-import { useMemo } from 'react';
 import dayjs from 'dayjs';
+import { useMemo } from 'react';
 
-const useLastMonthDays = (count: number): number[] => {
+const useLastMonthDays = ({ count, month, year }: { count: number; month: number; year: number }): number[] => {
   return useMemo(() => {
-    const today = dayjs();
-    const currentMonth = today.month();
-    const lastMonth = today.subtract(1, 'month');
-    const lastMonthTotalDays = lastMonth.daysInMonth();
+    const prevMonth = month === 1 ? 12 : month - 1;
+    const prevMonthDays = dayjs(`${year}-${String(prevMonth).padStart(2, '0')}`).daysInMonth();
 
-    const offset = currentMonth === 6 ? 1 : 0;
+    const resault: number[] = [];
 
-    const start = lastMonthTotalDays - count + 1 + offset;
-
-    return Array.from({ length: count }, (_, i) => start + i);
+    for (let i = 0; i < count; i++) {
+      resault.push(prevMonthDays - i);
+    }
+    return resault.reverse();
   }, [count]);
 };
 

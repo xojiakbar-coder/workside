@@ -7,7 +7,7 @@ import styles from './Breadcrumbs.module.scss';
 
 type IProps = {};
 
-const Breadcrumbs = ({}: IProps) => {
+export const Breadcrumbs = ({}: IProps) => {
   const { pathname } = useLocation();
   const segments = pathname.split('/').filter(Boolean);
   const isSingle = segments.length === 1;
@@ -46,5 +46,3 @@ const Breadcrumbs = ({}: IProps) => {
     </div>
   );
 };
-
-export default Breadcrumbs;
