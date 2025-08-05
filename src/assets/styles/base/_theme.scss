@@ -1,19 +1,19 @@
+@use './_colorscape' as *;
+
 @mixin theme-light {
   background-color: #ffffff;
   color: #000000;
 }
 
 @mixin theme-dark {
-  background-color: #121212;
-  color: #ffffff;
+  background-color: $body-bg-color;
+  color: $light;
 }
 
 @mixin theme($mode: light) {
   @if $mode == light {
-    background-color: #ffffff;
-    color: #000000;
+    @include theme-light;
   } @else if $mode == dark {
-    background-color: #121212;
-    color: #ffffff;
+    @include theme-dark;
   }
 }

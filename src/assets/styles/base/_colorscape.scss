@@ -13,24 +13,18 @@ $outer-border-color: #27272a;
 $content-height: calc(100dvh - 156px);
 
 $black-color: #000000;
-$body-bg-color: #13141b;
+
+// backgorund colors
+$body-bg-color: #23272e;
 $ghost-bg-color: #18181b;
 $dark-bg-color: #111116e8;
+
+/* fonts */
+$inter-font: 'Inter', sans-serif;
+$fira-font: 'Fira Sans', sans-serif;
 
 // Shadows
 $light-shadow: 0px 2px 20px rgba(255, 255, 255, 0.9);
 $navbar-shadow: rgb(30, 30, 34) 0px 3px 5px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 $login-shadow: rgba(85, 85, 85, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px,
   rgba(100, 100, 100, 0.253) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-
-html {
-  &:root {
-    --bg-color: $light;
-    --text-color: $black-color;
-  }
-
-  &[data-theme='dark'] {
-    --bg-color: $black-color;
-    --text-color: $light;
-  }
-}

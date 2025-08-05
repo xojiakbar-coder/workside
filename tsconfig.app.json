@@ -31,5 +31,5 @@
       "@layout/*": ["core/layout/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "index.js"]
 }
