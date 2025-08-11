@@ -2,6 +2,20 @@
 
 $light: #ffff;
 $primary-color: #0085ff;
+
+// sidebar
+$sidebar-bg: #031c4fd5;
+$item-icon-bg: #262e55;
+$item-hover-bg: #1a2d6c;
+$item-children-wrapper-bg: #031e50;
+
+// $sidebar-bg: #98ccf3e9;
+// $item-icon-bg: #d9e1f7;
+// $item-hover-bg: #b3c6f0;
+// $item-children-wrapper-bg: #e6edfa;
+
+$item-icon-color: #0075ff;
+
 $item-color: #a9a9a9;
 $danger: #b4182d;
 $hover-danger: #771724;
@@ -15,7 +29,9 @@ $content-height: calc(100dvh - 156px);
 $black-color: #000000;
 
 // backgorund colors
-$body-bg-color: #23272e;
+$dark-bg-color: #192027;
+$light-bg-color: #343a49;
+$body-bg-color: #1d1c1c;
 $ghost-bg-color: #18181b;
 $dark-bg-color: #111116e8;
 

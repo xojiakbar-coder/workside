@@ -1,10 +1,29 @@
+@use '../../../../assets/styles/base/colorscape' as *;
+
 .sidebar {
   display: flex;
   height: 100%;
   overflow-x: hidden;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 1px solid #1f212c;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  background-color: $sidebar-bg;
+}
+
+// sidebar header
+.sidebar_header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+  border-radius: 10px;
+
+  &_logo {
+    font-size: 18px;
+    font-family: var(--fira-font);
+  }
 }
 
 // sidebar body
@@ -20,7 +39,7 @@
 .items_wrapper {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 14px;
 }
 
 .item,
@@ -29,17 +48,17 @@
   align-items: center;
   justify-content: space-between;
   color: #fff;
-  font-size: 15px;
+  font-size: 14px;
   gap: 10px;
   user-select: none;
-  border-radius: 6px;
+  border-radius: 10px;
   white-space: nowrap;
   text-decoration: none;
-  padding: 10px 6px 10px 16px;
+  padding: 8px 12px 8px 14px;
 
   &:hover {
     cursor: pointer;
-    background-color: #1f212c;
+    background-color: $item-hover-bg;
   }
 
   &_title_wrapper {
@@ -49,9 +68,26 @@
     gap: 10px;
   }
 
-  &_item_icon {
-    width: 17px;
-    height: 17px;
+  &_icon_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    color: $item-icon-color;
+    transition: all linear 200ms;
+    background-color: $item-icon-bg;
+  }
+
+  &_icon_wrapper_active {
+    color: #fff;
+    background-color: $item-icon-color;
+  }
+
+  &_icon {
+    width: 18px;
+    height: 18px;
   }
 
   &_title_icon {
@@ -61,10 +97,10 @@
 
   &_active {
     color: var(--primary-color);
-    background-color: #1f212c;
+    background-color: $item-hover-bg;
   }
 
-  &_icon {
+  &_arrow_icon {
     width: 20px;
     height: 20px;
     transform: rotate(0deg);
@@ -78,8 +114,8 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    background-color: #181921;
-    border-radius: 6px;
+    border-radius: 10px;
+    background-color: $item-children-wrapper-bg;
   }
 
   &_children_body {
@@ -105,18 +141,18 @@
 
     &:hover {
       cursor: pointer;
-      background-color: #1f212c;
+      background-color: $item-hover-bg;
     }
   }
 
   &_active_children_item {
     color: var(--primary-color);
-    background-color: #1f212c;
+    background-color: $item-hover-bg;
   }
 
   &_last_child_item {
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 }
 
@@ -138,7 +174,7 @@
     max-height: 40px;
     border-radius: 6px;
     padding: 2px 16px 0 16px;
-    background-color: #1f212c;
+    background-color: transparent;
 
     &_version {
       color: #fff;

@@ -1,9 +1,9 @@
 .container {
   display: flex;
   width: 100%;
-  height: calc(100dvh - 35px);
-  min-height: calc(100dvh - 35px);
-  max-height: calc(100dvh - 35px);
+  height: calc(100dvh);
+  min-height: calc(100dvh);
+  max-height: calc(100dvh);
 }
 
 .main {
@@ -18,6 +18,12 @@
   min-width: 260px;
   overflow-y: auto;
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 440ms;
+
+  &_space_wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+  }
 }
 
 // Aside opened
@@ -36,10 +42,9 @@
   width: 100%;
   overflow-y: auto;
   height: calc(100% - 90px);
-  background-color: #17181f;
   max-height: calc(100% - 90px);
   min-height: calc(100% - 90px);
-  background-color: #23272e !important;
+  background-color: transparent !important;
 }
 
 // Action bar
@@ -50,7 +55,7 @@
   width: 100%;
   height: 35px;
   padding: 0 4.2px;
-  background-color: #252a3c;
+  background-color: #1e2e65;
 
   &_toggle_btn {
     display: flex;

@@ -7,12 +7,14 @@ import styles from './Sidebar.module.scss';
 
 import { IconChevronRight } from '@tabler/icons-react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useDoubleClick } from '@/shared/hooks';
 
 const SidebarBody = () => {
   const location = useLocation();
+  const handleDoubleClick = useDoubleClick({ delay: 300 });
   const [activeItems, setActiveItems] = useState<number[]>([]);
 
-  const handleClick = (id: number) => {
+  const toggleItemEvent = (id: number) => {
     if (activeItems.includes(id)) {
       setActiveItems(prev => prev.filter(item => item !== id));
       storage.local.set(
@@ -44,7 +46,14 @@ const SidebarBody = () => {
                 className={cx(styles.item, location.pathname === parent.name && styles.item_active)}
               >
                 <div className={styles.item_title_wrapper}>
-                  {parent.icon && <parent.icon stroke={2} className={styles.item_icon} />}
+                  <div
+                    className={cx(
+                      styles.item_icon_wrapper,
+                      location.pathname === parent.name && styles.item_icon_wrapper_active
+                    )}
+                  >
+                    {parent.icon && <parent.icon stroke={2} className={styles.item_icon} />}
+                  </div>
                   <div>{parent.title}</div>
                 </div>
               </NavLink>
@@ -58,15 +67,30 @@ const SidebarBody = () => {
                     styles.children_item_parent,
                     location.pathname === parent.name && styles.children_item_parent_active
                   )}
-                  onClick={() => handleClick(+parent.id)}
+                  onClick={e => {
+                    handleDoubleClick(
+                      () => {},
+                      () => {
+                        e.preventDefault();
+                        toggleItemEvent(+parent.id);
+                      }
+                    );
+                  }}
                 >
                   <div className={styles.item_title_wrapper}>
-                    {parent.icon && <parent.icon stroke={2} className={styles.item_title_icon} />}
+                    <div
+                      className={cx(
+                        styles.item_icon_wrapper,
+                        location.pathname === parent.name && styles.item_icon_wrapper_active
+                      )}
+                    >
+                      {parent.icon && <parent.icon stroke={2} className={styles.item_title_icon} />}
+                    </div>
                     <div>{parent.title}</div>
                   </div>
                   <IconChevronRight
                     stroke={2}
-                    className={cx(styles.item_icon, activeItems.includes(+parent.id) && styles.item_active_icon)}
+                    className={cx(styles.item_arrow_icon, activeItems.includes(+parent.id) && styles.item_active_icon)}
                   />
                 </NavLink>
                 {activeItems.includes(+parent.id) && (
@@ -83,7 +107,14 @@ const SidebarBody = () => {
                           )}
                         >
                           <div className={styles.item_title_wrapper}>
-                            {item.icon && <item.icon stroke={2} className={styles.item_icon} />}
+                            <div
+                              className={cx(
+                                styles.item_icon_wrapper,
+                                location.pathname === item.name && styles.item_icon_wrapper_active
+                              )}
+                            >
+                              {item.icon && <item.icon stroke={2} className={styles.item_icon} />}
+                            </div>
                             <div>{item.title}</div>
                           </div>
                         </NavLink>

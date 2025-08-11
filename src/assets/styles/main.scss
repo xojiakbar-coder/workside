@@ -1,7 +1,10 @@
-@use './base/_theme' as *;
-@use './base/_mixins' as *;
-@use './base/_layout' as *;
-@use './base/_colorscape' as *;
+@forward './base/_theme';
+@forward './base/_mixins';
+@forward './base/_layout';
+@forward './base/_colorscape';
+
+@use './base/theme' as *;
+@use './base/colorscape' as *;
 
 // fonts import
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -22,6 +25,11 @@
   scroll-behavior: smooth;
 }
 
+:root {
+  --inter-font: 'Inter', sans-serif;
+  --fira-font: 'Fira Sans', sans-serif;
+}
+
 *::selection {
   color: var(--light);
   background-color: #0063f8;
@@ -30,13 +38,21 @@
 body {
   color: $light !important;
   font-family: $inter-font !important;
-  background-color: $body-bg-color !important;
+  background: linear-gradient(
+    180deg,
+    rgb(7, 41, 99) 0%,
+    rgb(3, 63, 159) 24%,
+    rgb(3, 78, 170) 38%,
+    rgb(4, 54, 142) 73%,
+    rgb(12, 41, 87) 100%
+  );
 }
 
-body.dark {
-  @include theme-dark;
-}
-
-body.light {
-  @include theme-light;
-}
+// background: linear-gradient(
+//   180deg,
+//   rgb(190, 218, 247) 0%,
+//   rgb(197, 223, 255) 24%,
+//   rgb(175, 210, 250) 38%,
+//   rgb(160, 200, 245) 73%,
+//   rgb(194, 218, 243) 100%
+// );

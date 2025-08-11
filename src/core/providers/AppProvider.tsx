@@ -18,7 +18,9 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
         <MantineProvider defaultColorScheme="auto">
           <BrowserRouter>
             <Notifications />
-            <Context.Calendar.Provider.CalendarProvider>{children}</Context.Calendar.Provider.CalendarProvider>
+            <Context.Layout.Provider.LayoutProvider>
+              <Context.Calendar.Provider.CalendarProvider>{children}</Context.Calendar.Provider.CalendarProvider>
+            </Context.Layout.Provider.LayoutProvider>
           </BrowserRouter>
         </MantineProvider>
       </Context.Theme.Provider.ThemeProvider>

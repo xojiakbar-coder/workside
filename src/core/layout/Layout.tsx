@@ -1,7 +1,3 @@
-// native and custom hooks
-import { storage } from '@/services/storage';
-import { useEffect, useState } from 'react';
-
 // routes outlet
 import { Outlet } from 'react-router-dom';
 
@@ -12,28 +8,20 @@ import Sidebar from './components/Sidebar/Sidebar';
 // styles
 import cx from 'clsx';
 import styles from './Layout.module.scss';
-import { UnstyledButton } from '@mantine/core';
-
-// icons
-import { IconLayoutSidebar, IconLayoutSidebarFilled } from '@tabler/icons-react';
+import useLayout from '../context/Layout/usage';
 
 const Layout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(storage.local.get('isSidebarOpen') ?? true);
-
-  useEffect(() => {
-    storage.local.set('isSidebarOpen', isSidebarOpen);
-  }, [isSidebarOpen]);
+  const {
+    layout: { sidebarView }
+  } = useLayout();
 
   return (
     <div className={styles.layout_wrapper}>
-      <div className={styles.action_bar}>
-        <UnstyledButton onClick={() => setIsSidebarOpen(!isSidebarOpen)} className={styles.action_bar_toggle_btn}>
-          {isSidebarOpen ? <IconLayoutSidebar stroke={2} /> : <IconLayoutSidebarFilled stroke={2} />}
-        </UnstyledButton>
-      </div>
       <div className={styles.container}>
-        <aside className={cx(styles.aside, isSidebarOpen ? styles.aside_open : styles.aside_closed)}>
-          <Sidebar />
+        <aside className={cx(styles.aside, sidebarView ? styles.aside_open : styles.aside_closed)}>
+          <div className={styles.aside_space_wrapper}>
+            <Sidebar />
+          </div>
         </aside>
         <main className={styles.main}>
           <Header />

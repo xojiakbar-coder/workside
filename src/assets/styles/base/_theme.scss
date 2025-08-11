@@ -1,12 +1,12 @@
 @use './_colorscape' as *;
 
 @mixin theme-light {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: $dark-bg-color;
+  color: #000;
 }
 
 @mixin theme-dark {
-  background-color: $body-bg-color;
+  background-color: $dark-bg-color;
   color: $light;
 }
 
