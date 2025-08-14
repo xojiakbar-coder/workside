@@ -25,10 +25,7 @@
 
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["*"],
-      "@utils/*": ["core/utils/*"],
-      "@features/*": ["features/*"],
-      "@layout/*": ["core/layout/*"]
+      "@/*": ["*"]
     }
   },
   "include": ["src", "index.js"]

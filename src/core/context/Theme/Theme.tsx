@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import * as Types from './types';
 import * as Constants from './constants';
-import { storage } from '@/services/storage';
+import { storage } from '@/core/services/storage';
 
 export const ThemeContext = createContext<Types.ThemeContextProps | undefined>(undefined);
 

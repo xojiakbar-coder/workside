@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import * as Types from './types';
 import * as Constants from './constants';
 
-import { storage } from '@/services/storage';
+import { storage } from '@/core/services/storage';
 
 export const LayoutContext = createContext<Types.IProps | undefined>(undefined);
 

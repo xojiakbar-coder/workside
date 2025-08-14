@@ -22,7 +22,7 @@ const TopActionBar = () => {
           className={styles.action_bar_toggle_btn}
           onClick={() => setLayout(prev => ({ ...prev, sidebarView: !sidebarView }))}
         >
-          {sidebarView ? <IconLayoutSidebar stroke={2} /> : <IconLayoutSidebarFilled stroke={2} />}
+          {!sidebarView ? <IconLayoutSidebar stroke={2} /> : <IconLayoutSidebarFilled stroke={2} />}
         </UnstyledButton>
       </div>
     </Flex>

@@ -1,5 +1,5 @@
-import Layout from '@layout/Layout';
 import TempPage from '@/view/TempPage';
+import Layout from '@/core/layouts/Layout';
 import Home from '@/pages/Dashboard/Dashboard';
 import Calendar from '@/pages/Calendar/Calendar';
 import { type RouteObject } from 'react-router-dom';

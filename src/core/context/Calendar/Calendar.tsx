@@ -4,7 +4,7 @@ import * as Types from './types';
 import * as Constants from './constants';
 
 // Hooks
-import { storage } from '@/services/storage';
+import { storage } from '@/core/services/storage';
 
 // Context
 export const CalendarContext = createContext<Types.IProps | undefined>(undefined);

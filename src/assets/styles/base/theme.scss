@@ -7,7 +7,7 @@ $primary-color: #0085ff;
 $sidebar-bg: #031c4fd5;
 $item-icon-bg: #262e55;
 $item-hover-bg: #1a2d6c;
-$item-children-wrapper-bg: #253877;
+$item-children-wrapper-bg: #031e50;
 
 // $sidebar-bg: #98ccf3e9;
 // $item-icon-bg: #d9e1f7;
@@ -44,3 +44,9 @@ $light-shadow: 0px 2px 20px rgba(255, 255, 255, 0.9);
 $navbar-shadow: rgb(30, 30, 34) 0px 3px 5px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 $login-shadow: rgba(85, 85, 85, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px,
   rgba(100, 100, 100, 0.253) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+
+@mixin theme-light {
+}
+
+@mixin theme-dark {
+}
